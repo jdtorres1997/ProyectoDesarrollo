@@ -34,7 +34,7 @@ public class DAOUsuario {
                 u.setPassword(tabla.getString(2));
                 u.setTipo(tabla.getString(3));
                 u.setEstado(tabla.getString(4));
-                u.setTelefono(tabla.getInt(5));
+                u.setTelefono(tabla.getLong(5));
                 u.setNombre(tabla.getString(6));
                 u.setApellido(tabla.getString(7));
 

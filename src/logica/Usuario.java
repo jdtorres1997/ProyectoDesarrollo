@@ -11,7 +11,7 @@ package logica;
  */
 public class Usuario {
     private String login, password, tipo, estado, nombre, apellido;
-    private int telefono;
+    private long telefono;
     
     public Usuario(){
         login = "";
@@ -41,7 +41,7 @@ public class Usuario {
     public void setApellido(String apellido){
         this.apellido = apellido;
     }
-    public void setTelefono(int telefono){
+    public void setTelefono(long telefono){
         this.telefono = telefono;
     }
     
@@ -63,7 +63,7 @@ public class Usuario {
     public String getApellido(){
         return apellido;
     }
-    public int getTelefono(){
+    public long getTelefono(){
         return telefono;
     }
 }
