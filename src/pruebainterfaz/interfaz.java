@@ -1,5 +1,6 @@
 package pruebainterfaz;
 
+import controlador.ControladorUsuarios;
 import javax.swing.JOptionPane;
 
 
