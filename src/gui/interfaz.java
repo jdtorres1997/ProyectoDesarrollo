@@ -1,4 +1,4 @@
-package pruebainterfaz;
+package gui;
 
 import controlador.ControladorUsuarios;
 import javax.swing.JOptionPane;
@@ -15,8 +15,10 @@ import logica.*;
  */
 public class interfaz extends javax.swing.JFrame {
 
-    ventana2 ventanaAuxiliar;
-    ventana3 ventanaAuxiliar2;
+    interfazAdministrador ventanaAdministrador;
+    interfazGerente ventanaGerente;
+    interfazOperario ventanaOperario;
+
     ControladorUsuarios controladorUsuarios;
 
     /**
@@ -24,8 +26,10 @@ public class interfaz extends javax.swing.JFrame {
      */
     public interfaz() {
         initComponents();
-        ventanaAuxiliar = new ventana2();
-        ventanaAuxiliar2 = new ventana3();
+        
+        
+        
+
         controladorUsuarios = new ControladorUsuarios();
     }
 
@@ -135,6 +139,7 @@ public class interfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEntrarActionPerformed
+        //boton que indica el login
 
         String nombre = login.getText();
         String contraseña = new String(password.getText());
@@ -145,15 +150,29 @@ public class interfaz extends javax.swing.JFrame {
         String usuarioCorrecto = u.getLogin();
         String contraseñaCorrecta = u.getPassword();
 
-        if (nombre.equals(usuarioCorrecto) && contraseña.equals(contraseñaCorrecta)) {
-            if (u.getTipo().equals("administrador")) {
-                ventanaAuxiliar.setVisible(true);
-            } else {
-                if (u.getTipo().equals("gerente")) {
-                    ventanaAuxiliar2.setVisible(true);
+        if (nombre.equals(usuarioCorrecto) && contraseña.equals(contraseñaCorrecta)) { //Valida que el usuario y contraseña sean correctos.
+            if (u.getEstado().equals("activo")) { //valida que el usuario ingresado se encuentra activo.
+                if (u.getTipo().equals("administrador")) {
+                    ventanaAdministrador = new interfazAdministrador(u);
+                    ventanaAdministrador.setVisible(true);
+                } else {
+                    if (u.getTipo().equals("gerente")) {
+                        ventanaGerente = new interfazGerente(u);
+                        ventanaGerente.setVisible(true);
+                    } else {
+                        if (u.getTipo().equals("operario")) {
+                            ventanaOperario = new interfazOperario(u);
+                            ventanaOperario.setVisible(true);
+                        }
+                    }
                 }
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuario no activo");
+                login.setText(null);
+                password.setText(null);
             }
-            dispose();
+            
         } else {
             JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta");
             login.setText(null);
