@@ -2,28 +2,30 @@ package pruebainterfaz;
 
 import controlador.ControladorUsuarios;
 import javax.swing.JOptionPane;
-
-
+import logica.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author jdtorres
  */
 public class interfaz extends javax.swing.JFrame {
+
     ventana2 ventanaAuxiliar;
+    ventana3 ventanaAuxiliar2;
     ControladorUsuarios controladorUsuarios;
+
     /**
      * Creates new form interfaz
      */
     public interfaz() {
         initComponents();
         ventanaAuxiliar = new ventana2();
+        ventanaAuxiliar2 = new ventana3();
         controladorUsuarios = new ControladorUsuarios();
     }
 
@@ -133,20 +135,31 @@ public class interfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEntrarActionPerformed
-        String usuarioCorrecto = "admin";
-        String contraseñaCorrecta = "admin";
+
         String nombre = login.getText();
         String contraseña = new String(password.getText());
-        
-        if(nombre.equals(usuarioCorrecto) && contraseña.equals(contraseñaCorrecta)){
-            ventanaAuxiliar.setVisible(true);
+        Usuario u = new Usuario();
+
+        u = controladorUsuarios.consultarUsuario(nombre);
+
+        String usuarioCorrecto = u.getLogin();
+        String contraseñaCorrecta = u.getPassword();
+
+        if (nombre.equals(usuarioCorrecto) && contraseña.equals(contraseñaCorrecta)) {
+            if (u.getTipo().equals("administrador")) {
+                ventanaAuxiliar.setVisible(true);
+            } else {
+                if (u.getTipo().equals("gerente")) {
+                    ventanaAuxiliar2.setVisible(true);
+                }
+            }
             dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta");
             login.setText(null);
             password.setText(null);
         }
-        
+
 
     }//GEN-LAST:event_botonEntrarActionPerformed
 
