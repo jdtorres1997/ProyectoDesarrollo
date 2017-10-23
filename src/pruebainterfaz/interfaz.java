@@ -16,12 +16,14 @@ import javax.swing.JOptionPane;
  */
 public class interfaz extends javax.swing.JFrame {
     ventana2 ventanaAuxiliar;
+    ControladorUsuarios controladorUsuarios;
     /**
      * Creates new form interfaz
      */
     public interfaz() {
         initComponents();
         ventanaAuxiliar = new ventana2();
+        controladorUsuarios = new ControladorUsuarios();
     }
 
     /**
