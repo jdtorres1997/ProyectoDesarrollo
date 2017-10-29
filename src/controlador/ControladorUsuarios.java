@@ -29,7 +29,19 @@ public class ControladorUsuarios {
 
         return u;
     }
-
+    public boolean agregarUsuario(Usuario u) {
+        
+        boolean respuesta = daoUsuario.insertarUsuario(u);
+        System.out.println(respuesta);
+        return respuesta;
+        
+    }
+    public boolean modificarUsuario(Usuario u){
+        boolean respuesta = daoUsuario.updateUsuario(u);
+        System.out.println(respuesta);
+        return respuesta;
+    }
+            
     public void cerrarConexionBD() {
         daoUsuario.cerrarConexionBD();
     }

@@ -17,7 +17,38 @@ public class DAOUsuario {
     public DAOUsuario() {
         acceso = new AccesoBD();
     }
-
+    public boolean insertarUsuario(Usuario u){
+        String sql_select;
+        sql_select = "INSERT INTO usuarios ("
+                + "login, "
+                + "password, "
+                + "tipo, "
+                + "estado, "
+                + "telefono, "
+                + "nombre, "
+                + "apellido)"
+                + "VALUES ('" +u.getLogin()+ "',"
+                        + "'" +u.getPassword()+ "', "
+                        + "'" +u.getTipo()+ "', "
+                        + "'" +u.getEstado()+ "', "
+                        + "'" +u.getTelefono()+ "', "
+                        + "'" +u.getNombre()+ "', "
+                        + "'" +u.getApellido()+ "')";
+        try {
+            Connection conn = acceso.getConnetion();
+            System.out.println("insertando en la bd");
+            Statement sentencia = conn.createStatement();
+            sentencia.executeUpdate(sql_select);
+            
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return false;
+        
+    }
     public Usuario consultarUsuario(String login) {
         Usuario u = new Usuario();
         String sql_select;
@@ -49,7 +80,30 @@ public class DAOUsuario {
         }
         return null;
     }//end consultarUsuario
+    public boolean updateUsuario(Usuario u){
+      String sql_select;
+        sql_select = "UPDATE usuarios "
+                + "SET "
+                        + "tipo='" +u.getTipo()+ "', "
+                        + "estado='" +u.getEstado()+ "', "
+                        + "telefono='" +u.getTelefono()+ "', "
+                        + "nombre='" +u.getNombre()+ "', "
+                        + "apellido='" +u.getApellido()+ "' WHERE login='"+u.getLogin()+"' ";
+        try {
+            Connection conn = acceso.getConnetion();
+            System.out.println("actualizando en  bd");
+            Statement sentencia = conn.createStatement();
+            sentencia.executeUpdate(sql_select);
+            
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return false;
 
+    }
     public void cerrarConexionBD() {
         acceso.closeConection(acceso.getConnetion());
     }

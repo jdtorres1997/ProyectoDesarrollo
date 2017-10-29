@@ -11,10 +11,13 @@ import logica.*;
  * @author jdtorres
  */
 public class interfazAdministrador extends javax.swing.JFrame {
-    Usuario usuarioActual; //Se almacena el usuario que está logueado
+    Usuario usuarioActual;  //Se almacena el usuario que está logueado
     /**
      * Creates new form ventana2
      */
+    crearUsuarios ventanaCrearUsuario;
+    interfazModificarUsuarios ventanaModificar;
+    
     public interfazAdministrador() {
         initComponents(); 
     }
@@ -23,6 +26,7 @@ public class interfazAdministrador extends javax.swing.JFrame {
         initComponents();
         usuarioActual = u; 
         identificadorUsuario.setText(usuarioActual.getNombre()+" "+usuarioActual.getApellido());
+    
     }
 
     /**
@@ -36,10 +40,11 @@ public class interfazAdministrador extends javax.swing.JFrame {
 
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        botonCerrarSesion = new javax.swing.JButton();
         identificadorUsuario = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        botonCerrarSesion = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -53,14 +58,19 @@ public class interfazAdministrador extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("Ya estas identificado");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(578, 77, 0, 0);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setText("Administrador");
+        identificadorUsuario.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        getContentPane().add(identificadorUsuario);
+        identificadorUsuario.setBounds(10, 11, 225, 28);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Desktop\\admin.png")); // NOI18N
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(0, -40, 330, 215);
 
         botonCerrarSesion.setText("Cerrar sesión");
         botonCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
@@ -68,55 +78,26 @@ public class interfazAdministrador extends javax.swing.JFrame {
                 botonCerrarSesionActionPerformed(evt);
             }
         });
+        getContentPane().add(botonCerrarSesion);
+        botonCerrarSesion.setBounds(240, 330, 97, 23);
 
-        identificadorUsuario.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        jButton1.setText("crear");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(160, 250, 57, 23);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(identificadorUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botonCerrarSesion)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(identificadorUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonCerrarSesion))
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(96, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(85, 85, 85))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(139, 139, 139))))
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addContainerGap(164, Short.MAX_VALUE))
-        );
+        jButton2.setText("modificar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(260, 180, 75, 23);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -126,6 +107,18 @@ public class interfazAdministrador extends javax.swing.JFrame {
         dispose();
         new interfaz().setVisible(true);
     }//GEN-LAST:event_botonCerrarSesionActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ventanaCrearUsuario = new crearUsuarios();
+        ventanaCrearUsuario.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    ventanaModificar = new interfazModificarUsuarios();
+    ventanaModificar.setVisible(true);
+    this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,9 +159,10 @@ public class interfazAdministrador extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCerrarSesion;
     private javax.swing.JLabel identificadorUsuario;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }
