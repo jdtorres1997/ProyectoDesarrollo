@@ -27,7 +27,9 @@ public class interfazGerente extends javax.swing.JFrame {
     }
     public interfazGerente(Usuario u) {
         initComponents();
-         this.getContentPane().setBackground(Color.WHITE);
+        this.getContentPane().setBackground(Color.WHITE);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
 
         usuarioActual = u;
         identificadorUsuario.setText(usuarioActual.getNombre()+" "+usuarioActual.getApellido());
@@ -76,7 +78,7 @@ public class interfazGerente extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\jj.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/jj.png"))); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 153));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));

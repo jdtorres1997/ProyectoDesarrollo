@@ -17,13 +17,16 @@ import logica.Sede;
 public class modificarSedes extends javax.swing.JFrame {
 
     ControladorSedes controladorSede;
+    interfazGerente interfazGer;
     /**
      * Creates new form modificarSedes
      */
     public modificarSedes() {
         initComponents();
-                this.getContentPane().setBackground(Color.getHSBColor(50, 43, 10));
-
+        this.getContentPane().setBackground(Color.getHSBColor(50, 43, 10));
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        interfazGer= new interfazGerente();
         controladorSede = new ControladorSedes();
     }
 
@@ -52,6 +55,7 @@ public class modificarSedes extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -102,29 +106,41 @@ public class modificarSedes extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("Modificar Sede");
 
+        jButton3.setBackground(new java.awt.Color(255, 255, 102));
+        jButton3.setText("Atras");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel7)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel7)
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jButton3))
+                .addGap(0, 5, Short.MAX_VALUE))
         );
 
-        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\contract.png")); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/contract.png"))); // NOI18N
         jLabel8.setText("jLabel8");
 
-        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\house.png")); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/house.png"))); // NOI18N
 
-        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\blueprint.png")); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/blueprint.png"))); // NOI18N
 
-        jLabel11.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\check-mark.png")); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/check-mark.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -181,7 +197,7 @@ public class modificarSedes extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,7 +236,7 @@ public class modificarSedes extends javax.swing.JFrame {
                             .addComponent(radioActiva))
                         .addGap(7, 7, 7)
                         .addComponent(jButton2)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -272,6 +288,11 @@ public class modificarSedes extends javax.swing.JFrame {
         
         if(seModifico){
            JOptionPane.showMessageDialog(this, "Se modifico la sede en la base de datos");
+                ide.setText("");
+                nombre.setText("");
+                informacion.setText("");
+                 ubicacion.setText("");
+                  estados.clearSelection();
        }else{
            JOptionPane.showMessageDialog(this, "Hubo un error al modificarla sede");
         }
@@ -280,6 +301,12 @@ public class modificarSedes extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        interfazGer.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
  public boolean validar(){
         boolean rest=true;
         
@@ -305,9 +332,14 @@ public class modificarSedes extends javax.swing.JFrame {
             rest=false;
         }
        
-        if(!rest)
+        if(!rest){
              JOptionPane.showMessageDialog(this, "Por favor verifique la informacion");
-        
+             ide.setBackground(Color.WHITE);
+             nombre.setBackground(Color.WHITE);
+             informacion.setBackground(Color.WHITE);
+             ubicacion.setBackground(Color.WHITE);
+             estado.setForeground(Color.BLACK);
+        }
         return rest;
         
     }
@@ -353,6 +385,7 @@ public class modificarSedes extends javax.swing.JFrame {
     private javax.swing.JTextField informacion;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

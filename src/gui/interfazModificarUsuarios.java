@@ -7,6 +7,8 @@ package gui;
 
 import controlador.ControladorUsuarios;
 import java.awt.Color;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import logica.Usuario;
 
@@ -16,6 +18,7 @@ import logica.Usuario;
  */
 public class interfazModificarUsuarios extends javax.swing.JFrame {
     ControladorUsuarios controladorUsuarios;
+    interfazAdministrador interfazAdmin;
 
     /**
      * Creates new form crearUsuarios
@@ -24,6 +27,9 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
         initComponents();
         this.getContentPane().setBackground(Color.getHSBColor(316, 100, 10));
         controladorUsuarios = new ControladorUsuarios();
+        interfazAdmin = new interfazAdministrador();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
     }
 
     /**
@@ -63,6 +69,7 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         identificadorUsuario = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         jRadioButton2.setText("jRadioButton2");
 
@@ -131,15 +138,15 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\user.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/user.png"))); // NOI18N
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\user (2).png")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/user (2).png"))); // NOI18N
 
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\user (4).png")); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/user (4).png"))); // NOI18N
 
-        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\user (1).png")); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/user (1).png"))); // NOI18N
 
-        jLabel11.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\user (5).png")); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/user (5).png"))); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -150,6 +157,14 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel13.setText("Modificar Usuario");
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 102));
+        jButton1.setText("Atras");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -158,17 +173,24 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(identificadorUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(identificadorUsuario)
-                .addGap(22, 22, 22))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel13)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(identificadorUsuario)
+                        .addGap(22, 22, 22))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addContainerGap())))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -188,20 +210,18 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
                         .addGap(26, 26, 26)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel9)
-                        .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel9))
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
                             .addComponent(tipo)
                             .addComponent(jLabel5)
-                            .addComponent(jLabel6)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(jLabel8))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(estado))
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel6)
+                            .addComponent(estado))))
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -230,14 +250,14 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(5, 11, Short.MAX_VALUE))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
@@ -259,13 +279,15 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
                                 .addComponent(jLabel5)
                                 .addGap(16, 16, 16)
                                 .addComponent(jLabel6)))
-                        .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(estado))
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(26, 26, 26)
+                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addComponent(jLabel8)
+                                .addGap(18, 18, 18)
+                                .addComponent(estado))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(nombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
@@ -285,7 +307,8 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
                             .addComponent(radioActivo)
                             .addComponent(radioInactivo))
                         .addGap(7, 7, 7)
-                        .addComponent(modificar))))
+                        .addComponent(modificar)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -331,8 +354,17 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
        
        if(seModifico){
            JOptionPane.showMessageDialog(this, "Se modifico  la base de datos");
+            nombreUsuario.setText("");
+             nombres.setText("");            Icon p = new ImageIcon(getClass().getResource("/gui/x.png"));
+
+             apellidos.setText("");
+             telefono.setText("");
+             radioEstados.clearSelection();
+             radioUsuarios.clearSelection();
+           
        }else{
-           JOptionPane.showMessageDialog(this, "Hubo un error al modificar");
+            Icon p = new ImageIcon(getClass().getResource("/gui/x.png"));
+           JOptionPane.showMessageDialog(this, "Hubo un error al modificar","",JOptionPane.INFORMATION_MESSAGE,p);
        }
        
     }  //limpiardatos();
@@ -373,13 +405,21 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
             rest=false;
         }
      if(!isNumeric(telefono.getText())){
-       JOptionPane.showMessageDialog(this, "El telefono debe ser un dato numerico");
+         Icon p = new ImageIcon(getClass().getResource("/gui/phone.png"));
+       JOptionPane.showMessageDialog(this, "El telefono debe ser un dato numerico","",JOptionPane.INFORMATION_MESSAGE,p);
            
       }
       
-        if(!rest)
-             JOptionPane.showMessageDialog(this, "Por favor verifique la informacion");
-        
+        if(!rest){
+             Icon p = new ImageIcon(getClass().getResource("/gui/x.png"));
+             JOptionPane.showMessageDialog(this, "Por favor verifique la informacion","",JOptionPane.INFORMATION_MESSAGE,p);
+             nombreUsuario.setBackground(Color.WHITE);
+             tipo.setForeground(Color.BLACK);
+             nombres.setBackground(Color.WHITE);
+             apellidos.setBackground(Color.WHITE);
+             estado.setForeground(Color.BLACK);
+             telefono.setBackground(Color.WHITE);
+        }
         return rest;
         
         
@@ -404,13 +444,20 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
          
        }
       else {
-            JOptionPane.showMessageDialog(this, "El usuario no existe, digite otro por favor");
+            Icon p = new ImageIcon(getClass().getResource("/gui/wrongUser.png"));
+            JOptionPane.showMessageDialog(this, "El usuario no existe, digite otro por favor","",JOptionPane.INFORMATION_MESSAGE,p);
               
       }
             
 
 
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    interfazAdmin.setVisible(true);
+        this.dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -452,6 +499,7 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
     private javax.swing.JTextField apellidos;
     private javax.swing.JLabel estado;
     private javax.swing.JLabel identificadorUsuario;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;

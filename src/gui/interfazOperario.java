@@ -19,12 +19,13 @@ public class interfazOperario extends javax.swing.JFrame {
      */
     public interfazOperario() {
         initComponents();
-
+       
     }
     public interfazOperario(Usuario u) {
         initComponents();
         this.getContentPane().setBackground(Color.WHITE);
-
+         this.setLocationRelativeTo(null);
+        this.setResizable(false);
         usuarioActual = u;
         identificadorUsuario.setText(usuarioActual.getNombre()+" "+usuarioActual.getApellido());
     }
@@ -91,7 +92,7 @@ public class interfazOperario extends javax.swing.JFrame {
         });
         getContentPane().add(botonCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 110, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\jjo.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/jjo.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 46, -1, -1));
 
         pack();

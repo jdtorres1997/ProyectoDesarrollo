@@ -18,6 +18,7 @@ import logica.Usuario;
  */
 public class crearUsuarios extends javax.swing.JFrame {
     ControladorUsuarios controladorUsuarios;
+    interfazAdministrador interfazAdmin;
 
     /**
      * Creates new form crearUsuarios
@@ -25,6 +26,9 @@ public class crearUsuarios extends javax.swing.JFrame {
     public crearUsuarios() {
         initComponents();
         controladorUsuarios = new ControladorUsuarios();
+        interfazAdmin = new interfazAdministrador();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
     }
 
     /**
@@ -74,6 +78,8 @@ public class crearUsuarios extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jLabel22 = new javax.swing.JLabel();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -85,30 +91,30 @@ public class crearUsuarios extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tipo.setText("Tipo de Usuario");
-        jPanel2.add(tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, -1, -1));
+        jPanel2.add(tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
 
         jLabel2.setText("Contraseña");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 101, -1, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, -1, -1));
 
         jLabel3.setText("Verificar Contraseña");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 131, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, -1, -1));
 
         jLabel4.setText("Nombre completos");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 162, -1, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, -1));
 
         jLabel5.setText("Apellido Completos");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, -1, -1));
 
         jLabel6.setText("Telefono");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 231, -1, -1));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, -1, -1));
 
         estado.setText("Estados");
-        jPanel2.add(estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 267, -1, -1));
-        jPanel2.add(contrasenaNuevoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 98, 139, -1));
-        jPanel2.add(verificarContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 128, 139, -1));
-        jPanel2.add(nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 159, 139, -1));
-        jPanel2.add(apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 197, 138, -1));
-        jPanel2.add(telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 228, 138, -1));
+        jPanel2.add(estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, -1, -1));
+        jPanel2.add(contrasenaNuevoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 139, -1));
+        jPanel2.add(verificarContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 139, -1));
+        jPanel2.add(nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, 139, -1));
+        jPanel2.add(apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, 138, -1));
+        jPanel2.add(telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 138, -1));
 
         radioEstados.add(radioInactivo);
         radioInactivo.setText("Inactivo");
@@ -130,7 +136,7 @@ public class crearUsuarios extends javax.swing.JFrame {
                 radioGerenteActionPerformed(evt);
             }
         });
-        jPanel2.add(radioGerente, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 71, -1, -1));
+        jPanel2.add(radioGerente, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, -1, -1));
 
         radioUsuarios.add(radioOperario);
         radioOperario.setText("Operario");
@@ -139,7 +145,7 @@ public class crearUsuarios extends javax.swing.JFrame {
                 radioOperarioActionPerformed(evt);
             }
         });
-        jPanel2.add(radioOperario, new org.netbeans.lib.awtextra.AbsoluteConstraints(347, 71, 72, -1));
+        jPanel2.add(radioOperario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 72, -1));
 
         jButton1.setText("Crear Usuario");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -150,43 +156,39 @@ public class crearUsuarios extends javax.swing.JFrame {
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 308, 120, -1));
 
         jLabel7.setText("Nombre de Usuario");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 100, -1));
-        jPanel2.add(nombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 44, 139, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 130, -1));
+        jPanel2.add(nombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 139, -1));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\a (2).png")); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/a (2).png"))); // NOI18N
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 110, 280));
-
-        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\xa.png")); // NOI18N
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 346, 60, 60));
 
-        jLabel11.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\xb.png")); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/xb.png"))); // NOI18N
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 336, 60, -1));
 
-        jLabel12.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\xc.png")); // NOI18N
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 346, 60, -1));
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/xc.png"))); // NOI18N
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 60, 60));
 
-        jLabel13.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\xd.png")); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/xd.png"))); // NOI18N
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 336, 60, -1));
 
-        jLabel14.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\xe.png")); // NOI18N
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/xe.png"))); // NOI18N
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 336, 70, -1));
 
-        jLabel15.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\xf.png")); // NOI18N
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/xf.png"))); // NOI18N
         jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 346, 60, -1));
 
-        jLabel16.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\xg.png")); // NOI18N
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/xg.png"))); // NOI18N
         jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 336, -1, 70));
 
-        jLabel17.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\xh.png")); // NOI18N
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/xh.png"))); // NOI18N
         jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 346, 60, -1));
 
-        jLabel18.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\xt.png")); // NOI18N
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/xt.png"))); // NOI18N
         jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 346, 60, 60));
 
-        jLabel19.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\xxa.png")); // NOI18N
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/xxa.png"))); // NOI18N
         jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 336, 60, -1));
-
-        jLabel20.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\xa.png")); // NOI18N
         jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 346, -1, 70));
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 102));
@@ -196,6 +198,14 @@ public class crearUsuarios extends javax.swing.JFrame {
         jLabel21.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel21.setText("Crear Usuario");
 
+        jButton2.setBackground(new java.awt.Color(255, 255, 102));
+        jButton2.setText("Atras");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -203,26 +213,41 @@ public class crearUsuarios extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 234, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(46, 46, 46))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel21)
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, -1));
+
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/xc.png"))); // NOI18N
+        jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 346, 60, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -264,6 +289,15 @@ public class crearUsuarios extends javax.swing.JFrame {
        if(seAgrego){
             Icon m = new ImageIcon(getClass().getResource("/gui/adduser.png"));
             JOptionPane.showMessageDialog(this, "Se agrego el usuario a la base de datos","",JOptionPane.INFORMATION_MESSAGE,m);
+             nombreUsuario.setText("");
+             contrasenaNuevoUsuario.setText("");
+             verificarContrasena.setText("");
+             nombres.setText("");
+             apellidos.setText("");
+             telefono.setText("");
+             radioEstados.clearSelection();
+             radioUsuarios.clearSelection();
+
        }else{
            JOptionPane.showMessageDialog(this, "Hubo un error al agregar","",JOptionPane.ERROR_MESSAGE);
        }
@@ -277,9 +311,16 @@ public class crearUsuarios extends javax.swing.JFrame {
         
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        interfazAdmin.setVisible(true);
+        this.dispose();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
  private  boolean isNumeric(String cadena){
 	try {
-		Integer.parseInt(cadena);
+		Long.parseLong(cadena);
 		return true;
 	} catch (NumberFormatException nfe){
 		return false;
@@ -319,18 +360,28 @@ public class crearUsuarios extends javax.swing.JFrame {
             rest=false;
         }
       if(controladorUsuarios.existeUsuario(nombreUsuario.getText())){
-            JOptionPane.showMessageDialog(this, "El usuario ya existe, digite otro por favor");
+            Icon p = new ImageIcon(getClass().getResource("/gui/x.png"));
+            JOptionPane.showMessageDialog(this, "El usuario ya existe, digite otro por favor","",JOptionPane.INFORMATION_MESSAGE,p);
             rest = false;
         }
       if(!isNumeric(telefono.getText())){
-       JOptionPane.showMessageDialog(this, "El telefono debe ser un dato numerico");
-           
+          Icon p = new ImageIcon(getClass().getResource("/gui/phone.png"));
+          JOptionPane.showMessageDialog(this, "El telefono debe ser un dato numerico","",JOptionPane.INFORMATION_MESSAGE,p); 
       }
       
         
-        if(!rest)
-             JOptionPane.showMessageDialog(this, "Por favor verifique la informacion");
-        
+        if(!rest){
+             Icon p = new ImageIcon(getClass().getResource("/gui/x.png"));
+             JOptionPane.showMessageDialog(this, "Por favor verifique la informacion","",JOptionPane.INFORMATION_MESSAGE,p);
+             nombreUsuario.setBackground(Color.WHITE);
+             tipo.setForeground(Color.BLACK);
+             contrasenaNuevoUsuario.setBackground(Color.WHITE);
+             verificarContrasena.setBackground(Color.WHITE);
+             nombres.setBackground(Color.WHITE);
+             apellidos.setBackground(Color.WHITE);
+             estado.setForeground(Color.BLACK);
+             telefono.setBackground(Color.WHITE);
+        }
         return rest;
         
         
@@ -375,6 +426,7 @@ public class crearUsuarios extends javax.swing.JFrame {
     private javax.swing.JTextField contrasenaNuevoUsuario;
     private javax.swing.JLabel estado;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -388,6 +440,7 @@ public class crearUsuarios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

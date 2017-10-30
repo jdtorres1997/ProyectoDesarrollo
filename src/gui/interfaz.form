@@ -151,10 +151,7 @@
                           <EmptySpace min="400" pref="400" max="-2" attributes="0"/>
                           <Component id="botonEntrar" min="-2" pref="38" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                          <Component id="jLabel7" min="-2" pref="465" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jLabel7" alignment="0" min="-2" pref="465" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -165,14 +162,14 @@
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Alexandra\Downloads\if_user_115781.png"/>
+              <Image iconType="3" name="/gui/images/if_user_115781.png"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Alexandra\Downloads\if_key_172487.png"/>
+              <Image iconType="3" name="/gui/images/if_key_172487.png"/>
             </Property>
           </Properties>
         </Component>
@@ -194,7 +191,7 @@
         <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Alexandra\Downloads\InterfazFondo.png"/>
+              <Image iconType="3" name="/gui/images/InterfazFondo.png"/>
             </Property>
           </Properties>
         </Component>
@@ -204,7 +201,7 @@
               <Font name="Tahoma" size="24" style="0"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Alexandra\Desktop\A+.png"/>
+              <Image iconType="3" name="/gui/images/A+.png"/>
             </Property>
           </Properties>
         </Component>

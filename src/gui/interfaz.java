@@ -31,6 +31,8 @@ public class interfaz extends javax.swing.JFrame {
         panelFondo.setBackground(Color.WHITE);
 
         controladorUsuarios = new ControladorUsuarios();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
     }
 
     /**
@@ -75,9 +77,9 @@ public class interfaz extends javax.swing.JFrame {
         setBackground(java.awt.Color.red);
         setForeground(java.awt.Color.red);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\if_user_115781.png")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/if_user_115781.png"))); // NOI18N
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\if_key_172487.png")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/if_key_172487.png"))); // NOI18N
 
         botonEntrar.setBackground(new java.awt.Color(255, 51, 102));
         botonEntrar.setText("Entrar");
@@ -87,10 +89,10 @@ public class interfaz extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\InterfazFondo.png")); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/InterfazFondo.png"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Desktop\\A+.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/A+.png"))); // NOI18N
 
         login.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         login.addActionListener(new java.awt.event.ActionListener() {
@@ -203,9 +205,7 @@ public class interfaz extends javax.swing.JFrame {
                     .addGroup(panelFondoLayout.createSequentialGroup()
                         .addGap(400, 400, 400)
                         .addComponent(botonEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 

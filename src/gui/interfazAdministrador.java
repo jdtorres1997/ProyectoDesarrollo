@@ -21,6 +21,8 @@ public class interfazAdministrador extends javax.swing.JFrame {
     
     public interfazAdministrador() {
         initComponents(); 
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
 
     }
     
@@ -88,7 +90,7 @@ public class interfazAdministrador extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Desktop\\j.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/j.png"))); // NOI18N
         jLabel2.setText("jLabel2");
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
