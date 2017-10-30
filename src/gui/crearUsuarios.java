@@ -6,6 +6,9 @@
 package gui;
 
 import controlador.ControladorUsuarios;
+import java.awt.Color;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import logica.Usuario;
 
@@ -33,74 +36,79 @@ public class crearUsuarios extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jRadioButton2 = new javax.swing.JRadioButton();
         radioUsuarios = new javax.swing.ButtonGroup();
         radioEstados = new javax.swing.ButtonGroup();
-        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jPanel2 = new javax.swing.JPanel();
+        tipo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        nombreUsuario = new javax.swing.JTextField();
+        estado = new javax.swing.JLabel();
+        contrasenaNuevoUsuario = new javax.swing.JTextField();
+        verificarContrasena = new javax.swing.JTextField();
         nombres = new javax.swing.JTextField();
         apellidos = new javax.swing.JTextField();
         telefono = new javax.swing.JTextField();
+        radioInactivo = new javax.swing.JRadioButton();
+        radioActivo = new javax.swing.JRadioButton();
         radioGerente = new javax.swing.JRadioButton();
         radioOperario = new javax.swing.JRadioButton();
-        radioActivo = new javax.swing.JRadioButton();
-        radioInactivo = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
-        contrasenaNuevoUsuario = new javax.swing.JPasswordField();
-        verificarContrasena = new javax.swing.JPasswordField();
+        jLabel7 = new javax.swing.JLabel();
+        nombreUsuario = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
 
-        jRadioButton2.setText("jRadioButton2");
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Nombre de usuario:");
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("Tipo de usuario:");
+        tipo.setText("Tipo de Usuario");
+        jPanel2.add(tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, -1, -1));
 
-        jLabel3.setText("Contraseña:");
+        jLabel2.setText("Contraseña");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 101, -1, -1));
 
-        jLabel4.setText("Verificar contraseña:");
+        jLabel3.setText("Verificar Contraseña");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 131, -1, -1));
 
-        jLabel5.setText("Nombres completos:");
+        jLabel4.setText("Nombre completos");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 162, -1, -1));
 
-        jLabel6.setText("Apellidos completos:");
+        jLabel5.setText("Apellido Completos");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
 
-        jLabel8.setText("Telefono:");
+        jLabel6.setText("Telefono");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 231, -1, -1));
 
-        jLabel10.setText("Estado:");
-
-        nombreUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nombreUsuarioActionPerformed(evt);
-            }
-        });
-
-        nombres.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nombresActionPerformed(evt);
-            }
-        });
-
-        radioUsuarios.add(radioGerente);
-        radioGerente.setText("Gerente");
-
-        radioUsuarios.add(radioOperario);
-        radioOperario.setText("Operario");
-        radioOperario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                radioOperarioActionPerformed(evt);
-            }
-        });
-
-        radioEstados.add(radioActivo);
-        radioActivo.setText("Activo");
+        estado.setText("Estados");
+        jPanel2.add(estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 267, -1, -1));
+        jPanel2.add(contrasenaNuevoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 98, 139, -1));
+        jPanel2.add(verificarContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 128, 139, -1));
+        jPanel2.add(nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 159, 139, -1));
+        jPanel2.add(apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 197, 138, -1));
+        jPanel2.add(telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 228, 138, -1));
 
         radioEstados.add(radioInactivo);
         radioInactivo.setText("Inactivo");
@@ -109,151 +117,134 @@ public class crearUsuarios extends javax.swing.JFrame {
                 radioInactivoActionPerformed(evt);
             }
         });
+        jPanel2.add(radioInactivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 263, -1, -1));
 
-        jButton1.setText("ok");
+        radioEstados.add(radioActivo);
+        radioActivo.setText("Activo");
+        jPanel2.add(radioActivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(281, 263, -1, -1));
+
+        radioUsuarios.add(radioGerente);
+        radioGerente.setText("Gerente");
+        radioGerente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioGerenteActionPerformed(evt);
+            }
+        });
+        jPanel2.add(radioGerente, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 71, -1, -1));
+
+        radioUsuarios.add(radioOperario);
+        radioOperario.setText("Operario");
+        radioOperario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioOperarioActionPerformed(evt);
+            }
+        });
+        jPanel2.add(radioOperario, new org.netbeans.lib.awtextra.AbsoluteConstraints(347, 71, 72, -1));
+
+        jButton1.setText("Crear Usuario");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 308, 120, -1));
 
-        contrasenaNuevoUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contrasenaNuevoUsuarioActionPerformed(evt);
-            }
-        });
+        jLabel7.setText("Nombre de Usuario");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 100, -1));
+        jPanel2.add(nombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 44, 139, -1));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\a (2).png")); // NOI18N
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 110, 280));
+
+        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\xa.png")); // NOI18N
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 346, 60, 60));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\xb.png")); // NOI18N
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 336, 60, -1));
+
+        jLabel12.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\xc.png")); // NOI18N
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 346, 60, -1));
+
+        jLabel13.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\xd.png")); // NOI18N
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 336, 60, -1));
+
+        jLabel14.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\xe.png")); // NOI18N
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 336, 70, -1));
+
+        jLabel15.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\xf.png")); // NOI18N
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 346, 60, -1));
+
+        jLabel16.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\xg.png")); // NOI18N
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 336, -1, 70));
+
+        jLabel17.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\xh.png")); // NOI18N
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 346, 60, -1));
+
+        jLabel18.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\xt.png")); // NOI18N
+        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 346, 60, 60));
+
+        jLabel19.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\xxa.png")); // NOI18N
+        jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 336, 60, -1));
+
+        jLabel20.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Downloads\\xa.png")); // NOI18N
+        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 346, -1, 70));
+
+        jPanel1.setBackground(new java.awt.Color(255, 204, 102));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.setForeground(new java.awt.Color(255, 204, 255));
+
+        jLabel21.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel21.setText("Crear Usuario");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel21)
+                .addGap(0, 11, Short.MAX_VALUE))
+        );
+
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(contrasenaNuevoUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
-                            .addComponent(verificarContrasena)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(32, 32, 32)
-                        .addComponent(nombres, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(32, 32, 32)
-                        .addComponent(apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addGap(84, 84, 84)
-                        .addComponent(radioActivo)
-                        .addGap(10, 10, 10)
-                        .addComponent(radioInactivo)
-                        .addGap(35, 35, 35)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(83, 83, 83)
-                        .addComponent(telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel3))
-                        .addGap(35, 35, 35)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(radioGerente)
-                                .addGap(18, 18, 18)
-                                .addComponent(radioOperario))
-                            .addComponent(nombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(35, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(nombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(jLabel2))
-                    .addComponent(radioGerente)
-                    .addComponent(radioOperario))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jLabel3)
-                        .addGap(14, 14, 14))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(contrasenaNuevoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addGap(3, 3, 3)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(verificarContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel5))
-                    .addComponent(nombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel6))
-                    .addComponent(apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel8))
-                    .addComponent(telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(radioInactivo)
-                        .addComponent(radioActivo)))
-                .addContainerGap(27, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombresActionPerformed
+    private void radioInactivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioInactivoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nombresActionPerformed
+    }//GEN-LAST:event_radioInactivoActionPerformed
+
+    private void radioGerenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioGerenteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radioGerenteActionPerformed
 
     private void radioOperarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioOperarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_radioOperarioActionPerformed
 
-    private void radioInactivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioInactivoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_radioInactivoActionPerformed
-
-    private void nombreUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nombreUsuarioActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-       Usuario u = new Usuario();
+          Usuario u = new Usuario();
        
        // Validamos los datos
-       validarDatos();
-       
+    if(validarDatos()){ 
        u.setLogin(nombreUsuario.getText());
        if(radioGerente.isSelected())
             u.setTipo("gerente");
@@ -269,23 +260,81 @@ public class crearUsuarios extends javax.swing.JFrame {
            u.setEstado("inactivo");
        
        boolean seAgrego = controladorUsuarios.agregarUsuario(u);
-       
+    
        if(seAgrego){
-           JOptionPane.showMessageDialog(this, "Se agrego a la base de datos");
+            Icon m = new ImageIcon(getClass().getResource("/gui/adduser.png"));
+            JOptionPane.showMessageDialog(this, "Se agrego el usuario a la base de datos","",JOptionPane.INFORMATION_MESSAGE,m);
        }else{
-           JOptionPane.showMessageDialog(this, "Hubo un error al agregar");
+           JOptionPane.showMessageDialog(this, "Hubo un error al agregar","",JOptionPane.ERROR_MESSAGE);
        }
-       
+    }
        //limpiardatos();
 
+
+        
+        
+        
+        
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
- private void validarDatos() {
+ private  boolean isNumeric(String cadena){
+	try {
+		Integer.parseInt(cadena);
+		return true;
+	} catch (NumberFormatException nfe){
+		return false;
+	}
+}
+    private boolean validarDatos() {
+     
+    boolean rest=true;
+    if(nombreUsuario.getText().equals("")){
+        nombreUsuario.setBackground(Color.RED);
+        rest=false;
+    }
+    if(!(radioGerente.isSelected() || radioOperario.isSelected())){
+            tipo.setForeground(Color.red);
+            rest=false;
+        }
+    if(contrasenaNuevoUsuario.getText().equals("")){
+        contrasenaNuevoUsuario.setBackground(Color.RED);
+        rest=false;
+    }
+    if(verificarContrasena.getText().equals("")){
+        verificarContrasena.setBackground(Color.RED);
+        rest=false;
+    }
+    if(nombres.getText().equals("")){
+        nombres.setBackground(Color.RED);
+    }
+    if(apellidos.getText().equals("")){
+        apellidos.setBackground(Color.RED);
+        rest=false;
+    }
+    if(telefono.getText().equals("")){
+        telefono.setBackground(Color.RED);
+    }
+     if(!(radioActivo.isSelected() || radioInactivo.isSelected())){
+            estado.setForeground(Color.red);
+            rest=false;
+        }
+      if(controladorUsuarios.existeUsuario(nombreUsuario.getText())){
+            JOptionPane.showMessageDialog(this, "El usuario ya existe, digite otro por favor");
+            rest = false;
+        }
+      if(!isNumeric(telefono.getText())){
+       JOptionPane.showMessageDialog(this, "El telefono debe ser un dato numerico");
+           
+      }
+      
+        
+        if(!rest)
+             JOptionPane.showMessageDialog(this, "Por favor verifique la informacion");
+        
+        return rest;
+        
         
     }
-    private void contrasenaNuevoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contrasenaNuevoUsuarioActionPerformed
-            
-    }//GEN-LAST:event_contrasenaNuevoUsuarioActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -323,17 +372,32 @@ public class crearUsuarios extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField apellidos;
-    private javax.swing.JPasswordField contrasenaNuevoUsuario;
+    private javax.swing.JTextField contrasenaNuevoUsuario;
+    private javax.swing.JLabel estado;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField nombreUsuario;
     private javax.swing.JTextField nombres;
     private javax.swing.JRadioButton radioActivo;
@@ -343,7 +407,8 @@ public class crearUsuarios extends javax.swing.JFrame {
     private javax.swing.JRadioButton radioOperario;
     private javax.swing.ButtonGroup radioUsuarios;
     private javax.swing.JTextField telefono;
-    private javax.swing.JPasswordField verificarContrasena;
+    private javax.swing.JLabel tipo;
+    private javax.swing.JTextField verificarContrasena;
     // End of variables declaration//GEN-END:variables
 
    

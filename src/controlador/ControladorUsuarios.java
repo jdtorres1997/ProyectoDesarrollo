@@ -12,6 +12,11 @@ import logica.*;
  */
 public class ControladorUsuarios {
 
+    public  boolean existeUsuario(String login) {
+        boolean respuesta = daoUsuario.existeUsuario(login);
+        return respuesta;
+    }
+
     DAOUsuario daoUsuario;
 
     public ControladorUsuarios() {

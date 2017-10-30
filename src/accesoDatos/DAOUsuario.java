@@ -107,4 +107,29 @@ public class DAOUsuario {
     public void cerrarConexionBD() {
         acceso.closeConection(acceso.getConnetion());
     }
+
+    public boolean existeUsuario(String login) {
+        Usuario u = new Usuario();
+        String sql_select;
+        sql_select = "SELECT login FROM  usuarios WHERE login='" + login + "'";
+        try {
+            Connection conn = acceso.getConnetion();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+
+            if(!tabla.isBeforeFirst()){
+                return false;
+            }else{
+                return true;
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return true;
+            
+    }
 }

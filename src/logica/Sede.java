@@ -35,7 +35,20 @@ public class Sede {
     public void setEstado(String estado){
         this.estado = estado;
     }
-   
-   
-
+    
+    public String getIdentificacion(){
+        return identificacion;
+    }
+    public String getNombre(){
+        return nombre;
+    }
+    public String getInformacion(){
+        return informacion;
+    }
+    public String getUbicacion(){
+        return ubicacion;
+    }
+    public String getEstado(){
+        return estado;
+    }
 }
