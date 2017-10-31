@@ -17,6 +17,7 @@ import logica.Usuario;
  * @author Alexandra
  */
 public class crearUsuarios extends javax.swing.JFrame {
+
     ControladorUsuarios controladorUsuarios;
     interfazAdministrador interfazAdmin;
 
@@ -266,49 +267,46 @@ public class crearUsuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_radioOperarioActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-          Usuario u = new Usuario();
-       
-       // Validamos los datos
-    if(validarDatos()){ 
-       u.setLogin(nombreUsuario.getText());
-       if(radioGerente.isSelected())
-            u.setTipo("gerente");
-       else if (radioOperario.isSelected())
-           u.setTipo("operario");
-       u.setPassword(contrasenaNuevoUsuario.getText());
-       u.setNombre(nombres.getText());
-       u.setApellido(apellidos.getText());
-       u.setTelefono( Long.parseLong(telefono.getText()));
-       if(radioActivo.isSelected())
-            u.setEstado("activo");
-       else if (radioInactivo.isSelected())
-           u.setEstado("inactivo");
-       
-       boolean seAgrego = controladorUsuarios.agregarUsuario(u);
-    
-       if(seAgrego){
-            Icon m = new ImageIcon(getClass().getResource("/gui/images/adduser.png"));
-            JOptionPane.showMessageDialog(this, "Se agrego el usuario a la base de datos","",JOptionPane.INFORMATION_MESSAGE,m);
-             nombreUsuario.setText("");
-             contrasenaNuevoUsuario.setText("");
-             verificarContrasena.setText("");
-             nombres.setText("");
-             apellidos.setText("");
-             telefono.setText("");
-             radioEstados.clearSelection();
-             radioUsuarios.clearSelection();
+        Usuario u = new Usuario();
 
-       }else{
-           JOptionPane.showMessageDialog(this, "Hubo un error al agregar","",JOptionPane.ERROR_MESSAGE);
-       }
-    }
-       //limpiardatos();
+        // Validamos los datos
+        if (validarDatos()) {
+            u.setLogin(nombreUsuario.getText());
+            if (radioGerente.isSelected()) {
+                u.setTipo("gerente");
+            } else if (radioOperario.isSelected()) {
+                u.setTipo("operario");
+            }
+            u.setPassword(contrasenaNuevoUsuario.getText());
+            u.setNombre(nombres.getText());
+            u.setApellido(apellidos.getText());
+            u.setTelefono(Long.parseLong(telefono.getText()));
+            if (radioActivo.isSelected()) {
+                u.setEstado("activo");
+            } else if (radioInactivo.isSelected()) {
+                u.setEstado("inactivo");
+            }
 
+            boolean seAgrego = controladorUsuarios.agregarUsuario(u);
 
-        
-        
-        
-        
+            if (seAgrego) {
+                Icon m = new ImageIcon(getClass().getResource("/gui/images/adduser.png"));
+                JOptionPane.showMessageDialog(this, "Se agrego el usuario a la base de datos", "", JOptionPane.INFORMATION_MESSAGE, m);
+                nombreUsuario.setText("");
+                contrasenaNuevoUsuario.setText("");
+                verificarContrasena.setText("");
+                nombres.setText("");
+                apellidos.setText("");
+                telefono.setText("");
+                radioEstados.clearSelection();
+                radioUsuarios.clearSelection();
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Hubo un error al agregar", "", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        //limpiardatos();
+
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -318,74 +316,94 @@ public class crearUsuarios extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
- private  boolean isNumeric(String cadena){
-	try {
-		Long.parseLong(cadena);
-		return true;
-	} catch (NumberFormatException nfe){
-		return false;
-	}
-}
+    private boolean isNumeric(String cadena) {
+        try {
+            Long.parseLong(cadena);
+            return true;
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+    }
+
     private boolean validarDatos() {
-     
-    boolean rest=true;
-    if(nombreUsuario.getText().equals("")){
-        nombreUsuario.setBackground(Color.RED);
-        rest=false;
-    }
-    if(!(radioGerente.isSelected() || radioOperario.isSelected())){
-            tipo.setForeground(Color.red);
-            rest=false;
-        }
-    if(contrasenaNuevoUsuario.getText().equals("")){
-        contrasenaNuevoUsuario.setBackground(Color.RED);
-        rest=false;
-    }
-    if(verificarContrasena.getText().equals("")){
-        verificarContrasena.setBackground(Color.RED);
-        rest=false;
-    }
-    if(nombres.getText().equals("")){
-        nombres.setBackground(Color.RED);
-    }
-    if(apellidos.getText().equals("")){
-        apellidos.setBackground(Color.RED);
-        rest=false;
-    }
-    if(telefono.getText().equals("")){
-        telefono.setBackground(Color.RED);
-    }
-     if(!(radioActivo.isSelected() || radioInactivo.isSelected())){
-            estado.setForeground(Color.red);
-            rest=false;
-        }
-      if(controladorUsuarios.existeUsuario(nombreUsuario.getText())){
-            Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
-            JOptionPane.showMessageDialog(this, "El usuario ya existe, digite otro por favor","",JOptionPane.INFORMATION_MESSAGE,p);
+
+        boolean rest = true;
+        if (nombreUsuario.getText().equals("")) {
+            nombreUsuario.setBackground(Color.RED);
             rest = false;
         }
-      if(!isNumeric(telefono.getText())){
-          Icon p = new ImageIcon(getClass().getResource("/gui/images/phone.png"));
-          JOptionPane.showMessageDialog(this, "El telefono debe ser un dato numerico","",JOptionPane.INFORMATION_MESSAGE,p); 
-      }
-      
-        
-        if(!rest){
-             Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
-             JOptionPane.showMessageDialog(this, "Por favor verifique la informacion","",JOptionPane.INFORMATION_MESSAGE,p);
-             nombreUsuario.setBackground(Color.WHITE);
-             tipo.setForeground(Color.BLACK);
-             contrasenaNuevoUsuario.setBackground(Color.WHITE);
-             verificarContrasena.setBackground(Color.WHITE);
-             nombres.setBackground(Color.WHITE);
-             apellidos.setBackground(Color.WHITE);
-             estado.setForeground(Color.BLACK);
-             telefono.setBackground(Color.WHITE);
+        if ((this.sololetras(nombreUsuario.getText())) && (this.sololetras(contrasenaNuevoUsuario.getText()))
+                && (this.sololetras(nombres.getText())) && (this.sololetras(apellidos.getText()))) {
+            Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
+            JOptionPane.showMessageDialog(this, "Campos invalidos", "", JOptionPane.INFORMATION_MESSAGE, p);
+            rest = false;
+        }
+        if (!(radioGerente.isSelected() || radioOperario.isSelected())) {
+            tipo.setForeground(Color.red);
+            rest = false;
+        }
+        if (contrasenaNuevoUsuario.getText().equals("")) {
+            contrasenaNuevoUsuario.setBackground(Color.RED);
+            rest = false;
+        }
+        if (verificarContrasena.getText().equals("")) {
+            verificarContrasena.setBackground(Color.RED);
+            rest = false;
+        }
+        if (nombres.getText().equals("")) {
+            nombres.setBackground(Color.RED);
+        }
+        if (apellidos.getText().equals("")) {
+            apellidos.setBackground(Color.RED);
+            rest = false;
+        }
+        if (telefono.getText().equals("")) {
+            telefono.setBackground(Color.RED);
+        }
+        if (!(radioActivo.isSelected() || radioInactivo.isSelected())) {
+            estado.setForeground(Color.red);
+            rest = false;
+        }
+        if (controladorUsuarios.existeUsuario(nombreUsuario.getText())) {
+            Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
+            JOptionPane.showMessageDialog(this, "El usuario ya existe, digite otro por favor", "", JOptionPane.INFORMATION_MESSAGE, p);
+            rest = false;
+        }
+        if (!isNumeric(telefono.getText())) {
+            Icon p = new ImageIcon(getClass().getResource("/gui/images/phone.png"));
+            JOptionPane.showMessageDialog(this, "El telefono debe ser un dato numerico", "", JOptionPane.INFORMATION_MESSAGE, p);
+        }
+
+        if (!rest) {
+            Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
+            JOptionPane.showMessageDialog(this, "Por favor verifique la informacion", "", JOptionPane.INFORMATION_MESSAGE, p);
+            nombreUsuario.setBackground(Color.WHITE);
+            tipo.setForeground(Color.BLACK);
+            contrasenaNuevoUsuario.setBackground(Color.WHITE);
+            verificarContrasena.setBackground(Color.WHITE);
+            nombres.setBackground(Color.WHITE);
+            apellidos.setBackground(Color.WHITE);
+            estado.setForeground(Color.BLACK);
+            telefono.setBackground(Color.WHITE);
         }
         return rest;
-        
-        
+
     }
+
+    public static boolean sololetras(String prueba) {
+        boolean result = false;
+        String comparacion = "!!#$%&/()=?¡*¨][_:;°¬|@·~½¬{[]}~─µ";
+        for (int i = prueba.length() - 1; i >= 0; i--) {
+            for (int j = comparacion.length() - 1; j >= 0; j--) {
+                if (prueba.charAt(i) == comparacion.charAt(j)) {
+                    result = true;
+                    return result;
+                }
+            }
+        }
+        return result;
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -464,5 +482,4 @@ public class crearUsuarios extends javax.swing.JFrame {
     private javax.swing.JTextField verificarContrasena;
     // End of variables declaration//GEN-END:variables
 
-   
 }

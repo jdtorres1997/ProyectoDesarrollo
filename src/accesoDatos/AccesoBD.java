@@ -18,9 +18,9 @@ public class AccesoBD {
     ResultSet tabla;
 
     public AccesoBD() {
-        url = "jdbc:postgresql://localhost:5432/ProyectoDesarrollo";
-        usuario = "postgres";
-        password = "admin";
+        url = "jdbc:postgresql://pgsql2/1523382";
+        usuario = "1523382";
+        password = "1523382";
     }
 
     public Connection conectar() {
