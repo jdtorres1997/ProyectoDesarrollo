@@ -7,6 +7,8 @@ package gui;
 
 import controlador.ControladorSedes;
 import java.awt.Color;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import logica.Sede;
 
@@ -309,6 +311,12 @@ public class modificarSedes extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
  public boolean validar(){
         boolean rest=true;
+        
+        if(!controladorSede.existeSede(ide.getText())){
+            Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
+            JOptionPane.showMessageDialog(this, "La sede a modificar no existe","",JOptionPane.INFORMATION_MESSAGE,p);
+            rest = false;
+        }
         
         if (ide.getText().equals("")){
              ide.setBackground(Color.red);

@@ -300,7 +300,7 @@ public class crearSedes extends javax.swing.JFrame {
             boolean seAgrego = controladorSedes.agregarSede(s);
 
             if(seAgrego){
-                Icon m = new ImageIcon(getClass().getResource("/gui/cityscape.png"));
+                Icon m = new ImageIcon(getClass().getResource("/gui/images/cityscape.png"));
                 JOptionPane.showMessageDialog(this, "Se agrego la sede a la base de datos","Mensaje",JOptionPane.INFORMATION_MESSAGE,m);
                 id.setText("");
                 nombre.setText("");
@@ -308,7 +308,7 @@ public class crearSedes extends javax.swing.JFrame {
                  ubicacion.setText("");
                  radioEstados.clearSelection();
             }else{
-                Icon p = new ImageIcon(getClass().getResource("/gui/x.png"));
+                Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
                 JOptionPane.showMessageDialog(this, "Hubo un error al agregar sede ","",JOptionPane.INFORMATION_MESSAGE,p);
             }
 
@@ -376,13 +376,13 @@ public class crearSedes extends javax.swing.JFrame {
         }
         
         if(controladorSedes.existeSede(id.getText())){
-            Icon p = new ImageIcon(getClass().getResource("/gui/x.png"));
+            Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
             JOptionPane.showMessageDialog(this, "La sede ya existe, digite otra por favor","",JOptionPane.INFORMATION_MESSAGE,p);
             rest = false;
         }
         
         if(!rest){
-             Icon p = new ImageIcon(getClass().getResource("/gui/x.png"));
+             Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
              JOptionPane.showMessageDialog(this, "Por favor verifique la informacion","",JOptionPane.INFORMATION_MESSAGE,p);
              id.setBackground(Color.WHITE);
              nombre.setBackground(Color.WHITE);

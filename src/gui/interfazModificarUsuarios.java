@@ -45,6 +45,8 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
         radioUsuarios = new javax.swing.ButtonGroup();
         radioEstados = new javax.swing.ButtonGroup();
         jLabel12 = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jInternalFrame1 = new javax.swing.JInternalFrame();
         jLabel1 = new javax.swing.JLabel();
         tipo = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -75,6 +77,21 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel12.setText("Modificar Usuarios");
+
+        jCheckBox1.setText("jCheckBox1");
+
+        jInternalFrame1.setVisible(true);
+
+        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
+        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
+        jInternalFrame1Layout.setHorizontalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jInternalFrame1Layout.setVerticalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -217,11 +234,14 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
                             .addComponent(tipo)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6)
-                            .addComponent(estado))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8)
+                                    .addComponent(estado))))))
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -273,38 +293,36 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(tipo)
-                                .addGap(26, 26, 26)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel5)
-                                .addGap(16, 16, 16)
-                                .addComponent(jLabel6)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(jLabel8)
-                                .addGap(18, 18, 18)
-                                .addComponent(estado))))
+                                .addGap(24, 24, 24)))
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(nombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(jButton2)
                         .addGap(17, 17, 17)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(radioGerente)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(radioGerente)
+                                .addComponent(tipo))
                             .addComponent(radioOperario))
-                        .addGap(7, 7, 7)
+                        .addGap(18, 18, 18)
                         .addComponent(nombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
                         .addGap(10, 10, 10)
-                        .addComponent(telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))
                         .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(radioActivo)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(radioActivo)
+                                .addComponent(estado))
                             .addComponent(radioInactivo))
                         .addGap(7, 7, 7)
                         .addComponent(modificar)))
@@ -334,84 +352,88 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
         // TODO add your handling code here:
        Usuario u = new Usuario();
        
-       // Validamos los datos
-    if (validarDatos()){
-       
-       u.setLogin(nombreUsuario.getText());
-       if(radioGerente.isSelected())
-            u.setTipo("gerente");
-       else if (radioOperario.isSelected())
-           u.setTipo("operario");
-       u.setNombre(nombres.getText());
-       u.setApellido(apellidos.getText());
-       u.setTelefono( Long.parseLong(telefono.getText()));
-       if(radioActivo.isSelected())
-            u.setEstado("activo");
-       else if (radioInactivo.isSelected())
-           u.setEstado("inactivo");
-       
-       boolean seModifico = controladorUsuarios.modificarUsuario(u);
-       
-       if(seModifico){
-           JOptionPane.showMessageDialog(this, "Se modifico  la base de datos");
-            nombreUsuario.setText("");
-             nombres.setText("");            Icon p = new ImageIcon(getClass().getResource("/gui/x.png"));
+       // Validamos que exista el usuario
+        if (controladorUsuarios.existeUsuario(nombreUsuario.getText())){
+            
+            if(validarDatos()){
+                 u.setLogin(nombreUsuario.getText());
+                 if(radioGerente.isSelected())
+                      u.setTipo("gerente");
+                 else if (radioOperario.isSelected())
+                     u.setTipo("operario");
+                 u.setNombre(nombres.getText());
+                 u.setApellido(apellidos.getText());
+                 u.setTelefono( Long.parseLong(telefono.getText()));
+                 if(radioActivo.isSelected())
+                      u.setEstado("activo");
+                 else if (radioInactivo.isSelected())
+                     u.setEstado("inactivo");
 
-             apellidos.setText("");
-             telefono.setText("");
-             radioEstados.clearSelection();
-             radioUsuarios.clearSelection();
-           
-       }else{
-            Icon p = new ImageIcon(getClass().getResource("/gui/x.png"));
-           JOptionPane.showMessageDialog(this, "Hubo un error al modificar","",JOptionPane.INFORMATION_MESSAGE,p);
-       }
-       
-    }  //limpiardatos();
+                 boolean seModifico = controladorUsuarios.modificarUsuario(u);
+
+                 if(seModifico){
+                     JOptionPane.showMessageDialog(this, "Se modifico  la base de datos");
+                      nombreUsuario.setText("");
+                       nombres.setText("");           
+                       apellidos.setText("");
+                       telefono.setText("");
+                       radioEstados.clearSelection();
+                       radioUsuarios.clearSelection();
+
+                 }else{
+                      Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
+                     JOptionPane.showMessageDialog(this, "Hubo un error al modificar","",JOptionPane.INFORMATION_MESSAGE,p);
+                 }
+            }
+
+        }else{
+            Icon p = new ImageIcon(getClass().getResource("/gui/images/wrongUser.png"));
+            JOptionPane.showMessageDialog(this, "El usuario no existe, digite otro por favor","",JOptionPane.INFORMATION_MESSAGE,p);
+              
+        }
 
     }//GEN-LAST:event_modificarActionPerformed
   private  boolean isNumeric(String cadena){
 	try {
-		Integer.parseInt(cadena);
+		Long.parseLong(cadena);
 		return true;
 	} catch (NumberFormatException nfe){
 		return false;
 	}
 }
     private boolean validarDatos() {
-     boolean rest=true;
-    if(nombreUsuario.getText().equals("")){
-        nombreUsuario.setBackground(Color.RED);
-        rest=false;
-    }
-    if(!(radioGerente.isSelected() || radioOperario.isSelected())){
+        boolean rest=true;
+        if(nombreUsuario.getText().equals("")){
+            nombreUsuario.setBackground(Color.RED);
+            rest=false;
+        }
+        if(!(radioGerente.isSelected() || radioOperario.isSelected())){
             tipo.setBackground(Color.red);
             rest=false;
         }
-  
-   
-    if(nombres.getText().equals("")){
-        nombres.setBackground(Color.RED);
-    }
-    if(apellidos.getText().equals("")){
-        apellidos.setBackground(Color.RED);
-        rest=false;
-    }
-    if(telefono.getText().equals("")){
-        telefono.setBackground(Color.RED);
-    }
-     if(!(radioActivo.isSelected() || radioInactivo.isSelected())){
+
+        if(nombres.getText().equals("")){
+            nombres.setBackground(Color.RED);
+        }
+        if(apellidos.getText().equals("")){
+            apellidos.setBackground(Color.RED);
+            rest=false;
+        }
+        if(telefono.getText().equals("")){
+            telefono.setBackground(Color.RED);
+        }
+        if(!(radioActivo.isSelected() || radioInactivo.isSelected())){
             estado.setBackground(Color.red);
             rest=false;
         }
-     if(!isNumeric(telefono.getText())){
-         Icon p = new ImageIcon(getClass().getResource("/gui/phone.png"));
-       JOptionPane.showMessageDialog(this, "El telefono debe ser un dato numerico","",JOptionPane.INFORMATION_MESSAGE,p);
-           
-      }
+        if(!isNumeric(telefono.getText())){
+            Icon p = new ImageIcon(getClass().getResource("/gui/images/phone.png"));
+            JOptionPane.showMessageDialog(this, "El telefono debe ser un dato numerico","",JOptionPane.INFORMATION_MESSAGE,p);
+            rest=false;
+        }
       
         if(!rest){
-             Icon p = new ImageIcon(getClass().getResource("/gui/x.png"));
+             Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
              JOptionPane.showMessageDialog(this, "Por favor verifique la informacion","",JOptionPane.INFORMATION_MESSAGE,p);
              nombreUsuario.setBackground(Color.WHITE);
              tipo.setForeground(Color.BLACK);
@@ -429,6 +451,7 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
 
        if(controladorUsuarios.existeUsuario(nombre)){
               Usuario u = new Usuario();
+        
         u = controladorUsuarios.consultarUsuario(nombre);  
         nombres.setText(u.getNombre());
         apellidos.setText(u.getApellido());
@@ -444,7 +467,7 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
          
        }
       else {
-            Icon p = new ImageIcon(getClass().getResource("/gui/wrongUser.png"));
+            Icon p = new ImageIcon(getClass().getResource("/gui/images/wrongUser.png"));
             JOptionPane.showMessageDialog(this, "El usuario no existe, digite otro por favor","",JOptionPane.INFORMATION_MESSAGE,p);
               
       }
@@ -501,6 +524,8 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
     private javax.swing.JLabel identificadorUsuario;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

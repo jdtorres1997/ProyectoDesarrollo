@@ -287,7 +287,7 @@ public class crearUsuarios extends javax.swing.JFrame {
        boolean seAgrego = controladorUsuarios.agregarUsuario(u);
     
        if(seAgrego){
-            Icon m = new ImageIcon(getClass().getResource("/gui/adduser.png"));
+            Icon m = new ImageIcon(getClass().getResource("/gui/images/adduser.png"));
             JOptionPane.showMessageDialog(this, "Se agrego el usuario a la base de datos","",JOptionPane.INFORMATION_MESSAGE,m);
              nombreUsuario.setText("");
              contrasenaNuevoUsuario.setText("");
@@ -360,18 +360,18 @@ public class crearUsuarios extends javax.swing.JFrame {
             rest=false;
         }
       if(controladorUsuarios.existeUsuario(nombreUsuario.getText())){
-            Icon p = new ImageIcon(getClass().getResource("/gui/x.png"));
+            Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
             JOptionPane.showMessageDialog(this, "El usuario ya existe, digite otro por favor","",JOptionPane.INFORMATION_MESSAGE,p);
             rest = false;
         }
       if(!isNumeric(telefono.getText())){
-          Icon p = new ImageIcon(getClass().getResource("/gui/phone.png"));
+          Icon p = new ImageIcon(getClass().getResource("/gui/images/phone.png"));
           JOptionPane.showMessageDialog(this, "El telefono debe ser un dato numerico","",JOptionPane.INFORMATION_MESSAGE,p); 
       }
       
         
         if(!rest){
-             Icon p = new ImageIcon(getClass().getResource("/gui/x.png"));
+             Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
              JOptionPane.showMessageDialog(this, "Por favor verifique la informacion","",JOptionPane.INFORMATION_MESSAGE,p);
              nombreUsuario.setBackground(Color.WHITE);
              tipo.setForeground(Color.BLACK);

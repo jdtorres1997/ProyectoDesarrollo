@@ -29,7 +29,8 @@ public class interfazAdministrador extends javax.swing.JFrame {
     public interfazAdministrador(Usuario u) {
         initComponents();
          this.getContentPane().setBackground(Color.WHITE);
-
+       this.setLocationRelativeTo(null);
+        this.setResizable(false);
         usuarioActual = u; 
         identificadorUsuario.setText(usuarioActual.getNombre()+" "+usuarioActual.getApellido());
     
