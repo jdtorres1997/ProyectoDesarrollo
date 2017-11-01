@@ -289,12 +289,13 @@ public class modificarSedes extends javax.swing.JFrame {
         boolean seModifico = controladorSede.modificarSede(s);
         
         if(seModifico){
-           JOptionPane.showMessageDialog(this, "Se modifico la sede en la base de datos");
+            Icon m = new ImageIcon(getClass().getResource("/gui/images/cityscape.png"));
+                JOptionPane.showMessageDialog(this, "Se modifico la sede en la base de datos","Mensaje",JOptionPane.INFORMATION_MESSAGE,m);
                 ide.setText("");
                 nombre.setText("");
                 informacion.setText("");
-                 ubicacion.setText("");
-                  estados.clearSelection();
+                ubicacion.setText("");
+                estados.clearSelection();
        }else{
            JOptionPane.showMessageDialog(this, "Hubo un error al modificarla sede");
         }
@@ -317,7 +318,20 @@ public class modificarSedes extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "La sede a modificar no existe","",JOptionPane.INFORMATION_MESSAGE,p);
             rest = false;
         }
-        
+          if( sololetras(nombre.getText()) || sololetras(informacion.getText())
+                 || sololetras(ubicacion.getText() )){
+             
+               Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
+                JOptionPane.showMessageDialog(this, "Los espacios no deben tener caracteres especiales", "", JOptionPane.INFORMATION_MESSAGE, p);
+                 ide.setText("");
+                 nombre.setText("");
+                informacion.setText("");
+                ubicacion.setText("");
+                 estados.clearSelection();
+                rest=false;
+                return rest;
+            
+         }
         if (ide.getText().equals("")){
              ide.setBackground(Color.red);
              rest=false;
@@ -351,6 +365,20 @@ public class modificarSedes extends javax.swing.JFrame {
         return rest;
         
     }
+  public static boolean sololetras(String prueba) {
+        boolean result = false;
+        String comparacion = "!!$%&/()=?¡*¨][_:;°¬|@·~½¬{[]}~µ";
+        for (int i = prueba.length() - 1; i >= 0; i--) {
+            for (int j = comparacion.length() - 1; j >= 0; j--) {
+                if (prueba.charAt(i) == comparacion.charAt(j)) {
+                    result = true;
+                    return result;
+                }
+            }
+        }
+        return result;
+    }
+ 
     /**
      * @param args the command line arguments
      */

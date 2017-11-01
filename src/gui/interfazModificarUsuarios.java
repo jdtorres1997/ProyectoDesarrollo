@@ -389,6 +389,12 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
         }else{
             Icon p = new ImageIcon(getClass().getResource("/gui/images/wrongUser.png"));
             JOptionPane.showMessageDialog(this, "El usuario no existe, digite otro por favor","",JOptionPane.INFORMATION_MESSAGE,p);
+                nombreUsuario.setText("");
+                nombres.setText("");
+                apellidos.setText("");
+                telefono.setText("");      
+                radioEstados.clearSelection();
+                radioUsuarios.clearSelection();
               
         }
 
@@ -401,6 +407,19 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
 		return false;
 	}
 }
+    public static boolean sololetras(String prueba) {
+        boolean result = false;
+        String comparacion = "!!#$%&/()=?¡*¨][_:;°¬|@·~½¬{[]}~─µ";
+        for (int i = prueba.length() - 1; i >= 0; i--) {
+            for (int j = comparacion.length() - 1; j >= 0; j--) {
+                if (prueba.charAt(i) == comparacion.charAt(j)) {
+                    result = true;
+                    return result;
+                }
+            }
+        }
+        return result;
+    }
     private boolean validarDatos() {
         boolean rest=true;
         if(nombreUsuario.getText().equals("")){
@@ -415,6 +434,20 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
         if(!(radioGerente.isSelected() || radioOperario.isSelected())){
             tipo.setBackground(Color.red);
             rest=false;
+        }
+         if ((this.sololetras(nombres.getText())) || (this.sololetras(apellidos.getText())))
+                {
+            Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
+            JOptionPane.showMessageDialog(this, "Los espacios no deben tener caracteres especiales", "", JOptionPane.INFORMATION_MESSAGE, p);
+                nombreUsuario.setText("");
+                nombres.setText("");
+                apellidos.setText("");
+                telefono.setText("");      
+                radioEstados.clearSelection();
+                radioUsuarios.clearSelection();
+            
+            rest = false;
+            return rest;
         }
 
         if(nombres.getText().equals("")){

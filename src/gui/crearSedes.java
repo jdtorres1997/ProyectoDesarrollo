@@ -359,6 +359,20 @@ public class crearSedes extends javax.swing.JFrame {
             rest = false;
             return rest;
         }
+         if( sololetras(nombre.getText()) || sololetras(informacion.getText())
+                 || sololetras(ubicacion.getText() )){
+             
+               Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
+                JOptionPane.showMessageDialog(this, "Los espacios no deben tener caracteres especiales", "", JOptionPane.INFORMATION_MESSAGE, p);
+                 id.setText("");
+                 nombre.setText("");
+                informacion.setText("");
+                ubicacion.setText("");
+                 radioEstados.clearSelection();
+                rest=false;
+                return rest;
+            
+         }
         
         if (id.getText().equals("")){
              id.setBackground(Color.red);
@@ -385,6 +399,12 @@ public class crearSedes extends javax.swing.JFrame {
         if(controladorSedes.existeSede(id.getText())){
             Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
             JOptionPane.showMessageDialog(this, "La sede ya existe, digite otra por favor","",JOptionPane.INFORMATION_MESSAGE,p);
+             id.setText("");
+             nombre.setText("");
+             informacion.setText("");
+             ubicacion.setText("");
+             radioEstados.clearSelection();
+            
             rest = false;
             return rest;
         }
@@ -397,6 +417,11 @@ public class crearSedes extends javax.swing.JFrame {
              informacion.setBackground(Color.WHITE);
              ubicacion.setBackground(Color.WHITE);
              estado.setForeground(Color.BLACK);
+              id.setText("");
+              nombre.setText("");
+              informacion.setText("");
+              ubicacion.setText("");
+              radioEstados.clearSelection();
         }
         return rest;
         
@@ -404,7 +429,7 @@ public class crearSedes extends javax.swing.JFrame {
     
     public static boolean sololetras(String prueba) {
         boolean result = false;
-        String comparacion = "!!#$%&/()=?¡*¨][_:;°¬|@·~½¬{[]}~─µ";
+        String comparacion = "!!$%&/()=?¡*¨][_:;°¬|@·~½¬{[]}~µ";
         for (int i = prueba.length() - 1; i >= 0; i--) {
             for (int j = comparacion.length() - 1; j >= 0; j--) {
                 if (prueba.charAt(i) == comparacion.charAt(j)) {

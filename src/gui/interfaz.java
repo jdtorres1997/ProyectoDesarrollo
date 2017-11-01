@@ -2,6 +2,8 @@ package gui;
 
 import controlador.ControladorUsuarios;
 import java.awt.Color;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import logica.*;
@@ -45,7 +47,6 @@ public class interfaz extends javax.swing.JFrame {
     private void initComponents() {
 
         jInternalFrame1 = new javax.swing.JInternalFrame();
-        tipos = new javax.swing.ButtonGroup();
         panelFondo = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -56,9 +57,6 @@ public class interfaz extends javax.swing.JFrame {
         password = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        selectOper = new javax.swing.JRadioButton();
-        selectGerente = new javax.swing.JRadioButton();
-        selectAdmin = new javax.swing.JRadioButton();
 
         jInternalFrame1.setVisible(true);
 
@@ -101,112 +99,76 @@ public class interfaz extends javax.swing.JFrame {
             }
         });
 
+        password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordActionPerformed(evt);
+            }
+        });
+
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Usuario");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Contraseña");
 
-        selectOper.setBackground(new java.awt.Color(229, 228, 227));
-        tipos.add(selectOper);
-        selectOper.setText("operario");
-        selectOper.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selectOperActionPerformed(evt);
-            }
-        });
-
-        selectGerente.setBackground(new java.awt.Color(229, 228, 227));
-        tipos.add(selectGerente);
-        selectGerente.setText("gerente");
-        selectGerente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 204)));
-        selectGerente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selectGerenteActionPerformed(evt);
-            }
-        });
-
-        selectAdmin.setBackground(new java.awt.Color(229, 228, 227));
-        tipos.add(selectAdmin);
-        selectAdmin.setText("administrador");
-        selectAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selectAdminActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout panelFondoLayout = new javax.swing.GroupLayout(panelFondo);
         panelFondo.setLayout(panelFondoLayout);
         panelFondoLayout.setHorizontalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelFondoLayout.createSequentialGroup()
-                .addGap(200, 200, 200)
-                .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(panelFondoLayout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addComponent(jLabel3)
-                .addGap(32, 32, 32)
-                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(panelFondoLayout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addComponent(selectAdmin)
-                .addGap(39, 39, 39)
-                .addComponent(selectOper))
-            .addGroup(panelFondoLayout.createSequentialGroup()
-                .addGap(320, 320, 320)
-                .addComponent(selectGerente))
-            .addGroup(panelFondoLayout.createSequentialGroup()
-                .addGap(360, 360, 360)
-                .addComponent(jLabel5))
-            .addGroup(panelFondoLayout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(panelFondoLayout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addComponent(jLabel2))
-            .addGroup(panelFondoLayout.createSequentialGroup()
-                .addGap(200, 200, 200)
-                .addComponent(botonEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jLabel7)
+                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelFondoLayout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelFondoLayout.createSequentialGroup()
+                        .addGap(360, 360, 360)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelFondoLayout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(jLabel3))
+                    .addGroup(panelFondoLayout.createSequentialGroup()
+                        .addGap(200, 200, 200)
+                        .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelFondoLayout.createSequentialGroup()
+                        .addGap(200, 200, 200)
+                        .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelFondoLayout.createSequentialGroup()
+                        .addGap(210, 210, 210)
+                        .addComponent(botonEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelFondoLayout.createSequentialGroup()
+                        .addGap(360, 360, 360)
+                        .addComponent(jLabel5))
+                    .addGroup(panelFondoLayout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(jLabel2)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
         );
         panelFondoLayout.setVerticalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelFondoLayout.createSequentialGroup()
-                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addGap(280, 280, 280)
-                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addGap(8, 8, 8)
-                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelFondoLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel3))
-                            .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(selectAdmin)
-                            .addComponent(selectOper)))
-                    .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addGap(370, 370, 370)
-                        .addComponent(selectGerente))
-                    .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addGap(320, 320, 320)
-                        .addComponent(jLabel5))
-                    .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addGap(290, 290, 290)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addGap(400, 400, 400)
-                        .addComponent(botonEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGap(90, 90, 90)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3))
+            .addGroup(panelFondoLayout.createSequentialGroup()
+                .addGap(280, 280, 280)
+                .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelFondoLayout.createSequentialGroup()
+                .addGap(320, 320, 320)
+                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelFondoLayout.createSequentialGroup()
+                .addGap(390, 390, 390)
+                .addComponent(botonEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelFondoLayout.createSequentialGroup()
+                .addGap(320, 320, 320)
+                .addComponent(jLabel5))
+            .addGroup(panelFondoLayout.createSequentialGroup()
+                .addGap(290, 290, 290)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         botonEntrar.getAccessibleContext().setAccessibleName("botonEntrar");
@@ -217,7 +179,7 @@ public class interfaz extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -226,18 +188,6 @@ public class interfaz extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void selectAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectAdminActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_selectAdminActionPerformed
-
-    private void selectGerenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectGerenteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_selectGerenteActionPerformed
-
-    private void selectOperActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectOperActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_selectOperActionPerformed
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         // TODO add your handling code here:
@@ -248,9 +198,7 @@ public class interfaz extends javax.swing.JFrame {
 
         String nombre = login.getText();
         String contraseña = new String(password.getText());
-        String tipoO = selectOper.getText();
-        String tipoG = selectGerente.getText();
-        String tipoA = selectAdmin.getText();
+      
 
         Usuario u = new Usuario();
 
@@ -259,8 +207,7 @@ public class interfaz extends javax.swing.JFrame {
         String usuarioCorrecto = u.getLogin();
         String contraseñaCorrecta = u.getPassword();
 
-        if (nombre.equals(usuarioCorrecto) && contraseña.equals(contraseñaCorrecta) && (
-            u.getTipo().equals(tipoO) && selectOper.isSelected() || u.getTipo().equals(tipoA) && selectAdmin.isSelected() || u.getTipo().equals(tipoG)&& selectGerente.isSelected()) ) { //Valida que el usuario y contraseña sean correctos.
+        if (nombre.equals(usuarioCorrecto) && contraseña.equals(contraseñaCorrecta)) { //Valida que el usuario y contraseña sean correctos.
         if (u.getEstado().equals("activo")) { //valida que el usuario ingresado se encuentra activo.
             if (u.getTipo().equals("administrador") ) {
 
@@ -279,7 +226,10 @@ public class interfaz extends javax.swing.JFrame {
             }
             dispose();
         } else {
-            JOptionPane.showMessageDialog(null, "Usuario no activo");
+            
+              Icon p = new ImageIcon(getClass().getResource("/gui/images/user (3).png"));
+            JOptionPane.showMessageDialog(this, "El usuario no  esta activo","No puede ingresar",JOptionPane.INFORMATION_MESSAGE,p);
+            
             login.setText(null);
 
         }
@@ -291,6 +241,10 @@ public class interfaz extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_botonEntrarActionPerformed
+
+    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -339,9 +293,5 @@ public class interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField login;
     private javax.swing.JPanel panelFondo;
     private javax.swing.JPasswordField password;
-    private javax.swing.JRadioButton selectAdmin;
-    private javax.swing.JRadioButton selectGerente;
-    private javax.swing.JRadioButton selectOper;
-    private javax.swing.ButtonGroup tipos;
     // End of variables declaration//GEN-END:variables
 }
