@@ -328,14 +328,21 @@ public class crearUsuarios extends javax.swing.JFrame {
     private boolean validarDatos() {
 
         boolean rest = true;
+        
         if (nombreUsuario.getText().equals("")) {
             nombreUsuario.setBackground(Color.RED);
             rest = false;
         }
-        if ((this.sololetras(nombreUsuario.getText())) && (this.sololetras(contrasenaNuevoUsuario.getText()))
-                && (this.sololetras(nombres.getText())) && (this.sololetras(apellidos.getText()))) {
+        if ((this.sololetras(nombreUsuario.getText())) || (this.sololetras(contrasenaNuevoUsuario.getText()))
+                || (this.sololetras(nombres.getText())) || (this.sololetras(apellidos.getText()))) {
             Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
-            JOptionPane.showMessageDialog(this, "Campos invalidos", "", JOptionPane.INFORMATION_MESSAGE, p);
+            JOptionPane.showMessageDialog(this, "Nombre de usuario inválido", "", JOptionPane.INFORMATION_MESSAGE, p);
+            rest = false;
+            return rest;
+        }
+        if(!(contrasenaNuevoUsuario.getText().equals(verificarContrasena.getText()))){
+            contrasenaNuevoUsuario.setBackground(Color.RED);
+            verificarContrasena.setBackground(Color.red);
             rest = false;
         }
         if (!(radioGerente.isSelected() || radioOperario.isSelected())) {
@@ -368,12 +375,9 @@ public class crearUsuarios extends javax.swing.JFrame {
             Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
             JOptionPane.showMessageDialog(this, "El usuario ya existe, digite otro por favor", "", JOptionPane.INFORMATION_MESSAGE, p);
             rest = false;
+            return rest;
         }
-        if (!isNumeric(telefono.getText())) {
-            Icon p = new ImageIcon(getClass().getResource("/gui/images/phone.png"));
-            JOptionPane.showMessageDialog(this, "El telefono debe ser un dato numerico", "", JOptionPane.INFORMATION_MESSAGE, p);
-        }
-
+        
         if (!rest) {
             Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
             JOptionPane.showMessageDialog(this, "Por favor verifique la informacion", "", JOptionPane.INFORMATION_MESSAGE, p);
@@ -385,7 +389,17 @@ public class crearUsuarios extends javax.swing.JFrame {
             apellidos.setBackground(Color.WHITE);
             estado.setForeground(Color.BLACK);
             telefono.setBackground(Color.WHITE);
+            return rest;
         }
+        
+        if (!isNumeric(telefono.getText())) {
+            Icon p = new ImageIcon(getClass().getResource("/gui/images/phone.png"));
+            JOptionPane.showMessageDialog(this, "El telefono debe ser un dato numerico", "", JOptionPane.INFORMATION_MESSAGE, p);
+            rest = false;
+            return rest;
+        }
+
+        
         return rest;
 
     }

@@ -407,6 +407,11 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
             nombreUsuario.setBackground(Color.RED);
             rest=false;
         }
+        if(nombreUsuario.getText().equals(("admin"))){
+            JOptionPane.showMessageDialog(this, "No se puede inactivar","",JOptionPane.INFORMATION_MESSAGE);
+            rest=false;
+            return rest;
+        }
         if(!(radioGerente.isSelected() || radioOperario.isSelected())){
             tipo.setBackground(Color.red);
             rest=false;
@@ -414,6 +419,7 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
 
         if(nombres.getText().equals("")){
             nombres.setBackground(Color.RED);
+            rest=false;
         }
         if(apellidos.getText().equals("")){
             apellidos.setBackground(Color.RED);
@@ -421,17 +427,12 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
         }
         if(telefono.getText().equals("")){
             telefono.setBackground(Color.RED);
+            rest=false;
         }
         if(!(radioActivo.isSelected() || radioInactivo.isSelected())){
             estado.setBackground(Color.red);
             rest=false;
         }
-        if(!isNumeric(telefono.getText())){
-            Icon p = new ImageIcon(getClass().getResource("/gui/images/phone.png"));
-            JOptionPane.showMessageDialog(this, "El telefono debe ser un dato numerico","",JOptionPane.INFORMATION_MESSAGE,p);
-            rest=false;
-        }
-      
         if(!rest){
              Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
              JOptionPane.showMessageDialog(this, "Por favor verifique la informacion","",JOptionPane.INFORMATION_MESSAGE,p);
@@ -441,7 +442,16 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
              apellidos.setBackground(Color.WHITE);
              estado.setForeground(Color.BLACK);
              telefono.setBackground(Color.WHITE);
+             return rest;
         }
+        if(!isNumeric(telefono.getText())){
+            Icon p = new ImageIcon(getClass().getResource("/gui/images/phone.png"));
+            JOptionPane.showMessageDialog(this, "El telefono debe ser un dato numerico y no estar en blanco","",JOptionPane.INFORMATION_MESSAGE,p);
+            rest=false;
+            return rest;
+        }
+      
+        
         return rest;
         
         
