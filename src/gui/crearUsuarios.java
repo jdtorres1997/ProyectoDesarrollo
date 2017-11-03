@@ -65,7 +65,6 @@ public class crearUsuarios extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         nombreUsuario = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -81,6 +80,7 @@ public class crearUsuarios extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -92,30 +92,30 @@ public class crearUsuarios extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tipo.setText("Tipo de Usuario");
-        jPanel2.add(tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
+        jPanel2.add(tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, -1, -1));
 
         jLabel2.setText("Contraseña");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, -1, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, -1, -1));
 
         jLabel3.setText("Verificar Contraseña");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, -1, -1));
 
         jLabel4.setText("Nombre completos");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
 
         jLabel5.setText("Apellido Completos");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, -1, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, -1, -1));
 
         jLabel6.setText("Telefono");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, -1, -1));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
 
         estado.setText("Estados");
-        jPanel2.add(estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, -1, -1));
-        jPanel2.add(contrasenaNuevoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 139, -1));
-        jPanel2.add(verificarContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 139, -1));
-        jPanel2.add(nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, 139, -1));
-        jPanel2.add(apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, 138, -1));
-        jPanel2.add(telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 138, -1));
+        jPanel2.add(estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, -1, -1));
+        jPanel2.add(contrasenaNuevoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, 139, -1));
+        jPanel2.add(verificarContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 139, -1));
+        jPanel2.add(nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, 139, -1));
+        jPanel2.add(apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 138, -1));
+        jPanel2.add(telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 138, -1));
 
         radioEstados.add(radioInactivo);
         radioInactivo.setText("Inactivo");
@@ -124,11 +124,11 @@ public class crearUsuarios extends javax.swing.JFrame {
                 radioInactivoActionPerformed(evt);
             }
         });
-        jPanel2.add(radioInactivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 263, -1, -1));
+        jPanel2.add(radioInactivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, -1, -1));
 
         radioEstados.add(radioActivo);
         radioActivo.setText("Activo");
-        jPanel2.add(radioActivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(281, 263, -1, -1));
+        jPanel2.add(radioActivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, -1, -1));
 
         radioUsuarios.add(radioGerente);
         radioGerente.setText("Gerente");
@@ -137,7 +137,7 @@ public class crearUsuarios extends javax.swing.JFrame {
                 radioGerenteActionPerformed(evt);
             }
         });
-        jPanel2.add(radioGerente, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, -1, -1));
+        jPanel2.add(radioGerente, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, -1, -1));
 
         radioUsuarios.add(radioOperario);
         radioOperario.setText("Operario");
@@ -146,7 +146,7 @@ public class crearUsuarios extends javax.swing.JFrame {
                 radioOperarioActionPerformed(evt);
             }
         });
-        jPanel2.add(radioOperario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 72, -1));
+        jPanel2.add(radioOperario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 72, -1));
 
         jButton1.setText("Crear Usuario");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -154,14 +154,11 @@ public class crearUsuarios extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 308, 120, -1));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, 120, -1));
 
         jLabel7.setText("Nombre de Usuario");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 130, -1));
-        jPanel2.add(nombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 139, -1));
-
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/a (2).png"))); // NOI18N
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 110, 280));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 130, -1));
+        jPanel2.add(nombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 139, -1));
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 346, 60, 60));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/xb.png"))); // NOI18N
@@ -214,9 +211,9 @@ public class crearUsuarios extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 234, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 230, Short.MAX_VALUE)
                 .addComponent(jButton2)
-                .addGap(46, 46, 46))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,25 +226,27 @@ public class crearUsuarios extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, -1));
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, -1));
 
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/xc.png"))); // NOI18N
         jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 346, 60, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/foto.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 120, 140));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 425, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -486,6 +485,7 @@ public class crearUsuarios extends javax.swing.JFrame {
     private javax.swing.JLabel estado;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -505,7 +505,6 @@ public class crearUsuarios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
