@@ -45,77 +45,85 @@ public class crearUsuarios extends javax.swing.JFrame {
         radioEstados = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jPanel2 = new javax.swing.JPanel();
-        tipo = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        estado = new javax.swing.JLabel();
-        contrasenaNuevoUsuario = new javax.swing.JTextField();
-        verificarContrasena = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         nombres = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        estado = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        radioActivo = new javax.swing.JRadioButton();
+        radioInactivo = new javax.swing.JRadioButton();
         apellidos = new javax.swing.JTextField();
         telefono = new javax.swing.JTextField();
-        radioInactivo = new javax.swing.JRadioButton();
-        radioActivo = new javax.swing.JRadioButton();
         radioGerente = new javax.swing.JRadioButton();
-        radioOperario = new javax.swing.JRadioButton();
+        contrasenaNuevoUsuario = new javax.swing.JTextField();
+        verificarContrasena = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
+        radioOperario = new javax.swing.JRadioButton();
         nombreUsuario = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel21 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jLabel22 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        tipo = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        identificadorUsuario = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(490, 440));
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        tipo.setText("Tipo de Usuario");
-        jPanel2.add(tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, -1, -1));
-
-        jLabel2.setText("Contraseña");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, -1, -1));
-
-        jLabel3.setText("Verificar Contraseña");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, -1, -1));
-
-        jLabel4.setText("Nombre completos");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
-
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("Apellido Completos");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, -1, -1));
 
-        jLabel6.setText("Telefono");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel3.setText("Verificar Contraseña");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, -1, -1));
 
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/xc.png"))); // NOI18N
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 380, 60, 70));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel2.setText("Contraseña");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, -1, -1));
+        getContentPane().add(nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 139, -1));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setText("Nombre completos");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, -1, -1));
+
+        estado.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         estado.setText("Estados");
-        jPanel2.add(estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, -1, -1));
-        jPanel2.add(contrasenaNuevoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, 139, -1));
-        jPanel2.add(verificarContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 139, -1));
-        jPanel2.add(nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, 139, -1));
-        jPanel2.add(apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 138, -1));
-        jPanel2.add(telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 138, -1));
+        getContentPane().add(estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel6.setText("Telefono");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, -1, -1));
+
+        radioEstados.add(radioActivo);
+        radioActivo.setText("Activo");
+        getContentPane().add(radioActivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, -1, -1));
 
         radioEstados.add(radioInactivo);
         radioInactivo.setText("Inactivo");
@@ -124,11 +132,9 @@ public class crearUsuarios extends javax.swing.JFrame {
                 radioInactivoActionPerformed(evt);
             }
         });
-        jPanel2.add(radioInactivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, -1, -1));
-
-        radioEstados.add(radioActivo);
-        radioActivo.setText("Activo");
-        jPanel2.add(radioActivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, -1, -1));
+        getContentPane().add(radioInactivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, -1, -1));
+        getContentPane().add(apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, 138, -1));
+        getContentPane().add(telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 280, 138, -1));
 
         radioUsuarios.add(radioGerente);
         radioGerente.setText("Gerente");
@@ -137,7 +143,23 @@ public class crearUsuarios extends javax.swing.JFrame {
                 radioGerenteActionPerformed(evt);
             }
         });
-        jPanel2.add(radioGerente, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, -1, -1));
+        getContentPane().add(radioGerente, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, -1, -1));
+
+        contrasenaNuevoUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                contrasenaNuevoUsuarioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(contrasenaNuevoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 139, -1));
+        getContentPane().add(verificarContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, 139, -1));
+
+        jButton1.setText("Crear Usuario");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 350, 120, -1));
 
         radioUsuarios.add(radioOperario);
         radioOperario.setText("Operario");
@@ -146,55 +168,64 @@ public class crearUsuarios extends javax.swing.JFrame {
                 radioOperarioActionPerformed(evt);
             }
         });
-        jPanel2.add(radioOperario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 72, -1));
+        getContentPane().add(radioOperario, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 72, -1));
+        getContentPane().add(nombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 139, -1));
 
-        jButton1.setText("Crear Usuario");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, 120, -1));
-
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel7.setText("Nombre de Usuario");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 130, -1));
-        jPanel2.add(nombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 139, -1));
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 346, 60, 60));
-
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/xb.png"))); // NOI18N
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 336, 60, -1));
-
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/xc.png"))); // NOI18N
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 60, 60));
-
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/xd.png"))); // NOI18N
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 336, 60, -1));
-
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/xe.png"))); // NOI18N
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 336, 70, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 130, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 60, 60));
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/xf.png"))); // NOI18N
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 346, 60, -1));
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 60, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/polaroid (1).png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 120, 140));
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/xd.png"))); // NOI18N
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 60, -1));
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/xg.png"))); // NOI18N
-        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 336, -1, 70));
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, 60, 70));
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/xe.png"))); // NOI18N
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, 70, -1));
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/xh.png"))); // NOI18N
-        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 346, 60, -1));
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 380, 60, -1));
 
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/xt.png"))); // NOI18N
-        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 346, 60, 60));
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/xb.png"))); // NOI18N
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 380, 60, -1));
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/xxa.png"))); // NOI18N
-        jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 336, 60, -1));
-        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 346, -1, 70));
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, 60, -1));
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 102));
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/xc.png"))); // NOI18N
+        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, 60, -1));
+
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/xt.png"))); // NOI18N
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 380, 60, 70));
+
+        tipo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        tipo.setText("Tipo de Usuario");
+        getContentPane().add(tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel8.setText("Foto");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
+
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/xb.png"))); // NOI18N
+        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 60, -1));
+
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setForeground(new java.awt.Color(255, 204, 255));
 
-        jLabel21.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel21.setText("Crear Usuario");
+        identificadorUsuario.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel20.setText("Creación de Usuario");
 
         jButton2.setBackground(new java.awt.Color(255, 255, 102));
         jButton2.setText("Atras");
@@ -209,46 +240,33 @@ public class crearUsuarios extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 230, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(162, 162, 162)
+                        .addComponent(identificadorUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 71, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel21)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton2)
+                    .addComponent(jLabel20)
+                    .addComponent(identificadorUsuario))
+                .addGap(22, 22, 22))
         );
 
-        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 40));
 
-        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/xc.png"))); // NOI18N
-        jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 346, 60, -1));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/foto.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 120, 140));
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 425, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/blueee.jpg"))); // NOI18N
+        jLabel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 470, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -291,17 +309,7 @@ public class crearUsuarios extends javax.swing.JFrame {
             if (seAgrego) {
                 Icon m = new ImageIcon(getClass().getResource("/gui/images/adduser.png"));
                 JOptionPane.showMessageDialog(this, "Se agrego el usuario a la base de datos", "", JOptionPane.INFORMATION_MESSAGE, m);
-                nombreUsuario.setText("");
-                contrasenaNuevoUsuario.setText("");
-                verificarContrasena.setText("");
-                nombres.setText("");
-                apellidos.setText("");
-                telefono.setText("");
-                telefono.setBackground(Color.WHITE);
-                contrasenaNuevoUsuario.setBackground(Color.WHITE);
-                verificarContrasena.setBackground(Color.WHITE);
-                radioEstados.clearSelection();
-                radioUsuarios.clearSelection();
+                 limpiar();
 
             } else {
                 JOptionPane.showMessageDialog(this, "Hubo un error al agregar", "", JOptionPane.ERROR_MESSAGE);
@@ -309,15 +317,16 @@ public class crearUsuarios extends javax.swing.JFrame {
         }
         //limpiardatos();
 
-        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         interfazAdmin.setVisible(true);
         this.dispose();
-
-        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void contrasenaNuevoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contrasenaNuevoUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_contrasenaNuevoUsuarioActionPerformed
     private boolean isNumeric(String cadena) {
         try {
             Long.parseLong(cadena);
@@ -339,18 +348,8 @@ public class crearUsuarios extends javax.swing.JFrame {
                 || (this.sololetras(nombres.getText())) || (this.sololetras(apellidos.getText()))) {
             Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
             JOptionPane.showMessageDialog(this, "Nombre de usuario inválido", "", JOptionPane.INFORMATION_MESSAGE, p);
-             nombreUsuario.setText("");
-                contrasenaNuevoUsuario.setText("");
-                verificarContrasena.setText("");
-                nombres.setText("");
-                apellidos.setText("");
-                telefono.setText("");
-                contrasenaNuevoUsuario.setBackground(Color.WHITE);
-                verificarContrasena.setBackground(Color.WHITE);
-                
-                radioEstados.clearSelection();
-                radioUsuarios.clearSelection();
-            
+           limpiar();
+           
             rest = false;
             return rest;
         }
@@ -388,17 +387,7 @@ public class crearUsuarios extends javax.swing.JFrame {
         if (controladorUsuarios.existeUsuario(nombreUsuario.getText())) {
             Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
             JOptionPane.showMessageDialog(this, "El usuario ya existe, digite otro por favor", "", JOptionPane.INFORMATION_MESSAGE, p);
-                nombreUsuario.setText("");
-                contrasenaNuevoUsuario.setText("");
-                verificarContrasena.setText("");
-                nombres.setText("");
-                apellidos.setText("");
-                telefono.setText("");
-                contrasenaNuevoUsuario.setBackground(Color.WHITE);
-                verificarContrasena.setBackground(Color.WHITE);
-                
-                radioEstados.clearSelection();
-                radioUsuarios.clearSelection();
+               limpiar();
             rest = false;
             return rest;
         }
@@ -406,14 +395,9 @@ public class crearUsuarios extends javax.swing.JFrame {
         if (!rest) {
             Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
             JOptionPane.showMessageDialog(this, "Por favor verifique la informacion", "", JOptionPane.INFORMATION_MESSAGE, p);
-            nombreUsuario.setBackground(Color.WHITE);
-            tipo.setForeground(Color.BLACK);
-            contrasenaNuevoUsuario.setBackground(Color.WHITE);
-            verificarContrasena.setBackground(Color.WHITE);
-            nombres.setBackground(Color.WHITE);
-            apellidos.setBackground(Color.WHITE);
+          limpiar();
+            tipo.setForeground(Color.BLACK);  
             estado.setForeground(Color.BLACK);
-            telefono.setBackground(Color.WHITE);
             return rest;
         }
         
@@ -442,6 +426,23 @@ public class crearUsuarios extends javax.swing.JFrame {
             }
         }
         return result;
+    }
+    public void limpiar(){
+        
+            nombreUsuario.setText("");
+            contrasenaNuevoUsuario.setText("");
+            verificarContrasena.setText("");
+            nombres.setText("");
+            apellidos.setText("");
+            telefono.setText("");
+            contrasenaNuevoUsuario.setBackground(Color.WHITE);
+            verificarContrasena.setBackground(Color.WHITE);   
+            nombreUsuario.setBackground(Color.WHITE);
+            nombres.setBackground(Color.WHITE);
+            apellidos.setBackground(Color.WHITE);
+            telefono.setBackground(Color.WHITE);
+            radioEstados.clearSelection();
+            radioUsuarios.clearSelection();    
     }
 
     /**
@@ -483,6 +484,7 @@ public class crearUsuarios extends javax.swing.JFrame {
     private javax.swing.JTextField apellidos;
     private javax.swing.JTextField contrasenaNuevoUsuario;
     private javax.swing.JLabel estado;
+    private javax.swing.JLabel identificadorUsuario;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -498,15 +500,16 @@ public class crearUsuarios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField nombreUsuario;
