@@ -102,47 +102,47 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("Nombre de usuario:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, -1, -1));
 
         tipo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tipo.setText("Tipo de usuario:");
-        getContentPane().add(tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, -1, -1));
+        getContentPane().add(tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("Nombres completos:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("Apellidos completos:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setText("Telefono:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, -1, -1));
 
         estado.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         estado.setText("Estado:");
-        getContentPane().add(estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, -1, -1));
+        getContentPane().add(estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, -1, -1));
 
         nombreUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nombreUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(nombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, 150, -1));
+        getContentPane().add(nombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, 150, -1));
 
         nombres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nombresActionPerformed(evt);
             }
         });
-        getContentPane().add(nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 150, -1));
-        getContentPane().add(apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, 150, -1));
-        getContentPane().add(telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 240, 150, -1));
+        getContentPane().add(nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 150, -1));
+        getContentPane().add(apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, 150, -1));
+        getContentPane().add(telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 150, -1));
 
         radioUsuarios.add(radioGerente);
         radioGerente.setText("Gerente");
-        getContentPane().add(radioGerente, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, -1, -1));
+        getContentPane().add(radioGerente, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, -1, -1));
 
         radioUsuarios.add(radioOperario);
         radioOperario.setText("Operario");
@@ -151,11 +151,11 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
                 radioOperarioActionPerformed(evt);
             }
         });
-        getContentPane().add(radioOperario, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, -1, -1));
+        getContentPane().add(radioOperario, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, -1, -1));
 
         radioEstados.add(radioActivo);
         radioActivo.setText("Activo");
-        getContentPane().add(radioActivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
+        getContentPane().add(radioActivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, -1, -1));
 
         radioEstados.add(radioInactivo);
         radioInactivo.setText("Inactivo");
@@ -164,7 +164,7 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
                 radioInactivoActionPerformed(evt);
             }
         });
-        getContentPane().add(radioInactivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 270, -1, -1));
+        getContentPane().add(radioInactivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
 
         modificar.setText("Modificar");
         modificar.addActionListener(new java.awt.event.ActionListener() {
@@ -172,7 +172,7 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
                 modificarActionPerformed(evt);
             }
         });
-        getContentPane().add(modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, 90, -1));
+        getContentPane().add(modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 310, 90, -1));
 
         jButton2.setText("buscar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -180,32 +180,32 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/user.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/user (7).png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/user (4).png"))); // NOI18N
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/user (1).png"))); // NOI18N
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, -1, 73));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, 73));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/user (5).png"))); // NOI18N
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 108, 70));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 108, 70));
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/user (2).png"))); // NOI18N
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 70, 80));
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/user (10).png"))); // NOI18N
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 70, 70));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/colorful.jpg"))); // NOI18N
         jLabel14.setText("jLabel14");
         jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel14.setMinimumSize(new java.awt.Dimension(520, 380));
         jLabel14.setPreferredSize(new java.awt.Dimension(520, 380));
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 520, 350));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 440, 350));
 
         jPanel2.setBackground(new java.awt.Color(255, 153, 153));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -229,7 +229,7 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel23)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 303, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 223, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addContainerGap())
         );
@@ -243,7 +243,7 @@ public class interfazModificarUsuarios extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 30));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -126,6 +126,11 @@ public class crearCliente extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(255, 255, 51));
         jButton2.setText("Atras");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel18.setText("Registrar Cliente");
@@ -332,6 +337,15 @@ public class crearCliente extends javax.swing.JFrame {
     private void ideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ideActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ideActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        interfazOper = new interfazOperario();
+        interfazOper.setVisible(true);
+        this.dispose();
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * 

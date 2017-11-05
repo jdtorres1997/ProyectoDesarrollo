@@ -75,6 +75,7 @@ public class interfazAdministrador extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        botonCerrarSesion.setBackground(new java.awt.Color(255, 255, 153));
         botonCerrarSesion.setText("Cerrar sesión");
         botonCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,6 +84,7 @@ public class interfazAdministrador extends javax.swing.JFrame {
         });
         getContentPane().add(botonCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 140, -1));
 
+        Crear.setBackground(new java.awt.Color(255, 255, 153));
         Crear.setText("Crear Usuario");
         Crear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,6 +93,7 @@ public class interfazAdministrador extends javax.swing.JFrame {
         });
         getContentPane().add(Crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 140, -1));
 
+        modificar.setBackground(new java.awt.Color(255, 255, 153));
         modificar.setText("Modificar Usuario");
         modificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

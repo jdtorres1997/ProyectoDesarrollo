@@ -71,6 +71,7 @@ public class interfazGerente extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 91, -1, -1));
 
+        crearSedes.setBackground(new java.awt.Color(255, 203, 155));
         crearSedes.setText("Crear Sede");
         crearSedes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,6 +80,7 @@ public class interfazGerente extends javax.swing.JFrame {
         });
         getContentPane().add(crearSedes, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 131, -1));
 
+        modificarSedes.setBackground(new java.awt.Color(255, 203, 155));
         modificarSedes.setText("Modificar Sede");
         modificarSedes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,6 +89,7 @@ public class interfazGerente extends javax.swing.JFrame {
         });
         getContentPane().add(modificarSedes, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 131, -1));
 
+        botonCerrarSesion.setBackground(new java.awt.Color(255, 203, 155));
         botonCerrarSesion.setText("Cerrar sesión");
         botonCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,6 +133,7 @@ public class interfazGerente extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 30));
 
+        jButton2.setBackground(new java.awt.Color(255, 203, 155));
         jButton2.setText("Crear Evento");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,6 +142,7 @@ public class interfazGerente extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 130, -1));
 
+        jButton1.setBackground(new java.awt.Color(255, 203, 155));
         jButton1.setText("Modificar Evento");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

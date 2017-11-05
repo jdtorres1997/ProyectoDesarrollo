@@ -79,45 +79,45 @@ public class interfazModificarEvento extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("Identificacion");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("Nombre");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Sede");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Fecha");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("Ubicacion");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel7.setText("Capacidad");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, -1, 20));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, -1, 20));
 
         ide.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ideActionPerformed(evt);
             }
         });
-        getContentPane().add(ide, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 150, -1));
-        getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 150, -1));
-        getContentPane().add(hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 150, -1));
-        getContentPane().add(ubicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, 150, -1));
-        getContentPane().add(capacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, 150, -1));
+        getContentPane().add(ide, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 150, -1));
+        getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 150, -1));
+        getContentPane().add(hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 150, -1));
+        getContentPane().add(ubicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 150, -1));
+        getContentPane().add(capacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 150, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setText("Hora");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, -1, -1));
-        getContentPane().add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 150, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, -1, -1));
+        getContentPane().add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 150, -1));
 
-        getContentPane().add(sedeCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 150, -1));
+        getContentPane().add(sedeCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 150, -1));
 
         buscarIde.setText("Buscar Evento");
         buscarIde.addActionListener(new java.awt.event.ActionListener() {
@@ -125,7 +125,7 @@ public class interfazModificarEvento extends javax.swing.JFrame {
                 buscarIdeActionPerformed(evt);
             }
         });
-        getContentPane().add(buscarIde, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, -1, -1));
+        getContentPane().add(buscarIde, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, -1, -1));
 
         buscarSede.setText("buscar Sede");
         buscarSede.addActionListener(new java.awt.event.ActionListener() {
@@ -133,7 +133,7 @@ public class interfazModificarEvento extends javax.swing.JFrame {
                 buscarSedeActionPerformed(evt);
             }
         });
-        getContentPane().add(buscarSede, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, -1, -1));
+        getContentPane().add(buscarSede, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, -1, -1));
 
         jButton3.setText("Modificar Evento");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -141,7 +141,7 @@ public class interfazModificarEvento extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, -1, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 153));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -163,8 +163,8 @@ public class interfazModificarEvento extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel18)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 312, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 252, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -176,35 +176,35 @@ public class interfazModificarEvento extends javax.swing.JFrame {
                 .addGap(0, 2, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 30));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 30));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/calendar (3).png"))); // NOI18N
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 70, 70));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 70, 70));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/alarm-clock.png"))); // NOI18N
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 70, 70));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, 70, 70));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/appartment (1).png"))); // NOI18N
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 70, -1));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 70, -1));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/placeholder.png"))); // NOI18N
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 70, 70));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 70, 70));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/notepad.png"))); // NOI18N
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 70, 70));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 70, 70));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/team.png"))); // NOI18N
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 70, 80));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 70, 80));
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/k (3).png"))); // NOI18N
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 70, 60));
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 70, 60));
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/eye (1).png"))); // NOI18N
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 70, 50));
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 70, 50));
 
         jLabel19.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Desktop\\pinkkk.jpg")); // NOI18N
         jLabel19.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 520, 380));
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 460, 340));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
