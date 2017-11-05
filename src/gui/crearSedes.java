@@ -151,7 +151,7 @@ public class crearSedes extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel14.setText(" Creacion De Sede");
+        jLabel14.setText(" Creacion de Sede");
 
         jButton1.setBackground(new java.awt.Color(255, 255, 102));
         jButton1.setText("Atras");
@@ -167,7 +167,7 @@ public class crearSedes extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 385, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 386, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -212,7 +212,8 @@ public class crearSedes extends javax.swing.JFrame {
         getContentPane().add(ubicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 180, -1));
 
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/alrdededor.jpg"))); // NOI18N
-        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 580, 420));
+        jLabel22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 580, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -345,7 +346,11 @@ public class crearSedes extends javax.swing.JFrame {
         if(!rest){
              Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
              JOptionPane.showMessageDialog(this, "Por favor verifique la informacion","",JOptionPane.INFORMATION_MESSAGE,p);
-             limpiar();
+            id.setBackground(Color.WHITE);
+            nombre.setBackground(Color.WHITE);
+            informacion.setBackground(Color.WHITE);
+            ubicacion.setBackground(Color.WHITE);
+            estado.setForeground(Color.BLACK); 
         }
         return rest;
         

@@ -169,15 +169,14 @@ public class interfazModificarEvento extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel18))
-                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(jButton1))
+                .addGap(0, 2, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 40));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 30));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/calendar (3).png"))); // NOI18N
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 70, 70));
@@ -205,7 +204,7 @@ public class interfazModificarEvento extends javax.swing.JFrame {
 
         jLabel19.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Desktop\\pinkkk.jpg")); // NOI18N
         jLabel19.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 520, 370));
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 520, 380));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -349,7 +348,12 @@ public class interfazModificarEvento extends javax.swing.JFrame {
            if (!rest) {
             Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
             JOptionPane.showMessageDialog(this, "Por favor verifique la informacion", "", JOptionPane.INFORMATION_MESSAGE, p);
-             limpiar();
+            ide.setBackground(Color.WHITE);
+            nombre.setBackground(Color.WHITE);
+            fecha.setBackground(Color.WHITE);
+            hora.setBackground(Color.WHITE);
+            ubicacion.setBackground(Color.WHITE);
+            capacidad.setBackground(Color.WHITE);
             return rest;
         }
            if(!num){

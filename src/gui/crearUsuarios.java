@@ -225,7 +225,7 @@ public class crearUsuarios extends javax.swing.JFrame {
         identificadorUsuario.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel20.setText("Creación de Usuario");
+        jLabel20.setText(" Creacion de Usuario");
 
         jButton2.setBackground(new java.awt.Color(255, 255, 102));
         jButton2.setText("Atras");
@@ -255,19 +255,20 @@ public class crearUsuarios extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton2)
-                        .addComponent(jLabel20))
-                    .addComponent(identificadorUsuario))
+                .addComponent(identificadorUsuario)
                 .addGap(22, 22, 22))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(jButton2))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 40));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 30));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/blueee.jpg"))); // NOI18N
         jLabel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 470, 420));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 470, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -348,17 +349,13 @@ public class crearUsuarios extends javax.swing.JFrame {
         if ((this.sololetras(nombreUsuario.getText())) || (this.sololetras(contrasenaNuevoUsuario.getText()))
                 || (this.sololetras(nombres.getText())) || (this.sololetras(apellidos.getText()))) {
             Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
-            JOptionPane.showMessageDialog(this, "Nombre de usuario inválido", "", JOptionPane.INFORMATION_MESSAGE, p);
+            JOptionPane.showMessageDialog(this, "Los campos no pueden tener caracteres especiales", "", JOptionPane.INFORMATION_MESSAGE, p);
            limpiar();
            
             rest = false;
             return rest;
         }
-        if(!(contrasenaNuevoUsuario.getText().equals(verificarContrasena.getText()))){
-            contrasenaNuevoUsuario.setBackground(Color.RED);
-            verificarContrasena.setBackground(Color.red);
-            rest = false;
-        }
+        
         if (!(radioGerente.isSelected() || radioOperario.isSelected())) {
             tipo.setForeground(Color.red);
             rest = false;
@@ -369,6 +366,11 @@ public class crearUsuarios extends javax.swing.JFrame {
         }
         if (verificarContrasena.getText().equals("")) {
             verificarContrasena.setBackground(Color.RED);
+            rest = false;
+        }
+        if(!(contrasenaNuevoUsuario.getText().equals(verificarContrasena.getText()))){
+            contrasenaNuevoUsuario.setBackground(Color.RED);
+            verificarContrasena.setBackground(Color.red);
             rest = false;
         }
         if (nombres.getText().equals("")) {
@@ -396,7 +398,12 @@ public class crearUsuarios extends javax.swing.JFrame {
         if (!rest) {
             Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
             JOptionPane.showMessageDialog(this, "Por favor verifique la informacion", "", JOptionPane.INFORMATION_MESSAGE, p);
-          limpiar();
+            contrasenaNuevoUsuario.setBackground(Color.WHITE);
+            verificarContrasena.setBackground(Color.WHITE);   
+            nombreUsuario.setBackground(Color.WHITE);
+            nombres.setBackground(Color.WHITE);
+            apellidos.setBackground(Color.WHITE);
+            telefono.setBackground(Color.WHITE);
             tipo.setForeground(Color.BLACK);  
             estado.setForeground(Color.BLACK);
             return rest;

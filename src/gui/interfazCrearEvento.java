@@ -413,7 +413,13 @@ public class interfazCrearEvento extends javax.swing.JFrame {
            if (!rest) {
             Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
             JOptionPane.showMessageDialog(this, "Por favor verifique la informacion", "", JOptionPane.INFORMATION_MESSAGE, p);
-             limpiar();
+             ide.setBackground(Color.WHITE);
+            nombre.setBackground(Color.WHITE);
+            fecha.setBackground(Color.WHITE);
+            hora.setBackground(Color.WHITE);
+            ubicacion.setBackground(Color.WHITE);
+            costo.setBackground(Color.WHITE);
+            capacidad.setBackground(Color.WHITE);
             return rest;
         }
             if(sedeCombo.getSelectedIndex()==-1){

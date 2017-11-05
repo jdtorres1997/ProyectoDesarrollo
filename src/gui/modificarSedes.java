@@ -298,7 +298,11 @@ public class modificarSedes extends javax.swing.JFrame {
        
         if(!rest){
              JOptionPane.showMessageDialog(this, "Por favor verifique la informacion");
-            limpiar();
+             ide.setBackground(Color.WHITE);
+             nombre.setBackground(Color.WHITE);
+             informacion.setBackground(Color.WHITE);
+             ubicacion.setBackground(Color.WHITE);
+            estado.setForeground(Color.BLACK);
         }
         return rest;
         
