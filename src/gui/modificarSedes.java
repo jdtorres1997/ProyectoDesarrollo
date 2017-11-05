@@ -42,15 +42,13 @@ public class modificarSedes extends javax.swing.JFrame {
     private void initComponents() {
 
         estados = new javax.swing.ButtonGroup();
-        nombre = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
         informacion = new javax.swing.JTextField();
-        ubicacion = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         estado = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        ide = new javax.swing.JTextField();
         radioActiva = new javax.swing.JRadioButton();
         radioInactiva = new javax.swing.JRadioButton();
         jButton2 = new javax.swing.JButton();
@@ -64,7 +62,13 @@ public class modificarSedes extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        ide = new javax.swing.JTextField();
+        nombre = new javax.swing.JTextField();
+        ubicacion = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+
+        jLabel13.setText("jLabel13");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
@@ -72,25 +76,23 @@ public class modificarSedes extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(570, 420));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 220, 20));
-        getContentPane().add(informacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 220, 80));
-        getContentPane().add(ubicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 220, 20));
+        getContentPane().add(informacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 220, 80));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("Nombre");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, -1, 20));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, -1, 20));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("Informacion");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, -1, 20));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, -1, 20));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Ubicacion");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 80, 30));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 80, 30));
 
         estado.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         estado.setText("Estado");
-        getContentPane().add(estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 60, 20));
+        getContentPane().add(estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, 60, 20));
 
         jButton1.setText("buscar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -98,22 +100,15 @@ public class modificarSedes extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, 100, -1));
-
-        ide.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ideActionPerformed(evt);
-            }
-        });
-        getContentPane().add(ide, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 70, 220, 20));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 100, -1));
 
         estados.add(radioActiva);
         radioActiva.setText("Actva");
-        getContentPane().add(radioActiva, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, 70, -1));
+        getContentPane().add(radioActiva, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, 70, -1));
 
         estados.add(radioInactiva);
         radioInactiva.setText("inactiva");
-        getContentPane().add(radioInactiva, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, 80, -1));
+        getContentPane().add(radioInactiva, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 80, -1));
 
         jButton2.setText("Modificar Sede");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -121,11 +116,11 @@ public class modificarSedes extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 140, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("Identificacion");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, -1, 20));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, -1, 20));
 
         jPanel1.setBackground(new java.awt.Color(255, 102, 102));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -151,14 +146,14 @@ public class modificarSedes extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 378, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 358, Short.MAX_VALUE)
                 .addComponent(jButton3)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 284, Short.MAX_VALUE)
+                    .addGap(0, 274, Short.MAX_VALUE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 284, Short.MAX_VALUE)))
+                    .addGap(0, 274, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,13 +169,13 @@ public class modificarSedes extends javax.swing.JFrame {
                     .addGap(0, 14, Short.MAX_VALUE)))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 30));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 30));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/house.png"))); // NOI18N
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/blueprint.png"))); // NOI18N
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, -1, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, -1, -1));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/check-mark.png"))); // NOI18N
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 60, 80));
@@ -190,18 +185,19 @@ public class modificarSedes extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/settings.png"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 70, 70));
+        getContentPane().add(ide, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 220, -1));
+        getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 220, -1));
+        getContentPane().add(ubicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 220, -1));
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/rosado.jpg"))); // NOI18N
-        jLabel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel12.setPreferredSize(new java.awt.Dimension(540, 470));
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 570, 390));
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/brick-wall.png"))); // NOI18N
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, 70, 70));
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/rosado.jpg"))); // NOI18N
+        jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 550, 380));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void ideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ideActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ideActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
@@ -381,6 +377,8 @@ public class modificarSedes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

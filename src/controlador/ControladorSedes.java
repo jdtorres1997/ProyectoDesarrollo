@@ -7,6 +7,8 @@ package controlador;
 
 import accesoDatos.DAOSede;
 import accesoDatos.DAOUsuario;
+import java.util.ArrayList;
+import java.util.Vector;
 import logica.Sede;
 
 /**
@@ -47,7 +49,17 @@ public class ControladorSedes {
         boolean respuesta = daoSedes.existeSede(identificacion);
         return respuesta;
     }
-            
+      
+    public ArrayList<String> retornar(){
+       
+      ArrayList<String> ve= new ArrayList<String>();
+
+        ve = daoSedes.todasSedes();
+        System.out.print(ve);
+        return ve;
+    }
+ 
+    
     public void cerrarConexionBD() {
         daoSedes.cerrarConexionBD();
     }

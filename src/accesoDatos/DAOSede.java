@@ -5,10 +5,13 @@
  */
 package accesoDatos;
 
+import java.awt.List;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Vector;
 import logica.Sede;
 import logica.Usuario;
 
@@ -137,5 +140,30 @@ public class DAOSede {
           return true;
     }
     
+   
+    public ArrayList<String> todasSedes() {
+         Sede s = new Sede();
+         String sql_select;
+         ArrayList<String> ve= new ArrayList<String>();
+         
+        sql_select = "SELECT * FROM  sedes WHERE estado='activa'";
+        try {
+            Connection conn = acceso.getConnetion();
+            System.out.println("consultando la sede en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+             while (tabla.next()) {
+              ve.add((tabla.getString(1)));
+              
+            }
+           return ve;
+        } catch (SQLException e) {
+            System.out.println(e);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+          return null;
+    }
+   
        
 }

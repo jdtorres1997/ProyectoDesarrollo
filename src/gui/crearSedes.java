@@ -7,6 +7,8 @@ package gui;
 
 import controlador.ControladorSedes;
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Vector;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -45,6 +47,7 @@ public class crearSedes extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jProgressBar1 = new javax.swing.JProgressBar();
         jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        jLabel19 = new javax.swing.JLabel();
         estado = new javax.swing.JLabel();
         radioInactiva = new javax.swing.JRadioButton();
         crearSede = new javax.swing.JButton();
@@ -52,17 +55,13 @@ public class crearSedes extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        informacion = new javax.swing.JTextField();
-        ubicacion = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        nombre = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        id = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -70,12 +69,20 @@ public class crearSedes extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        id = new javax.swing.JTextField();
+        nombre = new javax.swing.JTextField();
+        informacion = new javax.swing.JTextField();
+        ubicacion = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jFormattedTextField1.setText("jFormattedTextField1");
+
+        jLabel19.setText("jLabel19");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(java.awt.Color.white);
@@ -115,14 +122,6 @@ public class crearSedes extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("Nombre");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, -1, 10));
-        getContentPane().add(informacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 180, 60));
-
-        ubicacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ubicacionActionPerformed(evt);
-            }
-        });
-        getContentPane().add(ubicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 180, 20));
 
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/skyline (3).png"))); // NOI18N
         getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 400, 50, -1));
@@ -138,13 +137,6 @@ public class crearSedes extends javax.swing.JFrame {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/office-block.png"))); // NOI18N
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 60, -1));
 
-        nombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nombreActionPerformed(evt);
-            }
-        });
-        getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 180, 20));
-
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/if_icons-08_799758 (1).png"))); // NOI18N
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, -1, -1));
 
@@ -154,13 +146,6 @@ public class crearSedes extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Ubicacion");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, -1, 10));
-
-        id.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idActionPerformed(evt);
-            }
-        });
-        getContentPane().add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 180, 20));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 102));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -182,18 +167,18 @@ public class crearSedes extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 375, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 385, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                 .addComponent(jButton1))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 40));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 40));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/skyline (4).png"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, -1, -1));
@@ -207,20 +192,30 @@ public class crearSedes extends javax.swing.JFrame {
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/skyline(6).png"))); // NOI18N
         getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 210, 220));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/alrdededor.jpg"))); // NOI18N
-        jLabel6.setText("jLabel6");
-        jLabel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 570, 430));
-
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/skyline (2).png"))); // NOI18N
         getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 60, -1));
 
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/c (2).png"))); // NOI18N
+        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(464, 400, 70, -1));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/appartment.png"))); // NOI18N
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, -1, -1));
+        getContentPane().add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 180, -1));
+        getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 180, -1));
+        getContentPane().add(informacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 180, 60));
+
+        ubicacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ubicacionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ubicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 180, -1));
+
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/alrdededor.jpg"))); // NOI18N
+        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 580, 420));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nombreActionPerformed
 
     private void crearSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearSedeActionPerformed
 
@@ -234,7 +229,6 @@ public class crearSedes extends javax.swing.JFrame {
             s.setEstado("activa");
             else if (radioInactiva.isSelected())
             s.setEstado("inactiva");
-
             boolean seAgrego = controladorSedes.agregarSede(s);
 
             if(seAgrego){
@@ -253,18 +247,14 @@ public class crearSedes extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_radioActivaActionPerformed
 
-    private void idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idActionPerformed
-
-    private void ubicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubicacionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ubicacionActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         interfazGer.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void ubicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubicacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ubicacionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -406,7 +396,10 @@ public class crearSedes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

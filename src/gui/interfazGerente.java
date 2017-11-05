@@ -19,7 +19,9 @@ public class interfazGerente extends javax.swing.JFrame {
      * Creates new form ventana3
      */
     crearSedes crearSede;
+    interfazCrearEvento evento;
     modificarSedes modificarSede;
+    interfazModificarEvento modificarEvento;
     
     public interfazGerente() {
         initComponents();
@@ -44,6 +46,7 @@ public class interfazGerente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         crearSedes = new javax.swing.JButton();
         modificarSedes = new javax.swing.JButton();
@@ -52,10 +55,17 @@ public class interfazGerente extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         identificadorUsuario = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/verde.jpg"))); // NOI18N
+        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel2.setMinimumSize(new java.awt.Dimension(390, 300));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(390, 300));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -67,7 +77,7 @@ public class interfazGerente extends javax.swing.JFrame {
                 crearSedesActionPerformed(evt);
             }
         });
-        getContentPane().add(crearSedes, new org.netbeans.lib.awtextra.AbsoluteConstraints(234, 62, 131, -1));
+        getContentPane().add(crearSedes, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 131, -1));
 
         modificarSedes.setText("Modificar Sede");
         modificarSedes.addActionListener(new java.awt.event.ActionListener() {
@@ -75,7 +85,7 @@ public class interfazGerente extends javax.swing.JFrame {
                 modificarSedesActionPerformed(evt);
             }
         });
-        getContentPane().add(modificarSedes, new org.netbeans.lib.awtextra.AbsoluteConstraints(234, 97, 131, -1));
+        getContentPane().add(modificarSedes, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 131, -1));
 
         botonCerrarSesion.setText("Cerrar sesión");
         botonCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +93,7 @@ public class interfazGerente extends javax.swing.JFrame {
                 botonCerrarSesionActionPerformed(evt);
             }
         });
-        getContentPane().add(botonCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(234, 132, 131, -1));
+        getContentPane().add(botonCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 131, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/jj.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 230, 250));
@@ -105,7 +115,7 @@ public class interfazGerente extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(identificadorUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,12 +128,27 @@ public class interfazGerente extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 30));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 30));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/verde.jpg"))); // NOI18N
-        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel2.setMinimumSize(new java.awt.Dimension(390, 300));
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 390, 270));
+        jButton2.setText("Crear Evento");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 130, -1));
+
+        jButton1.setText("Modificar Evento");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 130, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/verde.jpg"))); // NOI18N
+        jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 400, 270));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -151,6 +176,25 @@ public class interfazGerente extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_modificarSedesActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        evento = new interfazCrearEvento();
+        evento.setVisible(true);
+        this.dispose();
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        modificarEvento = new interfazModificarEvento();
+        modificarEvento.setVisible(true);
+        this.dispose();
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -192,10 +236,13 @@ public class interfazGerente extends javax.swing.JFrame {
     private javax.swing.JButton botonCerrarSesion;
     private javax.swing.JButton crearSedes;
     private javax.swing.JLabel identificadorUsuario;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton modificarSedes;
     // End of variables declaration//GEN-END:variables
