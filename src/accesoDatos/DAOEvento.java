@@ -59,16 +59,8 @@ public class DAOEvento {
      public boolean insertarEvento(Evento ev){
         String sql_select;
  
-        sql_select = "INSERT INTO eventos ("
-                + "identificacion, "
-                + "nombre, "
-                + "sede, "
-                + "fecha, "
-                + "hora, "
-                + "ubicacion, "
-                + "costo, "
-                + "capacidad) "
-                + "VALUES ('" +ev.getIdentificacion()+ "',"
+        sql_select = "INSERT INTO eventos (identificacion, nombre, sede, fecha, hora, ubicacion, costo, capacidad) VALUES ('" 
+                        +ev.getIdentificacion()+ "',"
                         + "'" +ev.getNombre()+ "', "
                         + "'" +ev.getSede()+ "', "
                         + "'" +ev.getFecha()+ "', "

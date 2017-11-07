@@ -86,8 +86,6 @@ public class interfazCrearEvento extends javax.swing.JFrame {
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
 
-        jLabel21.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Desktop\\pastel-pink-watercolour-background_1048-6837.jpg")); // NOI18N
-
         label1.setText("label1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -283,7 +281,7 @@ public class interfazCrearEvento extends javax.swing.JFrame {
         ev.setHora(hora.getText());
         ev.setUbicacion(ubicacion.getText());
         ev.setCosto(Integer.parseInt(costo.getText()));
-        ev.setCosto(Integer.parseInt(capacidad.getText()));
+        ev.setCapacidad(Integer.parseInt(capacidad.getText()));
         boolean seAgrego = controladorEvento.agregarEvento(ev);
                     if(seAgrego){
                 Icon m = new ImageIcon(getClass().getResource("/gui/images/cityscape.png"));
