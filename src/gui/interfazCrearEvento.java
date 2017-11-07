@@ -24,6 +24,7 @@ public class interfazCrearEvento extends javax.swing.JFrame {
     ControladorSedes sedes;
     interfazGerente gerente;
     ControladorEventos controladorEvento;
+
     /**
      * Creates new form interfazCrearEvento
      */
@@ -43,7 +44,8 @@ public class interfazCrearEvento extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        radioEstados = new javax.swing.ButtonGroup();
+        radioBotones = new javax.swing.JCheckBoxMenuItem();
         jPopupMenu1 = new javax.swing.JPopupMenu();
         jLabel21 = new javax.swing.JLabel();
         label1 = new java.awt.Label();
@@ -63,6 +65,7 @@ public class interfazCrearEvento extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -73,6 +76,8 @@ public class interfazCrearEvento extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        radioActivo = new javax.swing.JRadioButton();
+        radioInactivo = new javax.swing.JRadioButton();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
@@ -83,8 +88,9 @@ public class interfazCrearEvento extends javax.swing.JFrame {
         cargar = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
 
-        jCheckBoxMenuItem1.setSelected(true);
-        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
+        radioBotones.setSelected(true);
+        radioBotones.setText("jCheckBoxMenuItem1");
+        radioBotones.getAccessibleContext().setAccessibleName("radioBotones");
 
         label1.setText("label1");
 
@@ -140,15 +146,15 @@ public class interfazCrearEvento extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Fecha");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("Hora");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("Ubicacion");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel7.setText("Costo");
@@ -158,13 +164,17 @@ public class interfazCrearEvento extends javax.swing.JFrame {
         jLabel8.setText("Capacidad");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, -1, -1));
 
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel17.setText("Estado");
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, -1, -1));
+
         jButton1.setText("crear Evento");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 100, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, 100, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/presentation (2).png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 70, 70));
@@ -190,6 +200,14 @@ public class interfazCrearEvento extends javax.swing.JFrame {
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/calendar (2).png"))); // NOI18N
         getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 200, 70, 70));
+
+        radioEstados.add(radioActivo);
+        radioActivo.setText("Activo");
+        getContentPane().add(radioActivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, -1, -1));
+
+        radioEstados.add(radioInactivo);
+        radioInactivo.setText("Inactivo");
+        getContentPane().add(radioInactivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, -1, -1));
 
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/flask (3).png"))); // NOI18N
         getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 280, 70, -1));
@@ -270,31 +288,33 @@ public class interfazCrearEvento extends javax.swing.JFrame {
     }//GEN-LAST:event_costoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
-        if(validar()){
-        Evento ev= new Evento();
-        Sede s = new Sede();
-        ev.setIdentificacion(ide.getText());
-        ev.setSede(sedeCombo.getSelectedItem().toString());
-        ev.setNombre(nombre.getText());
-        ev.setFecha(fecha.getText());
-        ev.setHora(hora.getText());
-        ev.setUbicacion(ubicacion.getText());
-        ev.setCosto(Integer.parseInt(costo.getText()));
-        ev.setCapacidad(Integer.parseInt(capacidad.getText()));
-        boolean seAgrego = controladorEvento.agregarEvento(ev);
-                    if(seAgrego){
+
+        if (validar()) {
+            Evento ev = new Evento();
+            Sede s = new Sede();
+            ev.setIdentificacion(ide.getText());
+            ev.setSede(sedeCombo.getSelectedItem().toString());
+            ev.setNombre(nombre.getText());
+            ev.setFecha(fecha.getText());
+            ev.setHora(hora.getText());
+            ev.setUbicacion(ubicacion.getText());
+            ev.setCosto(Integer.parseInt(costo.getText()));
+            ev.setCapacidad(Integer.parseInt(capacidad.getText()));
+            if(radioActivo.isSelected())
+            ev.setEstado("activo");
+            else if (radioInactivo.isSelected())
+            ev.setEstado("inactivo");
+            boolean seAgrego = controladorEvento.agregarEvento(ev);
+            if (seAgrego) {
                 Icon m = new ImageIcon(getClass().getResource("/gui/images/cityscape.png"));
-                JOptionPane.showMessageDialog(this, "Se agrego el evento a la base de datos","Mensaje",JOptionPane.INFORMATION_MESSAGE,m);
+                JOptionPane.showMessageDialog(this, "Se agrego el evento a la base de datos", "Mensaje", JOptionPane.INFORMATION_MESSAGE, m);
                 limpiar();
-            }else{
+            } else {
                 Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
-                JOptionPane.showMessageDialog(this, "Hubo un error al agregar evento ","",JOptionPane.INFORMATION_MESSAGE,p);
+                JOptionPane.showMessageDialog(this, "Hubo un error al agregar evento ", "", JOptionPane.INFORMATION_MESSAGE, p);
             }
 
         }
-
-
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -305,31 +325,29 @@ public class interfazCrearEvento extends javax.swing.JFrame {
 
     private void cargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarActionPerformed
 
-   ArrayList<String> ve= new ArrayList<String>();
-              ve = sedes.retornar();
-                sedeCombo.addItem("");
+        ArrayList<String> ve = new ArrayList<String>();
+        ve = sedes.retornar();
+        sedeCombo.addItem("");
 
-              for (int i = 0; i < ve.size(); i++) {
-                  
-                  String item;
-                  item = ve.get(i);
-                  sedeCombo.addItem(item);
-                  item ="";
-                  
-		}
-                      // TODO add your handling code here:
+        for (int i = 0; i < ve.size(); i++) {
+
+            String item;
+            item = ve.get(i);
+            sedeCombo.addItem(item);
+            item = "";
+
+        }
+        // TODO add your handling code here:
     }//GEN-LAST:event_cargarActionPerformed
 
     private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
 
-         gerente.setVisible(true);
+        gerente.setVisible(true);
         this.dispose();
-
-
 
         // TODO add your handling code here:
     }//GEN-LAST:event_atrasActionPerformed
-     private boolean isNumeric(String cadena) {
+    private boolean isNumeric(String cadena) {
         try {
             Integer.parseInt(cadena);
             return true;
@@ -337,7 +355,8 @@ public class interfazCrearEvento extends javax.swing.JFrame {
             return false;
         }
     }
-       public static boolean sololetras(String prueba) {
+
+    public static boolean sololetras(String prueba) {
         boolean result = false;
         String comparacion = "!!$%&/()=?¡*¨][_:;°¬|@·~½¬{[]}~µ";
         for (int i = prueba.length() - 1; i >= 0; i--) {
@@ -351,67 +370,69 @@ public class interfazCrearEvento extends javax.swing.JFrame {
         return result;
     }
 
-    public boolean validar(){
-        
+    public boolean validar() {
+
         boolean rest = true;
-        boolean num =true;
-        boolean letras =true;
-        
-       if(ide.getText().equals("")){
-           ide.setBackground(Color.RED);
-           rest=false;
-       }
-        if(nombre.getText().equals("")){
+        boolean num = true;
+        boolean letras = true;
+
+        if (ide.getText().equals("")) {
+            ide.setBackground(Color.RED);
+            rest = false;
+        }
+        if (nombre.getText().equals("")) {
             nombre.setBackground(Color.RED);
-             rest=false;
+            rest = false;
 
         }
-        if(fecha.getText().equals("")){
+        if (fecha.getText().equals("")) {
             fecha.setBackground(Color.RED);
-            rest=false;
+            rest = false;
 
         }
-        if(hora.getText().equals("")){
+        if (hora.getText().equals("")) {
             hora.setBackground(Color.RED);
-            rest=false;
+            rest = false;
         }
-        if(ubicacion.getText().equals("")){
+        if (ubicacion.getText().equals("")) {
             ubicacion.setBackground(Color.RED);
-            rest= false;
+            rest = false;
         }
-        if(capacidad.getText().equals("")){
+        if (capacidad.getText().equals("")) {
             capacidad.setBackground(Color.RED);
-            rest=false;
+            rest = false;
         }
-        if(costo.getText().equals("")){
-            costo.setBackground(Color.RED); 
-             rest=false;
+        if (costo.getText().equals("")) {
+            costo.setBackground(Color.RED);
+            rest = false;
 
         }
-           
-        if(!isNumeric(costo.getText())){
-            num=false;
-              
+
+        if (!isNumeric(costo.getText())) {
+            num = false;
+
         }
-        if (!isNumeric(capacidad.getText())){
-            num=false;
+        if (!isNumeric(capacidad.getText())) {
+            num = false;
         }
-         if(this.sololetras(ide.getText())|| this.sololetras(nombre.getText()) || 
-            this.sololetras(fecha.getText()) || this.sololetras(hora.getText())){
-             letras=false;
-            
-         }
-          if (controladorEvento.existeEvento(ide.getText())) {
+        if(!(radioActivo.isSelected() || radioInactivo.isSelected())){
+            rest=false;
+        }
+        if (this.sololetras(ide.getText()) || this.sololetras(nombre.getText())) { //Falta validar fecha y hora, no se puede con soloLetras
+            letras = false;
+
+        }
+        if (controladorEvento.existeEvento(ide.getText())) {
             Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
             JOptionPane.showMessageDialog(this, "El evento ya existe, digite otro por favor", "", JOptionPane.INFORMATION_MESSAGE, p);
-             limpiar();
+            limpiar();
             rest = false;
             return rest;
         }
-           if (!rest) {
+        if (!rest) {
             Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
             JOptionPane.showMessageDialog(this, "Por favor verifique la informacion", "", JOptionPane.INFORMATION_MESSAGE, p);
-             ide.setBackground(Color.WHITE);
+            ide.setBackground(Color.WHITE);
             nombre.setBackground(Color.WHITE);
             fecha.setBackground(Color.WHITE);
             hora.setBackground(Color.WHITE);
@@ -420,18 +441,17 @@ public class interfazCrearEvento extends javax.swing.JFrame {
             capacidad.setBackground(Color.WHITE);
             return rest;
         }
-            if(sedeCombo.getSelectedIndex()==-1){
-           Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
-            
-          JOptionPane.showMessageDialog(this, " Debe buscar las sedes disponibles", "", JOptionPane.INFORMATION_MESSAGE, p);
-          
+        if (sedeCombo.getSelectedIndex() == -1) {
+            Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
+
+            JOptionPane.showMessageDialog(this, " Debe buscar las sedes disponibles", "", JOptionPane.INFORMATION_MESSAGE, p);
+
             rest = false;
             return rest;
+        }
 
-      }
-        
-           if(!num){
-             Icon p = new ImageIcon(getClass().getResource("/gui/images/phone.png"));
+        if (!num) {
+            Icon p = new ImageIcon(getClass().getResource("/gui/images/phone.png"));
             JOptionPane.showMessageDialog(this, "El costo y capacidad deben ser un dato numerico", "", JOptionPane.INFORMATION_MESSAGE, p);
             costo.setBackground(Color.WHITE);
             capacidad.setBackground(Color.WHITE);
@@ -439,20 +459,20 @@ public class interfazCrearEvento extends javax.swing.JFrame {
             capacidad.setText("");
             rest = false;
             return rest;
-           }
-           if(!letras){
+        }
+        if (!letras) {
             Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
             JOptionPane.showMessageDialog(this, "No se pueden usar caracteres especiales", "", JOptionPane.INFORMATION_MESSAGE, p);
             limpiar();
-            rest=false;
+            rest = false;
             return rest;
-           
-           }
-        
-      
-       return rest; 
+
+        }
+
+        return rest;
     }
-    public void limpiar(){
+
+    public void limpiar() {
         ide.setBackground(Color.WHITE);
         nombre.setBackground(Color.WHITE);
         fecha.setBackground(Color.WHITE);
@@ -468,8 +488,10 @@ public class interfazCrearEvento extends javax.swing.JFrame {
         ubicacion.setText("");
         costo.setText("");
         capacidad.setText("");
-        
+        radioEstados.clearSelection();
+
     }
+
     /**
      * @param args the command line arguments
      */
@@ -514,7 +536,6 @@ public class interfazCrearEvento extends javax.swing.JFrame {
     private javax.swing.JTextField hora;
     private javax.swing.JTextField ide;
     private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -523,6 +544,7 @@ public class interfazCrearEvento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -542,6 +564,10 @@ public class interfazCrearEvento extends javax.swing.JFrame {
     private javax.swing.JPopupMenu jPopupMenu1;
     private java.awt.Label label1;
     private javax.swing.JTextField nombre;
+    private javax.swing.JRadioButton radioActivo;
+    private javax.swing.JCheckBoxMenuItem radioBotones;
+    public javax.swing.ButtonGroup radioEstados;
+    private javax.swing.JRadioButton radioInactivo;
     private javax.swing.JComboBox<String> sedeCombo;
     private javax.swing.JLabel sedeT;
     private javax.swing.JTextField ubicacion;

@@ -20,6 +20,7 @@ public class modificarSedes extends javax.swing.JFrame {
 
     ControladorSedes controladorSede;
     interfazGerente interfazGer;
+
     /**
      * Creates new form modificarSedes
      */
@@ -28,7 +29,7 @@ public class modificarSedes extends javax.swing.JFrame {
         this.getContentPane().setBackground(Color.getHSBColor(50, 43, 10));
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        interfazGer= new interfazGerente();
+        interfazGer = new interfazGerente();
         controladorSede = new ControladorSedes();
     }
 
@@ -202,51 +203,52 @@ public class modificarSedes extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         Sede s = new Sede();
-      if(controladorSede.existeSede(ide.getText())){
-            
-            s=controladorSede.consultarSede(ide.getText());
+        if (controladorSede.existeSede(ide.getText())) {
+
+            s = controladorSede.consultarSede(ide.getText());
             nombre.setText(s.getNombre());
             informacion.setText(s.getInformacion());
             ubicacion.setText(s.getUbicacion());
-            if(s.getEstado().equals("activa"))
-                 radioActiva.setSelected(true);
-            else if (s.getEstado().equals("inactiva"))
+            if (s.getEstado().equals("activa")) {
+                radioActiva.setSelected(true);
+            } else if (s.getEstado().equals("inactiva")) {
                 radioInactiva.setSelected(true);
-      }
-      else {
+            }
+        } else {
             JOptionPane.showMessageDialog(this, "La sede no existe, digite otra por favor");
             ide.setText("");
-              
-      }
-        
+
+        }
+
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
-    if(validar()){
-        Sede s = new Sede();
-        s.setIdentificacion(ide.getText());
-        s.setNombre(nombre.getText());
-        s.setInformacion(informacion.getText());
-        s.setUbicacion(ubicacion.getText());
-        if(radioActiva.isSelected())
-            s.setEstado("activa");
-        else if(radioInactiva.isSelected())
-            s.setEstado("inactiva");
-        
-        boolean seModifico = controladorSede.modificarSede(s);
-        
-        if(seModifico){
-            Icon m = new ImageIcon(getClass().getResource("/gui/images/cityscape.png"));
-                JOptionPane.showMessageDialog(this, "Se modifico la sede en la base de datos","Mensaje",JOptionPane.INFORMATION_MESSAGE,m);
+        if (validar()) {
+            Sede s = new Sede();
+            s.setIdentificacion(ide.getText());
+            s.setNombre(nombre.getText());
+            s.setInformacion(informacion.getText());
+            s.setUbicacion(ubicacion.getText());
+            if (radioActiva.isSelected()) {
+                s.setEstado("activa");
+            } else if (radioInactiva.isSelected()) {
+                s.setEstado("inactiva");
+            }
+
+            boolean seModifico = controladorSede.modificarSede(s);
+
+            if (seModifico) {
+                Icon m = new ImageIcon(getClass().getResource("/gui/images/cityscape.png"));
+                JOptionPane.showMessageDialog(this, "Se modifico la sede en la base de datos", "Mensaje", JOptionPane.INFORMATION_MESSAGE, m);
                 limpiar();
-                
-       }else{
-           JOptionPane.showMessageDialog(this, "Hubo un error al modificarla sede");
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Hubo un error al modificarla sede");
+            }
+
         }
-       
-    }
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -256,58 +258,59 @@ public class modificarSedes extends javax.swing.JFrame {
         interfazGer.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
- public boolean validar(){
-        boolean rest=true;
-        
-        if(!controladorSede.existeSede(ide.getText())){
+    public boolean validar() {
+        boolean rest = true;
+
+        if (!controladorSede.existeSede(ide.getText())) {
             Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
-            JOptionPane.showMessageDialog(this, "La sede a modificar no existe","",JOptionPane.INFORMATION_MESSAGE,p);
+            JOptionPane.showMessageDialog(this, "La sede a modificar no existe", "", JOptionPane.INFORMATION_MESSAGE, p);
             rest = false;
         }
-          if( sololetras(nombre.getText()) || sololetras(informacion.getText())
-                 || sololetras(ubicacion.getText() )){
-             
-               Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
-                JOptionPane.showMessageDialog(this, "Los espacios no deben tener caracteres especiales", "", JOptionPane.INFORMATION_MESSAGE, p);
-                 limpiar();
-                rest=false;
-                return rest;
-            
-         }
-        if (ide.getText().equals("")){
-             ide.setBackground(Color.red);
-             rest=false;
+        if (sololetras(nombre.getText()) || sololetras(informacion.getText())
+                || sololetras(ubicacion.getText())) {
+
+            Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
+            JOptionPane.showMessageDialog(this, "Los espacios no deben tener caracteres especiales", "", JOptionPane.INFORMATION_MESSAGE, p);
+            limpiar();
+            rest = false;
+            return rest;
+
         }
-        if(nombre.getText().equals("")){
+        if (ide.getText().equals("")) {
+            ide.setBackground(Color.red);
+            rest = false;
+        }
+        if (nombre.getText().equals("")) {
             nombre.setBackground(Color.red);
-            rest=false;
+            rest = false;
         }
-            
-        if(informacion.getText().equals("")){
+
+        if (informacion.getText().equals("")) {
             informacion.setBackground(Color.red);
-            rest=false;
+            rest = false;
         }
-        if(ubicacion.getText().equals("")){
+        if (ubicacion.getText().equals("")) {
             ubicacion.setBackground(Color.red);
-            rest=false;
+            rest = false;
         }
-        if(!(radioActiva.isSelected() || radioInactiva.isSelected())){
+        if (!(radioActiva.isSelected() || radioInactiva.isSelected())) {
             estado.setBackground(Color.red);
-            rest=false;
+            rest = false;
         }
-       
-        if(!rest){
-             JOptionPane.showMessageDialog(this, "Por favor verifique la informacion");
-             ide.setBackground(Color.WHITE);
-             nombre.setBackground(Color.WHITE);
-             informacion.setBackground(Color.WHITE);
-             ubicacion.setBackground(Color.WHITE);
+
+        if (!rest) {
+            JOptionPane.showMessageDialog(this, "Por favor verifique la informacion");
+            ide.setBackground(Color.WHITE);
+            nombre.setBackground(Color.WHITE);
+            informacion.setBackground(Color.WHITE);
+            ubicacion.setBackground(Color.WHITE);
             estado.setForeground(Color.BLACK);
         }
         return rest;
-        
+
     }
-  public static boolean sololetras(String prueba) {
+
+    public static boolean sololetras(String prueba) {
         boolean result = false;
         String comparacion = "!!$%&/()=?¡*¨][_:;°¬|@·~½¬{[]}~µ";
         for (int i = prueba.length() - 1; i >= 0; i--) {
@@ -320,8 +323,8 @@ public class modificarSedes extends javax.swing.JFrame {
         }
         return result;
     }
-    
-    public void limpiar(){
+
+    public void limpiar() {
         ide.setText("");
         nombre.setText("");
         informacion.setText("");
@@ -333,7 +336,7 @@ public class modificarSedes extends javax.swing.JFrame {
         ubicacion.setBackground(Color.WHITE);
         estado.setForeground(Color.BLACK);
     }
- 
+
     /**
      * @param args the command line arguments
      */

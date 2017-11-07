@@ -19,9 +19,11 @@ import logica.Evento;
  * @author Alexandra
  */
 public class interfazModificarEvento extends javax.swing.JFrame {
+
     ControladorEventos controladorEvento;
     ControladorSedes controladorSede;
     interfazGerente gerente;
+
     /**
      * Creates new form interfazModificarEvento
      */
@@ -42,6 +44,7 @@ public class interfazModificarEvento extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel17 = new javax.swing.JLabel();
+        radioEstados = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -62,6 +65,9 @@ public class interfazModificarEvento extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
+        radioInactivo = new javax.swing.JRadioButton();
+        radioActivo = new javax.swing.JRadioButton();
+        jLabel20 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -141,7 +147,7 @@ public class interfazModificarEvento extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, -1, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 153));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -178,11 +184,23 @@ public class interfazModificarEvento extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 30));
 
+        radioEstados.add(radioInactivo);
+        radioInactivo.setText("Inactivo");
+        getContentPane().add(radioInactivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, -1, -1));
+
+        radioEstados.add(radioActivo);
+        radioActivo.setText("Activo");
+        getContentPane().add(radioActivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, -1, -1));
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel20.setText("Estado");
+        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, -1, -1));
+
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/calendar (3).png"))); // NOI18N
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 70, 70));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/alarm-clock.png"))); // NOI18N
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, 70, 70));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 300, 70, 70));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/appartment (1).png"))); // NOI18N
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 70, -1));
@@ -191,7 +209,7 @@ public class interfazModificarEvento extends javax.swing.JFrame {
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 70, 70));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/notepad.png"))); // NOI18N
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 70, 70));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 70, 70));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/team.png"))); // NOI18N
         getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 70, 80));
@@ -202,27 +220,26 @@ public class interfazModificarEvento extends javax.swing.JFrame {
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/eye (1).png"))); // NOI18N
         getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 70, 50));
 
-        jLabel19.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Desktop\\pinkkk.jpg")); // NOI18N
         jLabel19.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 460, 340));
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 460, 360));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void buscarSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarSedeActionPerformed
-      sedeCombo.removeAllItems();
-        ArrayList<String> ve= new ArrayList<String>();
-              ve = controladorSede.retornar();
-                sedeCombo.addItem("");
+        sedeCombo.removeAllItems();
+        ArrayList<String> ve = new ArrayList<String>();
+        ve = controladorSede.retornar();
+        sedeCombo.addItem("");
 
-              for (int i = 0; i < ve.size(); i++) {
-                  
-                  String item;
-                  item = ve.get(i);
-                  sedeCombo.addItem(item);
-                  item ="";
-                  
-		}
+        for (int i = 0; i < ve.size(); i++) {
+
+            String item;
+            item = ve.get(i);
+            sedeCombo.addItem(item);
+            item = "";
+
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_buscarSedeActionPerformed
 
@@ -232,120 +249,125 @@ public class interfazModificarEvento extends javax.swing.JFrame {
 
     private void buscarIdeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarIdeActionPerformed
 
-        if(controladorEvento.existeEvento(ide.getText())){
-            Evento ev= new Evento();
+        if (controladorEvento.existeEvento(ide.getText())) {
+            Evento ev = new Evento();
             ev = controladorEvento.consultarEvento(ide.getText());
-            
+
             nombre.setText(ev.getNombre());
             sedeCombo.addItem(ev.getSede());
             fecha.setText(ev.getFecha());
-            hora.setText(ev.getFecha());
+            hora.setText(ev.getHora());
             ubicacion.setText(ev.getUbicacion());
             capacidad.setText(String.valueOf(ev.getCapacidad()));
-                 
-        }
-        else {
+            if (ev.getEstado().equals("activo")) {
+                radioActivo.setSelected(true);
+            } else if (ev.getEstado().equals("inactivo")) {
+                radioInactivo.setSelected(true);
+            }
+
+        } else {
             Icon p = new ImageIcon(getClass().getResource("/gui/images/wrongUser.png"));
-            JOptionPane.showMessageDialog(this, "El evento no existe, digite otro por favor","",JOptionPane.INFORMATION_MESSAGE,p);
-              
-      }
+            JOptionPane.showMessageDialog(this, "El evento no existe, digite otro por favor", "", JOptionPane.INFORMATION_MESSAGE, p);
 
+        }
 
-            // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_buscarIdeActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-
         Evento ev = new Evento();
-        if(validar()){
-        if(controladorEvento.existeEvento(ide.getText())){
-            ev.setIdentificacion(ide.getText());
-            ev.setNombre(nombre.getText());
-            ev.setSede(sedeCombo.getSelectedItem().toString());
-            ev.setFecha(fecha.getText());
-            ev.setHora(hora.getText());
-            ev.setUbicacion(ubicacion.getText());
-            ev.setCapacidad(Integer.parseInt(capacidad.getText()));
-            
-                 boolean seModifico = controladorEvento.modificarEvento(ev);
+        if (validar()) {
+            if (controladorEvento.existeEvento(ide.getText())) {
+                ev.setIdentificacion(ide.getText());
+                ev.setNombre(nombre.getText());
+                ev.setSede(sedeCombo.getSelectedItem().toString());
+                ev.setFecha(fecha.getText());
+                ev.setHora(hora.getText());
+                ev.setUbicacion(ubicacion.getText());
+                ev.setCapacidad(Integer.parseInt(capacidad.getText()));
+                if (radioActivo.isSelected()) {
+                    ev.setEstado("activo");
+                } else if (radioInactivo.isSelected()) {
+                    ev.setEstado("inactivo");
+                }
+                boolean seModifico = controladorEvento.modificarEvento(ev);
 
-                 if(seModifico){
-                     JOptionPane.showMessageDialog(this, "Se modifico en la base de datos");
-                     limpiar();
+                if (seModifico) {
+                    JOptionPane.showMessageDialog(this, "Se modifico en la base de datos");
+                    limpiar();
 
-                 }else{
-                      Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
-                     JOptionPane.showMessageDialog(this, "Hubo un error al modificar","",JOptionPane.INFORMATION_MESSAGE,p);
-                 }
-             
+                } else {
+                    Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
+                    JOptionPane.showMessageDialog(this, "Hubo un error al modificar", "", JOptionPane.INFORMATION_MESSAGE, p);
+                }
+
+            }
+
         }
-        
-     }
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    
+
         gerente.setVisible(true);
         this.dispose();
-
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    public boolean validar(){
-        
+    public boolean validar() {
+
         boolean rest = true;
-        boolean num =true;
-        boolean letras =true;
-        
-       if(ide.getText().equals("")){
-           ide.setBackground(Color.RED);
-           rest=false;
-       }
-        if(nombre.getText().equals("")){
+        boolean num = true;
+        boolean letras = true;
+
+        if (!(radioActivo.isSelected() || radioInactivo.isSelected())) {
+            rest = false;
+        }
+        if (ide.getText().equals("")) {
+            ide.setBackground(Color.RED);
+            rest = false;
+        }
+        if (nombre.getText().equals("")) {
             nombre.setBackground(Color.RED);
-             rest=false;
+            rest = false;
 
         }
-        if(fecha.getText().equals("")){
+        if (fecha.getText().equals("")) {
             fecha.setBackground(Color.RED);
-            rest=false;
+            rest = false;
 
         }
-        if(hora.getText().equals("")){
+        if (hora.getText().equals("")) {
             hora.setBackground(Color.RED);
-            rest=false;
+            rest = false;
         }
-        if(ubicacion.getText().equals("")){
+        if (ubicacion.getText().equals("")) {
             ubicacion.setBackground(Color.RED);
-            rest= false;
+            rest = false;
         }
-        if(capacidad.getText().equals("")){
+        if (capacidad.getText().equals("")) {
             capacidad.setBackground(Color.RED);
-            rest=false;
+            rest = false;
         }
-       
-       
-      if(sedeCombo.getSelectedIndex()==-1){
-       Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));        
-       JOptionPane.showMessageDialog(this, "se debe buscar sedes disponibles", "", JOptionPane.INFORMATION_MESSAGE, p); 
+
+        if (sedeCombo.getSelectedIndex() == -1) {
+            Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
+            JOptionPane.showMessageDialog(this, "se debe buscar sedes disponibles", "", JOptionPane.INFORMATION_MESSAGE, p);
             rest = false;
             return rest;
-      }
-        
-       
-        if (!isNumeric(capacidad.getText())){
-            num=false;
         }
-         if(this.sololetras(ide.getText())|| this.sololetras(nombre.getText()) || 
-            this.sololetras(fecha.getText()) || this.sololetras(hora.getText())){
-             letras=false;
-            
-         }
 
-           if (!rest) {
+        if (!isNumeric(capacidad.getText())) {
+            num = false;
+        }
+        if (this.sololetras(ide.getText()) || this.sololetras(nombre.getText())) { //Validar fecha y hora, soloLetras no sirve
+            letras = false;
+
+        }
+
+        if (!rest) {
             Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
             JOptionPane.showMessageDialog(this, "Por favor verifique la informacion", "", JOptionPane.INFORMATION_MESSAGE, p);
             ide.setBackground(Color.WHITE);
@@ -356,43 +378,44 @@ public class interfazModificarEvento extends javax.swing.JFrame {
             capacidad.setBackground(Color.WHITE);
             return rest;
         }
-           if(!num){
-             Icon p = new ImageIcon(getClass().getResource("/gui/images/phone.png"));
+        if (!num) {
+            Icon p = new ImageIcon(getClass().getResource("/gui/images/phone.png"));
             JOptionPane.showMessageDialog(this, "La capacidad debe ser un dato numerico", "", JOptionPane.INFORMATION_MESSAGE, p);
             capacidad.setBackground(Color.WHITE);
             capacidad.setText("");
             rest = false;
             return rest;
-           }
-           if(!letras){
+        }
+        if (!letras) {
             Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
             JOptionPane.showMessageDialog(this, "Los campos no deben tener caracteres especiales", "", JOptionPane.INFORMATION_MESSAGE, p);
             limpiar();
-            rest=false;
+            rest = false;
             return rest;
-           
-           }
-        
-      
-       return rest; 
+
+        }
+
+        return rest;
     }
-    public void limpiar(){
+
+    public void limpiar() {
         ide.setBackground(Color.WHITE);
         nombre.setBackground(Color.WHITE);
         fecha.setBackground(Color.WHITE);
         hora.setBackground(Color.WHITE);
         ubicacion.setBackground(Color.WHITE);
         capacidad.setBackground(Color.WHITE);
-        sedeCombo.setSelectedIndex(0);
+        sedeCombo.removeAllItems();
         ide.setText("");
         nombre.setText("");
         fecha.setText("");
         hora.setText("");
         ubicacion.setText("");
         capacidad.setText("");
-        
+        radioEstados.clearSelection();
     }
-        private boolean isNumeric(String cadena) {
+
+    private boolean isNumeric(String cadena) {
         try {
             Integer.parseInt(cadena);
             return true;
@@ -400,7 +423,8 @@ public class interfazModificarEvento extends javax.swing.JFrame {
             return false;
         }
     }
-       public static boolean sololetras(String prueba) {
+
+    public static boolean sololetras(String prueba) {
         boolean result = false;
         String comparacion = "!!$%&/()=?¡*¨][_:;°¬|@·~½¬{[]}~µ";
         for (int i = prueba.length() - 1; i >= 0; i--) {
@@ -413,6 +437,7 @@ public class interfazModificarEvento extends javax.swing.JFrame {
         }
         return result;
     }
+
     /**
      * @param args the command line arguments
      */
@@ -469,6 +494,7 @@ public class interfazModificarEvento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -477,6 +503,9 @@ public class interfazModificarEvento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nombre;
+    private javax.swing.JRadioButton radioActivo;
+    private javax.swing.ButtonGroup radioEstados;
+    private javax.swing.JRadioButton radioInactivo;
     private javax.swing.JComboBox<String> sedeCombo;
     private javax.swing.JTextField ubicacion;
     // End of variables declaration//GEN-END:variables

@@ -4,81 +4,100 @@
  * and open the template in the editor.
  */
 package logica;
-import logica.Sede;
 
+import logica.Sede;
 
 /**
  *
  * @author Alexandra
  */
 public class Evento {
-    private String identificacion,nombre,sede,fecha,hora,ubicacion;
-    private int costo,capacidad;
-    public Evento(){
-        identificacion ="";
-        nombre ="";
-        sede ="";
-        fecha ="";
-        hora="";
-        ubicacion="";
-        costo=0;
-        capacidad=0;
+
+    private String identificacion, nombre, sede, fecha, hora, ubicacion, estado;
+    private int costo, capacidad;
+
+    public Evento() {
+        identificacion = "";
+        nombre = "";
+        sede = "";
+        fecha = "";
+        hora = "";
+        ubicacion = "";
+        costo = 0;
+        capacidad = 0;
+        estado = "";
     }
-     
-    public void setIdentificacion(String identificacion){
+
+    public void setIdentificacion(String identificacion) {
         this.identificacion = identificacion;
     }
-    public void setNombre(String nombre){
+
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    public void setSede(String sede){
+
+    public void setSede(String sede) {
         this.sede = sede;
     }
-    public void  setFecha(String fecha){
+
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
-     public void  setHora(String hora){
+
+    public void setHora(String hora) {
         this.hora = hora;
     }
-    public void setUbicacion(String ubicacion){
+
+    public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
     }
-    public void  setCosto(int costo){
-        this.costo= costo;
+
+    public void setCosto(int costo) {
+        this.costo = costo;
     }
-    
-    public void setCapacidad(int capacidad){
-        this.capacidad= capacidad;
+
+    public void setCapacidad(int capacidad) {
+        this.capacidad = capacidad;
     }
-    
-    public String getIdentificacion(){
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getIdentificacion() {
         return identificacion;
     }
-    public String getNombre(){
+
+    public String getNombre() {
         return nombre;
     }
-  
-   public String getSede(){
+
+    public String getSede() {
         return sede;
     }
-   
-    public String getFecha(){
+
+    public String getFecha() {
         return fecha;
     }
-    public String getHora(){
+
+    public String getHora() {
         return hora;
     }
-    public String getUbicacion(){
+
+    public String getUbicacion() {
         return ubicacion;
     }
-    public int getCosto(){   
+
+    public int getCosto() {
         return costo;
     }
-    public int getCapacidad(){
+
+    public int getCapacidad() {
         return capacidad;
     }
-   
-    
-    
-    
+
+    public String getEstado() {
+        return estado;
+    }
+
 }

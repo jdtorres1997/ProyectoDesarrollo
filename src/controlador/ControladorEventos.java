@@ -13,38 +13,38 @@ import logica.Evento;
  * @author Alexandra
  */
 public class ControladorEventos {
-     DAOEvento daoEvento;
-     
-     public ControladorEventos(){
-         daoEvento = new DAOEvento();
-     }
-     
-     public boolean agregarEvento(Evento ev){
+
+    DAOEvento daoEvento;
+
+    public ControladorEventos() {
+        daoEvento = new DAOEvento();
+    }
+
+    public boolean agregarEvento(Evento ev) {
         boolean respuesta = daoEvento.insertarEvento(ev);
         System.out.println(respuesta);
-        return respuesta;   
-         
-     }
-     
-     public Evento  consultarEvento(String identificacion){
-         
+        return respuesta;
+
+    }
+
+    public Evento consultarEvento(String identificacion) {
+
         Evento ev = new Evento();
         System.out.println("Se va a consultar un usuario");
         ev = daoEvento.consultarEvento(identificacion);
         return ev;
-        
+
     }
-       public  boolean existeEvento(String identificacion) {
+
+    public boolean existeEvento(String identificacion) {
         boolean respuesta = daoEvento.existeEvento(identificacion);
         return respuesta;
     }
-      public boolean modificarEvento(Evento ev){
-          boolean respuesta = daoEvento.updateEvento(ev);
-          return respuesta;
-          
-      }
-          
-          
-     
-    
+
+    public boolean modificarEvento(Evento ev) {
+        boolean respuesta = daoEvento.updateEvento(ev);
+        return respuesta;
+
+    }
+
 }
