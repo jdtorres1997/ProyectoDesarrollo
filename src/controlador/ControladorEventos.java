@@ -6,6 +6,7 @@
 package controlador;
 
 import accesoDatos.DAOEvento;
+import java.util.ArrayList;
 import logica.Evento;
 
 /**
@@ -46,5 +47,13 @@ public class ControladorEventos {
         return respuesta;
 
     }
+    
+    public ArrayList<String> retornar(){
+       
+      ArrayList<String> ve= new ArrayList<String>();
 
+        ve = daoEvento.todosEventos();
+        System.out.print(ve);
+        return ve;
+    }
 }

@@ -15,7 +15,10 @@ import logica.*;
 public class interfazOperario extends javax.swing.JFrame {
     Usuario usuarioActual;
     crearCliente  cliente;
-    modificarCliente modificarC;//Se almacena el usuario que está logueado
+    modificarCliente modificarC;
+    registrarInscripcion inscribirC; 
+    registrarPago registrarP;
+    
     /**
      * Creates new form interfazOperario
      */
@@ -124,11 +127,21 @@ public class interfazOperario extends javax.swing.JFrame {
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 130, -1));
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("jButton3");
+        jButton3.setText("Preinscribir cliente");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 130, -1));
 
         jButton4.setBackground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("jButton4");
+        jButton4.setText("Registrar pago");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 130, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/heart.jpg"))); // NOI18N
@@ -161,6 +174,18 @@ public class interfazOperario extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        inscribirC = new registrarInscripcion();
+        inscribirC.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        registrarP = new registrarPago();
+        registrarP.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

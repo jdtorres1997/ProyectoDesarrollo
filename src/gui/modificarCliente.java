@@ -17,9 +17,10 @@ import logica.Cliente;
  * @author Alexandra
  */
 public class modificarCliente extends javax.swing.JFrame {
-    
-        ControladorCliente cliente;
-        interfazOperario interfazOper;
+
+    ControladorCliente cliente;
+    interfazOperario interfazOper;
+
     /**
      * Creates new form modificarCliente
      */
@@ -235,69 +236,62 @@ public class modificarCliente extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        if(cliente.existeCliente(ide.getText())){
-            
-           Cliente c= new Cliente();
-           c= cliente.consultarCliente(ide.getText());
-           nombre.setText(c.getNombre());
-           apellido.setText(c.getApellido());
-           direccion.setText(c.getDireccion());
-           email.setText(c.getEmail());
-           telefono.setText(String.valueOf(c.getTelefono()));
-           
-        
-        }
-        else {
+        if (cliente.existeCliente(ide.getText())) {
+
+            Cliente c = new Cliente();
+            c = cliente.consultarCliente(ide.getText());
+            nombre.setText(c.getNombre());
+            apellido.setText(c.getApellido());
+            direccion.setText(c.getDireccion());
+            email.setText(c.getEmail());
+            telefono.setText(String.valueOf(c.getTelefono()));
+
+        } else {
             Icon p = new ImageIcon(getClass().getResource("/gui/images/wrongUser.png"));
-            JOptionPane.showMessageDialog(this, "El cliente no existe, digite otro por favor","",JOptionPane.INFORMATION_MESSAGE,p);
-              
-      }
-        
-        
+            JOptionPane.showMessageDialog(this, "El cliente no existe, digite otro por favor", "", JOptionPane.INFORMATION_MESSAGE, p);
+
+        }
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
-        Cliente c= new Cliente();
-        
-        if(cliente.existeCliente(ide.getText())){
-            
-            if(validar()){
-               c.setIdentificacion(ide.getText());
-               c.setNombre(nombre.getText());
-               c.setApellido(apellido.getText());
-               c.setDireccion(direccion.getText());
-               c.setEmail(email.getText());
-               c.setTelefono(Long.parseLong(telefono.getText()));
-               
-             boolean seModifico=  cliente.modificarCliente(c);
-               
-             if(seModifico){
-                     JOptionPane.showMessageDialog(this, "Se modifico el cliente en la base de datos");
-                      limpiar();
+        Cliente c = new Cliente();
 
-                 }else{
-                      Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
-                     JOptionPane.showMessageDialog(this, "Hubo un error al modificar","",JOptionPane.INFORMATION_MESSAGE,p);
-                 }
-                
+        if (cliente.existeCliente(ide.getText())) {
+
+            if (validar()) {
+                c.setIdentificacion(ide.getText());
+                c.setNombre(nombre.getText());
+                c.setApellido(apellido.getText());
+                c.setDireccion(direccion.getText());
+                c.setEmail(email.getText());
+                c.setTelefono(Long.parseLong(telefono.getText()));
+
+                boolean seModifico = cliente.modificarCliente(c);
+
+                if (seModifico) {
+                    JOptionPane.showMessageDialog(this, "Se modifico el cliente en la base de datos");
+                    limpiar();
+
+                } else {
+                    Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
+                    JOptionPane.showMessageDialog(this, "Hubo un error al modificar", "", JOptionPane.INFORMATION_MESSAGE, p);
+                }
+
             }
-        }
-        else{
+        } else {
             Icon p = new ImageIcon(getClass().getResource("/gui/images/wrongUser.png"));
-            JOptionPane.showMessageDialog(this, "El cliente no existe, digite otro por favor","",JOptionPane.INFORMATION_MESSAGE,p);
-              limpiar();
-              
-        }
-      
+            JOptionPane.showMessageDialog(this, "El cliente no existe, digite otro por favor", "", JOptionPane.INFORMATION_MESSAGE, p);
+            limpiar();
 
+        }
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-     private boolean isNumeric(String cadena) {
+    private boolean isNumeric(String cadena) {
         try {
             Long.parseLong(cadena);
             return true;
@@ -305,7 +299,8 @@ public class modificarCliente extends javax.swing.JFrame {
             return false;
         }
     }
-     public static boolean sololetras(String prueba) {
+
+    public static boolean sololetras(String prueba) {
         boolean result = false;
         String comparacion = "!!#$%&/()=?¡*¨][_:;°¬|@·~½¬{[]}~─µ";
         for (int i = prueba.length() - 1; i >= 0; i--) {
@@ -318,7 +313,8 @@ public class modificarCliente extends javax.swing.JFrame {
         }
         return result;
     }
-    public void limpiar(){
+
+    public void limpiar() {
         ide.setText("");
         nombre.setText("");
         apellido.setText("");
@@ -332,76 +328,70 @@ public class modificarCliente extends javax.swing.JFrame {
         email.setBackground(Color.WHITE);
         telefono.setBackground(Color.WHITE);
     }
-     public boolean validar(){
-        
-        boolean rest=true;
-       
-        if(ide.getText().equals("")){
-            ide.setBackground(Color.RED);
-            rest=false;
-        }
-        if(nombre.getText().equals("")){
-            nombre.setBackground(Color.RED);
-            rest=false;
-            
-        }
-        if(apellido.getText().equals("")){
-            apellido.setBackground(Color.RED);
-            rest=false;
-        }
-        if(direccion.getText().equals("")){
-            direccion.setBackground(Color.RED);
-            rest=false;
-        }
-        if(email.getText().equals("")){
-            email.setBackground(Color.RED);
-            rest=false;
-        }
-        if(telefono.getText().equals("")){
-            telefono.setBackground(Color.RED);
-            rest=false;
-        }
-        
 
-           if (!rest) {
+    public boolean validar() {
+
+        boolean rest = true;
+
+        if (ide.getText().equals("")) {
+            ide.setBackground(Color.RED);
+            rest = false;
+        }
+        if (nombre.getText().equals("")) {
+            nombre.setBackground(Color.RED);
+            rest = false;
+
+        }
+        if (apellido.getText().equals("")) {
+            apellido.setBackground(Color.RED);
+            rest = false;
+        }
+        if (direccion.getText().equals("")) {
+            direccion.setBackground(Color.RED);
+            rest = false;
+        }
+        if (email.getText().equals("")) {
+            email.setBackground(Color.RED);
+            rest = false;
+        }
+        if (telefono.getText().equals("")) {
+            telefono.setBackground(Color.RED);
+            rest = false;
+        }
+
+        if (!rest) {
             Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
             JOptionPane.showMessageDialog(this, "Por favor verifique la informacion", "", JOptionPane.INFORMATION_MESSAGE, p);
             ide.setBackground(Color.WHITE);
-             nombre.setBackground(Color.WHITE);
-             apellido.setBackground(Color.WHITE);
+            nombre.setBackground(Color.WHITE);
+            apellido.setBackground(Color.WHITE);
             direccion.setBackground(Color.WHITE);
-             email.setBackground(Color.WHITE);
-            telefono.setBackground(Color.WHITE);      
+            email.setBackground(Color.WHITE);
+            telefono.setBackground(Color.WHITE);
             return rest;
         }
-            if(this.sololetras(ide.getText())|| this.sololetras(nombre.getText())||
-                this.sololetras(apellido.getText())|| this.sololetras(direccion.getText())||
-                this.sololetras(email.getText())){
+        if (this.sololetras(ide.getText()) || this.sololetras(nombre.getText())
+                || this.sololetras(apellido.getText())) {
             Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
             JOptionPane.showMessageDialog(this, "Los campos no deben tener caracteres especiales", "", JOptionPane.INFORMATION_MESSAGE, p);
-           limpiar();
+            limpiar();
             rest = false;
             return rest;
         }
-        if(!isNumeric(telefono.getText())){
+        if (!isNumeric(telefono.getText())) {
             Icon p = new ImageIcon(getClass().getResource("/gui/images/phone.png"));
             telefono.setBackground(Color.RED);
             JOptionPane.showMessageDialog(this, "El telefono debe ser un dato numerico", "", JOptionPane.INFORMATION_MESSAGE, p);
-           telefono.setBackground(Color.WHITE);
-           telefono.setText("");
+            telefono.setBackground(Color.WHITE);
+            telefono.setText("");
             rest = false;
             return rest;
         }
-       
-       
+
         return rest;
-        
-        
+
     }
-    
-    
-    
-    
+
     /**
      * @param args the command line arguments
      */

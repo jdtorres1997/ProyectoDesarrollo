@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import logica.Evento;
 
 /**
@@ -135,6 +136,30 @@ public class DAOEvento {
         }
         return false;
 
+    }
+
+    public ArrayList<String> todosEventos() {
+
+        String sql_select;
+        ArrayList<String> ve = new ArrayList<String>();
+
+        sql_select = "SELECT * FROM  eventos WHERE estado='activo'";
+        try {
+            Connection conn = acceso.getConnetion();
+            System.out.println("consultando la sede en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            while (tabla.next()) {
+                ve.add((tabla.getString(1)));
+
+            }
+            return ve;
+        } catch (SQLException e) {
+            System.out.println(e);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
     }
 
 }

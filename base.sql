@@ -41,8 +41,15 @@ CREATE TABLE eventos (
         capacidad int,
         foreign key(sede) references sedes (identificacion)
 );
-
-
+DROP TABLE IF EXISTS inscripciones CASCADE;
+CREATE TABLE inscripciones (
+	id_cliente VARCHAR(20),
+	id_evento VARCHAR(20),
+	pago VARCHAR(2),
+	PRIMARY KEY (id_cliente, id_evento),
+	FOREIGN KEY (id_cliente) REFERENCES clientes (identificacion),
+	FOREIGN KEY (id_evento) REFERENCES eventos(identificacion)
+);
 
 INSERT INTO usuarios (login, password, tipo, estado, telefono, nombre, apellido)
 		VALUES ('admin', 'admin', 'administrador', 'activo', 3104166431, 'Juan David', 'Torres Cañon');

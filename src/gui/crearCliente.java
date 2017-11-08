@@ -17,8 +17,10 @@ import logica.Cliente;
  * @author Alexandra
  */
 public class crearCliente extends javax.swing.JFrame {
-        ControladorCliente controladorCliente;
-        interfazOperario  interfazOper;
+
+    ControladorCliente controladorCliente;
+    interfazOperario interfazOper;
+
     /**
      * Creates new form crearCliente
      */
@@ -198,17 +200,17 @@ public class crearCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_telefonoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        if(validar()){
-        Cliente c = new Cliente();
-        c.setIdentificacion(ide.getText());
-        c.setNombre(nombre.getText());
-        c.setApellido(apellido.getText());
-        c.setDireccion(direccion.getText());
-        c.setEmail(email.getText());
-        c.setTelefono(Long.parseLong(telefono.getText()));
-        
-         boolean seAgrego = controladorCliente.agregarCliente(c);
+
+        if (validar()) {
+            Cliente c = new Cliente();
+            c.setIdentificacion(ide.getText());
+            c.setNombre(nombre.getText());
+            c.setApellido(apellido.getText());
+            c.setDireccion(direccion.getText());
+            c.setEmail(email.getText());
+            c.setTelefono(Long.parseLong(telefono.getText()));
+
+            boolean seAgrego = controladorCliente.agregarCliente(c);
 
             if (seAgrego) {
                 Icon m = new ImageIcon(getClass().getResource("/gui/images/adduser.png"));
@@ -223,7 +225,7 @@ public class crearCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-     private boolean isNumeric(String cadena) {
+    private boolean isNumeric(String cadena) {
         try {
             Long.parseLong(cadena);
             return true;
@@ -231,7 +233,8 @@ public class crearCliente extends javax.swing.JFrame {
             return false;
         }
     }
-     public static boolean sololetras(String prueba) {
+
+    public static boolean sololetras(String prueba) {
         boolean result = false;
         String comparacion = "!!#$%&/()=?¡*¨][_:;°¬|@·~½¬{[]}~─µ";
         for (int i = prueba.length() - 1; i >= 0; i--) {
@@ -244,7 +247,8 @@ public class crearCliente extends javax.swing.JFrame {
         }
         return result;
     }
-    public void limpiar(){
+
+    public void limpiar() {
         ide.setText("");
         nombre.setText("");
         apellido.setText("");
@@ -258,48 +262,49 @@ public class crearCliente extends javax.swing.JFrame {
         email.setBackground(Color.WHITE);
         telefono.setBackground(Color.WHITE);
     }
-    public boolean validar(){
-        
-        boolean rest=true;
-       
-        if(ide.getText().equals("")){
+
+    public boolean validar() {
+
+        boolean rest = true;
+
+        if (ide.getText().equals("")) {
             ide.setBackground(Color.RED);
-            rest=false;
+            rest = false;
         }
-        if(nombre.getText().equals("")){
+        if (nombre.getText().equals("")) {
             nombre.setBackground(Color.RED);
-            rest=false;
-            
+            rest = false;
+
         }
-        if(apellido.getText().equals("")){
+        if (apellido.getText().equals("")) {
             apellido.setBackground(Color.RED);
-            rest=false;
+            rest = false;
         }
-        if(direccion.getText().equals("")){
+        if (direccion.getText().equals("")) {
             direccion.setBackground(Color.RED);
-            rest=false;
+            rest = false;
         }
-        if(email.getText().equals("")){
+        if (email.getText().equals("")) {
             email.setBackground(Color.RED);
-            rest=false;
+            rest = false;
         }
-        if(telefono.getText().equals("")){
+        if (telefono.getText().equals("")) {
             telefono.setBackground(Color.RED);
-            rest=false;
+            rest = false;
         }
-        
-        if(controladorCliente.existeCliente(ide.getText())){
-             Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
+
+        if (controladorCliente.existeCliente(ide.getText())) {
+            Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
             JOptionPane.showMessageDialog(this, "El cliente ya existe, digite otro por favor", "", JOptionPane.INFORMATION_MESSAGE, p);
-             limpiar();
+            limpiar();
             rest = false;
             return rest;
-            
+
         }
-           if (!rest) {
+        if (!rest) {
             Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
             JOptionPane.showMessageDialog(this, "Por favor verifique la informacion", "", JOptionPane.INFORMATION_MESSAGE, p);
-             ide.setBackground(Color.WHITE);
+            ide.setBackground(Color.WHITE);
             nombre.setBackground(Color.WHITE);
             apellido.setBackground(Color.WHITE);
             direccion.setBackground(Color.WHITE);
@@ -307,33 +312,27 @@ public class crearCliente extends javax.swing.JFrame {
             telefono.setBackground(Color.WHITE);
             return rest;
         }
-            if(this.sololetras(ide.getText())|| this.sololetras(nombre.getText())||
-                this.sololetras(apellido.getText())|| this.sololetras(direccion.getText())||
-                this.sololetras(email.getText())){
+        if (this.sololetras(ide.getText()) || this.sololetras(nombre.getText())
+                || this.sololetras(apellido.getText())) {
             Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
             JOptionPane.showMessageDialog(this, "Los campos no deben tener caracteres especiales", "", JOptionPane.INFORMATION_MESSAGE, p);
-           limpiar();
+            limpiar();
             rest = false;
             return rest;
         }
-        if(!isNumeric(telefono.getText())){
+        if (!isNumeric(telefono.getText())) {
             Icon p = new ImageIcon(getClass().getResource("/gui/images/phone.png"));
             telefono.setBackground(Color.RED);
             JOptionPane.showMessageDialog(this, "El telefono debe ser un dato numerico", "", JOptionPane.INFORMATION_MESSAGE, p);
             rest = false;
             return rest;
         }
-       
-      
-        
-        
+
         return rest;
-        
-        
+
     }
-     
-     
-     
+
+
     private void ideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ideActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ideActionPerformed
@@ -343,12 +342,11 @@ public class crearCliente extends javax.swing.JFrame {
         interfazOper.setVisible(true);
         this.dispose();
 
-
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
-     * 
+     *
      * @param args the command line arguments
      */
     public static void main(String args[]) {
