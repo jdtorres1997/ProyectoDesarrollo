@@ -47,10 +47,10 @@ public class DAOInscripcion {
         }
         return false;
     }
-    
+
     public boolean existeInscripcion(String id_cliente, String id_evento) {
         String sql_select;
-        sql_select = "SELECT id_cliente FROM inscripciones WHERE id_cliente='" + id_cliente + "' AND id_evento='"+ id_evento +"'";
+        sql_select = "SELECT id_cliente FROM inscripciones WHERE id_cliente='" + id_cliente + "' AND id_evento='" + id_evento + "'";
         try {
             Connection conn = acceso.getConnetion();
             System.out.println("consultando en la bd");
@@ -71,12 +71,12 @@ public class DAOInscripcion {
         return true;
 
     }
-    
+
     public boolean updateInscripcion(Inscripcion i) {
         String sql_select;
         sql_select = "UPDATE inscripciones "
                 + "SET "
-                + "pago='si' WHERE id_cliente='" + i.getIdCliente() + "' AND id_evento='" + i.getIdEvento() +"'";
+                + "pago='si' WHERE id_cliente='" + i.getIdCliente() + "' AND id_evento='" + i.getIdEvento() + "'";
         try {
             Connection conn = acceso.getConnetion();
             System.out.println("actualizando en  bd");
@@ -91,6 +91,29 @@ public class DAOInscripcion {
         }
         return false;
     }
-    
-    
+
+    public Inscripcion consultarInscripcion(String id_cliente, String id_evento) {
+        Inscripcion i = new Inscripcion();
+        String sql_select;
+        sql_select = "SELECT id_cliente, id_evento, pago FROM inscripciones WHERE id_cliente='" + id_cliente + "' AND id_evento='" + id_evento + "'";
+        try {
+            Connection conn = acceso.getConnetion();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            while (tabla.next()) {
+                i.setIdCliente(tabla.getString(1));
+                i.setIdEvento(tabla.getString(2));
+                i.setPago(tabla.getString(3));
+                System.out.println("ok");
+            }
+            return i;
+        } catch (SQLException e) {
+            System.out.println(e);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
 }

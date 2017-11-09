@@ -152,6 +152,7 @@ public class registrarPago extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Hubo un error al agregar el pago ", "", JOptionPane.INFORMATION_MESSAGE, p);
             }
         }
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -167,11 +168,19 @@ public class registrarPago extends javax.swing.JFrame {
         if (!controladorCliente.existeCliente(id_cliente.getText())) {
             rest = false;
             JOptionPane.showMessageDialog(this, "El cliente no existe", "", JOptionPane.INFORMATION_MESSAGE);
+            limpiar();
             return rest;
         }
         if (!controladorInscripcion.existeInscripcion(id_cliente.getText(), eventoCombo.getSelectedItem().toString())) {
             rest = false;
             JOptionPane.showMessageDialog(this, "El cliente no se encuentra preinscrito a este evento", "", JOptionPane.INFORMATION_MESSAGE);
+            limpiar();
+            return rest;
+        }
+        if ((controladorInscripcion.existeInscripcion(id_cliente.getText(), eventoCombo.getSelectedItem().toString())) && (controladorInscripcion.consultarInscripcion(id_cliente.getText(), eventoCombo.getSelectedItem().toString()).getPago().equals("si"))) {
+            rest = false;
+            JOptionPane.showMessageDialog(this, "El cliente ya realizó el pago para este evento", "", JOptionPane.INFORMATION_MESSAGE);
+            limpiar();
             return rest;
         }
 

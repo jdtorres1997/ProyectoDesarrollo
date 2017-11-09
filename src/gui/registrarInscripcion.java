@@ -167,11 +167,13 @@ public class registrarInscripcion extends javax.swing.JFrame {
         if (!controladorCliente.existeCliente(id_cliente.getText())) {
             rest = false;
             JOptionPane.showMessageDialog(this, "El cliente no existe", "", JOptionPane.INFORMATION_MESSAGE);
+            limpiar();
             return rest;
         }
         if (controladorInscripcion.existeInscripcion(id_cliente.getText(), eventoCombo.getSelectedItem().toString())) {
             rest = false;
             JOptionPane.showMessageDialog(this, "El cliente ya se encuentra preinscrito a este evento", "", JOptionPane.INFORMATION_MESSAGE);
+            limpiar();
             return rest;
         }
 
