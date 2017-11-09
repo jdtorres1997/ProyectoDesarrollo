@@ -144,7 +144,7 @@ public class registrarPago extends javax.swing.JFrame {
             in.setPago("no");
             boolean seAgrego = controladorInscripcion.modificarInscripcion(in);
             if (seAgrego) {
-                
+
                 JOptionPane.showMessageDialog(this, "Se agrego el pago a la base de datos, ahora se encuentra inscrito", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
                 limpiar();
             } else {
@@ -202,7 +202,9 @@ public class registrarPago extends javax.swing.JFrame {
     }
 
     public void limpiar() {
-
+        id_cliente.setText("");
+        eventoCombo.removeAllItems();
+        id_cliente.setBackground(Color.white);
     }
 
 

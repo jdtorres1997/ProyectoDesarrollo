@@ -202,7 +202,9 @@ public class registrarInscripcion extends javax.swing.JFrame {
     }
 
     public void limpiar() {
-
+        id_cliente.setText("");
+        eventoCombo.removeAllItems();
+        id_cliente.setBackground(Color.white);
     }
 
 

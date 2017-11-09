@@ -18,11 +18,11 @@ CREATE TABLE sedes (
         ubicacion VARCHAR(20),
         estado VARCHAR(20)
 );
-DROP TABLE IF EXISTS cliente CASCADE;
-CREATE TABLE cliente (
+DROP TABLE IF EXISTS clientes CASCADE;
+CREATE TABLE clientes (
 
 	identificacion VARCHAR(20) PRIMARY KEY,
-    nombre VARCHAR(30),
+	nombre VARCHAR(30),
 	apellido VARCHAR(30),
 	direccion VARCHAR(30),
 	email VARCHAR(20),
@@ -39,6 +39,7 @@ CREATE TABLE eventos (
         ubicacion VARCHAR(50),
         costo BIGINT,
         capacidad int,
+        estado VARCHAR(10),
         foreign key(sede) references sedes (identificacion)
 );
 DROP TABLE IF EXISTS inscripciones CASCADE;
