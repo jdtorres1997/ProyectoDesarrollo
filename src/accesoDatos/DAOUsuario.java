@@ -147,6 +147,7 @@ public class DAOUsuario {
             ResultSet tabla = sentencia.executeQuery(sql_select);
             while (tabla.next()) 
             {
+                 
                 
                 ve.add(tabla.getString(1));
                 ve.add(tabla.getString(3));
