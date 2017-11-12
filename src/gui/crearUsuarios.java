@@ -26,6 +26,8 @@ public class crearUsuarios extends javax.swing.JFrame {
      */
     public crearUsuarios() {
         initComponents();
+       this.setLocationRelativeTo(null);
+
         controladorUsuarios = new ControladorUsuarios();
         interfazAdmin = new interfazAdministrador();
         this.setLocationRelativeTo(null);

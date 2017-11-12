@@ -4,6 +4,8 @@
 package controlador;
 
 import accesoDatos.*;
+import java.util.ArrayList;
+import java.util.Vector;
 import logica.*;
 
 /**
@@ -49,5 +51,13 @@ public class ControladorUsuarios {
             
     public void cerrarConexionBD() {
         daoUsuario.cerrarConexionBD();
+    }
+     public Vector retornar(){
+       
+      Vector ve= new Vector();
+
+        ve = daoUsuario.todosUsuarios();
+   
+        return ve;
     }
 }

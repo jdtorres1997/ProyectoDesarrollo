@@ -35,7 +35,7 @@ public class DAOInscripcion {
                 + "'no')";
         try {
             Connection conn = acceso.getConnetion();
-            System.out.println("insertando en la bd");
+          //  System.out.println("insertando en la bd");
             Statement sentencia = conn.createStatement();
             sentencia.executeUpdate(sql_select);
 
@@ -53,7 +53,7 @@ public class DAOInscripcion {
         sql_select = "SELECT id_cliente FROM inscripciones WHERE id_cliente='" + id_cliente + "' AND id_evento='" + id_evento + "'";
         try {
             Connection conn = acceso.getConnetion();
-            System.out.println("consultando en la bd");
+           // System.out.println("consultando en la bd");
             Statement sentencia = conn.createStatement();
             ResultSet tabla = sentencia.executeQuery(sql_select);
 
@@ -79,7 +79,7 @@ public class DAOInscripcion {
                 + "pago='si' WHERE id_cliente='" + i.getIdCliente() + "' AND id_evento='" + i.getIdEvento() + "'";
         try {
             Connection conn = acceso.getConnetion();
-            System.out.println("actualizando en  bd");
+          //  System.out.println("actualizando en  bd");
             Statement sentencia = conn.createStatement();
             sentencia.executeUpdate(sql_select);
 
@@ -98,7 +98,7 @@ public class DAOInscripcion {
         sql_select = "SELECT id_cliente, id_evento, pago FROM inscripciones WHERE id_cliente='" + id_cliente + "' AND id_evento='" + id_evento + "'";
         try {
             Connection conn = acceso.getConnetion();
-            System.out.println("consultando en la bd");
+           // System.out.println("consultando en la bd");
             Statement sentencia = conn.createStatement();
             ResultSet tabla = sentencia.executeQuery(sql_select);
             while (tabla.next()) {

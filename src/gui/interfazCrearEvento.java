@@ -30,6 +30,7 @@ public class interfazCrearEvento extends javax.swing.JFrame {
      */
     public interfazCrearEvento() {
         initComponents();
+        this.setLocationRelativeTo(null);
         sedes = new ControladorSedes();
         gerente = new interfazGerente();
         controladorEvento = new ControladorEventos();

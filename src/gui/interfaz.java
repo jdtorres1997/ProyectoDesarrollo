@@ -35,6 +35,8 @@ public class interfaz extends javax.swing.JFrame {
      */
     public interfaz() {
         initComponents();
+                this.setLocationRelativeTo(null);
+
         
        ImageIcon Imagen = new ImageIcon("/gui/images/InterfazFondo.png");
 

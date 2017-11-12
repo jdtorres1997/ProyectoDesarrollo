@@ -18,6 +18,7 @@ public class interfazAdministrador extends javax.swing.JFrame {
      */
     crearUsuarios ventanaCrearUsuario;
     interfazModificarUsuarios ventanaModificar;
+    reporteUsuarios ventanaReporte;
     
     public interfazAdministrador() {
         initComponents(); 
@@ -28,8 +29,8 @@ public class interfazAdministrador extends javax.swing.JFrame {
     
     public interfazAdministrador(Usuario u) {
         initComponents();
-         this.getContentPane().setBackground(Color.WHITE);
-       this.setLocationRelativeTo(null);
+        this.getContentPane().setBackground(Color.WHITE);
+        this.setLocationRelativeTo(null);
         this.setResizable(false);
         usuarioActual = u; 
         identificadorUsuario.setText(usuarioActual.getNombre()+" "+usuarioActual.getApellido());
@@ -46,6 +47,7 @@ public class interfazAdministrador extends javax.swing.JFrame {
     private void initComponents() {
 
         jDesktopPane1 = new javax.swing.JDesktopPane();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         botonCerrarSesion = new javax.swing.JButton();
         Crear = new javax.swing.JButton();
@@ -54,7 +56,9 @@ public class interfazAdministrador extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         identificadorUsuario = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -66,6 +70,10 @@ public class interfazAdministrador extends javax.swing.JFrame {
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/azul (2).jpg"))); // NOI18N
+        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel3.setPreferredSize(new java.awt.Dimension(350, 326));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(410, 326));
@@ -82,7 +90,7 @@ public class interfazAdministrador extends javax.swing.JFrame {
                 botonCerrarSesionActionPerformed(evt);
             }
         });
-        getContentPane().add(botonCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 140, -1));
+        getContentPane().add(botonCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 170, -1));
 
         Crear.setBackground(new java.awt.Color(255, 255, 153));
         Crear.setText("Crear Usuario");
@@ -91,7 +99,7 @@ public class interfazAdministrador extends javax.swing.JFrame {
                 CrearActionPerformed(evt);
             }
         });
-        getContentPane().add(Crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 140, -1));
+        getContentPane().add(Crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 170, -1));
 
         modificar.setBackground(new java.awt.Color(255, 255, 153));
         modificar.setText("Modificar Usuario");
@@ -100,11 +108,10 @@ public class interfazAdministrador extends javax.swing.JFrame {
                 modificarActionPerformed(evt);
             }
         });
-        getContentPane().add(modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 140, -1));
+        getContentPane().add(modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 170, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/j.png"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 220, 260));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 210, 260));
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -123,7 +130,7 @@ public class interfazAdministrador extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(identificadorUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,12 +142,25 @@ public class interfazAdministrador extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 30));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 30));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/azul (2).jpg"))); // NOI18N
-        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel3.setPreferredSize(new java.awt.Dimension(350, 326));
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 26, 410, 300));
+        jButton1.setBackground(new java.awt.Color(255, 255, 153));
+        jButton1.setText("Reporte de usuarios");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 170, -1));
+
+        jButton2.setBackground(new java.awt.Color(255, 255, 153));
+        jButton2.setText("jButton2");
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 170, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/azul (2).jpg"))); // NOI18N
+        jLabel5.setText("jLabel5");
+        jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 450, 290));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -162,6 +182,15 @@ public class interfazAdministrador extends javax.swing.JFrame {
     ventanaModificar.setVisible(true);
     this.dispose();
     }//GEN-LAST:event_modificarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        ventanaReporte = new reporteUsuarios();
+        ventanaReporte.setVisible(true);
+        this.dispose();
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -203,11 +232,14 @@ public class interfazAdministrador extends javax.swing.JFrame {
     private javax.swing.JButton Crear;
     private javax.swing.JButton botonCerrarSesion;
     private javax.swing.JLabel identificadorUsuario;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton modificar;
     // End of variables declaration//GEN-END:variables

@@ -29,6 +29,7 @@ public class interfazModificarEvento extends javax.swing.JFrame {
      */
     public interfazModificarEvento() {
         initComponents();
+     this.setLocationRelativeTo(null);
         controladorEvento = new ControladorEventos();
         controladorSede = new ControladorSedes();
         gerente = new interfazGerente();
@@ -149,7 +150,7 @@ public class interfazModificarEvento extends javax.swing.JFrame {
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, -1, -1));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 153));
+        jPanel1.setBackground(new java.awt.Color(255, 102, 102));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 51));
@@ -220,6 +221,7 @@ public class interfazModificarEvento extends javax.swing.JFrame {
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/eye (1).png"))); // NOI18N
         getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 70, 50));
 
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/pinkkk.jpg"))); // NOI18N
         jLabel19.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 460, 360));
 

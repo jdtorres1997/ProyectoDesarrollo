@@ -27,6 +27,8 @@ public class crearCliente extends javax.swing.JFrame {
     public crearCliente() {
         initComponents();
         controladorCliente = new ControladorCliente();
+                this.setLocationRelativeTo(null);
+
     }
 
     /**
@@ -123,7 +125,7 @@ public class crearCliente extends javax.swing.JFrame {
         });
         getContentPane().add(ide, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 180, -1));
 
-        jPanel1.setBackground(new java.awt.Color(229, 229, 229));
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 51));
@@ -184,7 +186,7 @@ public class crearCliente extends javax.swing.JFrame {
         jLabel14.setText("jLabel14");
         getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 70, 70));
 
-        jLabel15.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexandra\\Desktop\\aaa.jpg")); // NOI18N
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/aaa.jpg"))); // NOI18N
         jLabel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 380, 310));
 

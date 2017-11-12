@@ -18,6 +18,7 @@ public class interfazOperario extends javax.swing.JFrame {
     modificarCliente modificarC;
     registrarInscripcion inscribirC; 
     registrarPago registrarP;
+    reporteClientes reporteC;
     
     /**
      * Creates new form interfazOperario
@@ -54,7 +55,10 @@ public class interfazOperario extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(430, 330));
@@ -103,7 +107,7 @@ public class interfazOperario extends javax.swing.JFrame {
                 botonCerrarSesionActionPerformed(evt);
             }
         });
-        getContentPane().add(botonCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 130, -1));
+        getContentPane().add(botonCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 130, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/jjo.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
@@ -144,9 +148,26 @@ public class interfazOperario extends javax.swing.JFrame {
         });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 130, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/heart.jpg"))); // NOI18N
-        jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 430, 300));
+        jButton5.setBackground(new java.awt.Color(255, 255, 255));
+        jButton5.setText("Reportes Clientes");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 130, -1));
+
+        jButton6.setBackground(new java.awt.Color(255, 255, 255));
+        jButton6.setText("jButton6");
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, 130, -1));
+
+        jButton7.setBackground(new java.awt.Color(255, 255, 255));
+        jButton7.setText("jButton7");
+        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 130, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/heart.jpg"))); // NOI18N
+        jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 430, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -186,6 +207,14 @@ public class interfazOperario extends javax.swing.JFrame {
         registrarP.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        reporteC = new reporteClientes();
+        reporteC.setVisible(true);
+        this.dispose();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -229,10 +258,13 @@ public class interfazOperario extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

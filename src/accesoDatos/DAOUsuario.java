@@ -4,6 +4,8 @@
 package accesoDatos;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.Vector;
 import logica.*;
 
 /**
@@ -132,4 +134,36 @@ public class DAOUsuario {
         return true;
             
     }
+        public Vector todosUsuarios() {
+
+       String sql_select;
+        Vector ve = new Vector();
+
+        sql_select = "SELECT * FROM  usuarios";
+        try {
+            Connection conn = acceso.getConnetion();
+            System.out.println("consultando la sede en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            while (tabla.next()) 
+            {
+                
+                ve.add(tabla.getString(1));
+                ve.add(tabla.getString(3));
+                ve.add(tabla.getString(4));
+                ve.add(tabla.getLong(5));
+                ve.add(tabla.getString(6));
+                ve.add(tabla.getString(7));
+                
+                
+
+            }
+            return ve;
+        } catch (SQLException e) {
+            System.out.println(e);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
+}
 }

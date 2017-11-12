@@ -59,7 +59,12 @@ public class ControladorSedes {
         return ve;
     }
  
-    
+     public Vector retornarSedes(){
+       
+      Vector ve= new Vector();
+      ve = daoSedes.todosSedes();   
+      return ve;
+    }
     public void cerrarConexionBD() {
         daoSedes.cerrarConexionBD();
     }

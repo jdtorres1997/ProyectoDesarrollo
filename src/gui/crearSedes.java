@@ -29,6 +29,8 @@ public class crearSedes extends javax.swing.JFrame {
      */
     public crearSedes() {
         initComponents();
+    this.setLocationRelativeTo(null);
+
         controladorSedes = new ControladorSedes();
         interfazGer= new interfazGerente();
         this.setLocationRelativeTo(null);

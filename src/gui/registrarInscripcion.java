@@ -36,6 +36,8 @@ public class registrarInscripcion extends javax.swing.JFrame {
         controladorCliente = new ControladorCliente();
 
         controladorEvento = new ControladorEventos();
+                this.setLocationRelativeTo(null);
+
     }
 
     /**
@@ -56,14 +58,20 @@ public class registrarInscripcion extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("Evento");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
         CargarEventos.setText("Eventos");
         CargarEventos.addActionListener(new java.awt.event.ActionListener() {
@@ -71,7 +79,7 @@ public class registrarInscripcion extends javax.swing.JFrame {
                 CargarEventosActionPerformed(evt);
             }
         });
-        getContentPane().add(CargarEventos, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, -1, -1));
+        getContentPane().add(CargarEventos, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, -1, 20));
 
         jButton1.setText("Registrar preinscripcion");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -79,9 +87,9 @@ public class registrarInscripcion extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 160, -1));
 
-        getContentPane().add(eventoCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 120, -1));
+        getContentPane().add(eventoCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 150, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("Identificacion cliente");
@@ -92,9 +100,9 @@ public class registrarInscripcion extends javax.swing.JFrame {
                 id_clienteActionPerformed(evt);
             }
         });
-        getContentPane().add(id_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 120, -1));
+        getContentPane().add(id_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 150, -1));
 
-        jPanel1.setBackground(new java.awt.Color(229, 229, 229));
+        jPanel1.setBackground(new java.awt.Color(255, 153, 153));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 51));
@@ -115,23 +123,46 @@ public class registrarInscripcion extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel18)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
                 .addComponent(jButton2)
-                .addContainerGap())
+                .addGap(26, 26, 26))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(1, 1, 1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
                     .addComponent(jButton2))
-                .addGap(0, 5, Short.MAX_VALUE))
+                .addGap(0, 1, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 30));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 30));
 
-        jLabel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 380, 310));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/cash-register.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 70, 70));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/operator (4).png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 140, 130));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/booking.png"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 70, 70));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/note.png"))); // NOI18N
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 70, 70));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/bulb (1).png"))); // NOI18N
+        jLabel7.setText("jLabel7");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 60, 70));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/operator (2).png"))); // NOI18N
+        jLabel9.setText("jLabel9");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 60, 70));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/jj.jpg"))); // NOI18N
+        jLabel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 410, 290));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -282,9 +313,15 @@ public class registrarInscripcion extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

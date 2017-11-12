@@ -6,6 +6,7 @@
 package controlador;
 
 import accesoDatos.DAOCliente;
+import java.util.Vector;
 import logica.Cliente;
 
 /**
@@ -39,4 +40,11 @@ public class ControladorCliente {
          c= daoCliente.consultarCliente(identificacion);
          return c;
      }
+     public Vector retornarClientes(){
+       
+      Vector ve= new Vector();
+
+        ve = daoCliente.todosClientes();
+        return ve;
+    }
 }

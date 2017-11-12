@@ -7,6 +7,7 @@ package controlador;
 
 import accesoDatos.DAOEvento;
 import java.util.ArrayList;
+import java.util.Vector;
 import logica.Evento;
 
 /**
@@ -54,6 +55,14 @@ public class ControladorEventos {
 
         ve = daoEvento.todosEventos();
         System.out.print(ve);
+        return ve;
+    }
+     public Vector retornarEventos(){
+       
+      Vector ve= new Vector();
+
+        ve = daoEvento.retornarEventos();
+         
         return ve;
     }
 }

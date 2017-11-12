@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Vector;
 import logica.Evento;
 
 /**
@@ -161,5 +162,39 @@ public class DAOEvento {
         }
         return null;
     }
+      public Vector retornarEventos() {
+
+       String sql_select;
+        Vector ve = new Vector();
+
+        sql_select = "SELECT * FROM  eventos";
+        try {
+            Connection conn = acceso.getConnetion();
+            System.out.println("consultando la sede en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            while (tabla.next()) 
+            {
+              
+                  
+                ve.add(tabla.getString(1));
+                ve.add(tabla.getString(2));
+                ve.add(tabla.getString(3));
+                ve.add(tabla.getString(4));
+                ve.add(tabla.getString(5));
+                ve.add(tabla.getString(6));
+                ve.add(tabla.getInt(7));
+                ve.add(tabla.getInt(8));
+                ve.add(tabla.getString(9));
+     
+            }
+            return ve;
+        } catch (SQLException e) {
+            System.out.println(e);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
+}
 
 }

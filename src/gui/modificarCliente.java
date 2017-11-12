@@ -27,6 +27,8 @@ public class modificarCliente extends javax.swing.JFrame {
     public modificarCliente() {
         initComponents();
         cliente = new ControladorCliente();
+       this.setLocationRelativeTo(null);
+
     }
 
     /**
