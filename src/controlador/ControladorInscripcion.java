@@ -7,6 +7,7 @@ package controlador;
 
 import logica.Inscripcion;
 import accesoDatos.DAOInscripcion;
+import java.util.Vector;
 
 /**
  *
@@ -43,4 +44,19 @@ public class ControladorInscripcion {
         i = daoInscripcion.consultarInscripcion(id_cliente, id_evento);
         return i;
     }
+     public Vector retornarPreinscripciones(){
+       
+      Vector ve= new Vector();
+      ve = daoInscripcion.todasPreinscripciones();   
+      return ve;
+    }
+        public Vector retornarPagos(){
+       
+      Vector ve= new Vector();
+      ve = daoInscripcion.todosPagos();   
+      return ve;
+    }
+        
+   
+   
 }

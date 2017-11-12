@@ -19,6 +19,8 @@ public class interfazOperario extends javax.swing.JFrame {
     registrarInscripcion inscribirC; 
     registrarPago registrarP;
     reporteClientes reporteC;
+    reporteInscripcion reporteI;
+    reportePago reporteP;
     
     /**
      * Creates new form interfazOperario
@@ -85,7 +87,7 @@ public class interfazOperario extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(identificadorUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addContainerGap(160, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,7 +100,7 @@ public class interfazOperario extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 30));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 30));
 
         botonCerrarSesion.setBackground(new java.awt.Color(255, 255, 255));
         botonCerrarSesion.setText("Cerrar sesión");
@@ -107,7 +109,7 @@ public class interfazOperario extends javax.swing.JFrame {
                 botonCerrarSesionActionPerformed(evt);
             }
         });
-        getContentPane().add(botonCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 130, -1));
+        getContentPane().add(botonCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 170, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/jjo.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
@@ -119,7 +121,7 @@ public class interfazOperario extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 130, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 170, -1));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Modificar Cliente");
@@ -128,7 +130,7 @@ public class interfazOperario extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 130, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 170, -1));
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Preinscribir cliente");
@@ -137,7 +139,7 @@ public class interfazOperario extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 130, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 170, -1));
 
         jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Registrar pago");
@@ -146,7 +148,7 @@ public class interfazOperario extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 130, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 170, -1));
 
         jButton5.setBackground(new java.awt.Color(255, 255, 255));
         jButton5.setText("Reportes Clientes");
@@ -155,19 +157,29 @@ public class interfazOperario extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 130, -1));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 170, -1));
 
         jButton6.setBackground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("jButton6");
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, 130, -1));
+        jButton6.setText("Reporte Inscripciones");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, 170, -1));
 
         jButton7.setBackground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("jButton7");
-        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 130, -1));
+        jButton7.setText("Reporte Pagos");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 170, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/heart.jpg"))); // NOI18N
         jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 430, 300));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 460, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -215,6 +227,26 @@ public class interfazOperario extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+
+        reporteI = new reporteInscripcion();
+        reporteI.setVisible(true);
+        this.dispose();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+
+
+        reporteP = new reportePago();
+        reporteP.setVisible(true);
+        this.dispose();
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments

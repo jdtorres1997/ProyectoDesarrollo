@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Vector;
 import logica.Inscripcion;
 
 /**
@@ -115,5 +116,64 @@ public class DAOInscripcion {
         }
         return null;
     }
+    
+     public Vector todasPreinscripciones() {
+
+       String sql_select;
+        Vector ve = new Vector();
+
+        sql_select = "SELECT * FROM  inscripciones WHERE pago='no'";
+        try {
+            Connection conn = acceso.getConnetion();
+            System.out.println("consultando la sede en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            while (tabla.next()) 
+            {
+              
+            
+                ve.add(tabla.getString(1));
+                ve.add(tabla.getString(2));
+                ve.add(tabla.getString(3));
+              
+     
+            }
+            return ve;
+        } catch (SQLException e) {
+            System.out.println(e);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
+}
+        public Vector todosPagos() {
+
+       String sql_select;
+        Vector ve = new Vector();
+
+        sql_select = "SELECT * FROM  inscripciones WHERE pago='si'";
+        try {
+            Connection conn = acceso.getConnetion();
+            System.out.println("consultando la sede en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            while (tabla.next()) 
+            {
+              
+            
+                ve.add(tabla.getString(1));
+                ve.add(tabla.getString(2));
+                ve.add(tabla.getString(3));
+              
+     
+            }
+            return ve;
+        } catch (SQLException e) {
+            System.out.println(e);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
+}
 
 }
