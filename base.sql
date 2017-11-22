@@ -32,7 +32,7 @@ DROP TABLE IF EXISTS eventos CASCADE;
 CREATE TABLE eventos (
 
 	identificacion VARCHAR(20) PRIMARY KEY,
-        nombre VARCHAR(20),
+        nombre VARCHAR(50),
         sede VARCHAR(20),
         fecha date,
         hora time,
@@ -61,3 +61,21 @@ INSERT INTO usuarios (login, password, tipo, estado, telefono, nombre, apellido)
 INSERT INTO usuarios (login, password, tipo, estado, telefono, nombre, apellido)
 		VALUES ('operario2', 'operario2', 'operario', 'inactivo', 31145364591, 'Alexandra', 'Lopez Obando');
 
+INSERT INTO sedes (identificacion, nombre, informacion, ubicacion, estado)
+		VALUES ('sede1', 'Campestre', 'Sede fuera de la ciudad', 'Pance', 'activa');
+INSERT INTO sedes (identificacion, nombre, informacion, ubicacion, estado)
+		VALUES ('sede2', 'Principal', 'Sede principal empresa', 'Jardin plaza', 'activa');
+
+INSERT INTO eventos (identificacion, nombre, sede, fecha, hora, ubicacion, costo, capacidad, estado)
+		VALUES ('evento5', 'Color fest', 'sede2', '2017/12/24', '13:00', 'Cañasgordas', 13000, 200, 'activo');
+
+INSERT INTO clientes (identificacion, nombre, apellido, direccion, email, telefono)
+		VALUES ('1144099304', 'Jhon', 'Angulo', 'Calle 3N #4-54', 'jhonA@gmail.com', 3146691618);
+
+INSERT INTO clientes (identificacion, nombre, apellido, direccion, email, telefono)
+		VALUES ('1144099305', 'Daniela', 'Becerra', 'Calle 87 #24-64', 'DaniBK@gmail.com', 3115467422);
+
+INSERT INTO inscripciones (id_cliente, id_evento, pago)
+		VALUES ('1144099304', 'evento3', 'no');
+INSERT INTO inscripciones (id_cliente, id_evento, pago)
+		VALUES ('1144099305', 'evento3', 'no');

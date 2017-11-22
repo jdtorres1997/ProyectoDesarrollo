@@ -248,7 +248,14 @@ public class registrarPago extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Por favor verifique la identificación del cliente", "", JOptionPane.INFORMATION_MESSAGE);
             return rest;
         }
+        if (eventoCombo.getSelectedIndex() == -1) {
+            Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
 
+            JOptionPane.showMessageDialog(this, " Debe buscar los eventos disponibles", "", JOptionPane.INFORMATION_MESSAGE, p);
+
+            rest = false;
+            return rest;
+        }
         if (!controladorCliente.existeCliente(id_cliente.getText())) {
             rest = false;
             JOptionPane.showMessageDialog(this, "El cliente no existe", "", JOptionPane.INFORMATION_MESSAGE);
@@ -268,14 +275,7 @@ public class registrarPago extends javax.swing.JFrame {
             return rest;
         }
 
-        if (eventoCombo.getSelectedIndex() == -1) {
-            Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
-
-            JOptionPane.showMessageDialog(this, " Debe buscar los eventos disponibles", "", JOptionPane.INFORMATION_MESSAGE, p);
-
-            rest = false;
-            return rest;
-        }
+        
         if(capacidadEvento.getText().equals("0") && respuesta!=0){
              Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
 
@@ -287,7 +287,7 @@ public class registrarPago extends javax.swing.JFrame {
         }
         if(respuesta==0){
              Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
-            JOptionPane.showMessageDialog(this, " no hay mas capacidad para el evento", "", JOptionPane.INFORMATION_MESSAGE, p);
+            JOptionPane.showMessageDialog(this, " No hay mas capacidad para el evento", "", JOptionPane.INFORMATION_MESSAGE, p);
             limpiar();
             rest = false;
             return rest;

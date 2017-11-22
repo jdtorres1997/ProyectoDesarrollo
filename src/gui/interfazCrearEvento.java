@@ -376,7 +376,38 @@ public class interfazCrearEvento extends javax.swing.JFrame {
         boolean rest = true;
         boolean num = true;
         boolean letras = true;
+        
+        
+        
+        if (this.sololetras(ide.getText()) || this.sololetras(nombre.getText())) { //Falta validar fecha y hora, no se puede con soloLetras
+            letras = false;
 
+        }
+        if (controladorEvento.existeEvento(ide.getText())) {
+            Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
+            JOptionPane.showMessageDialog(this, "El evento ya existe, digite otro por favor", "", JOptionPane.INFORMATION_MESSAGE, p);
+            limpiar();
+            rest = false;
+            return rest;
+        }
+        
+        if (!letras) {
+            Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
+            JOptionPane.showMessageDialog(this, "No se pueden usar caracteres especiales", "", JOptionPane.INFORMATION_MESSAGE, p);
+            limpiar();
+            rest = false;
+            return rest;
+
+        }
+        if (sedeCombo.getSelectedIndex() == -1) {
+            Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
+
+            JOptionPane.showMessageDialog(this, " Debe seleccionar una sede", "", JOptionPane.INFORMATION_MESSAGE, p);
+
+            rest = false;
+            return rest;
+        }
+        
         if (ide.getText().equals("")) {
             ide.setBackground(Color.RED);
             rest = false;
@@ -419,17 +450,9 @@ public class interfazCrearEvento extends javax.swing.JFrame {
         if(!(radioActivo.isSelected() || radioInactivo.isSelected())){
             rest=false;
         }
-        if (this.sololetras(ide.getText()) || this.sololetras(nombre.getText())) { //Falta validar fecha y hora, no se puede con soloLetras
-            letras = false;
-
-        }
-        if (controladorEvento.existeEvento(ide.getText())) {
-            Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
-            JOptionPane.showMessageDialog(this, "El evento ya existe, digite otro por favor", "", JOptionPane.INFORMATION_MESSAGE, p);
-            limpiar();
-            rest = false;
-            return rest;
-        }
+        
+        
+        
         if (!rest) {
             Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
             JOptionPane.showMessageDialog(this, "Por favor verifique la informacion", "", JOptionPane.INFORMATION_MESSAGE, p);
@@ -442,14 +465,7 @@ public class interfazCrearEvento extends javax.swing.JFrame {
             capacidad.setBackground(Color.WHITE);
             return rest;
         }
-        if (sedeCombo.getSelectedIndex() == -1) {
-            Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
-
-            JOptionPane.showMessageDialog(this, " Debe buscar las sedes disponibles", "", JOptionPane.INFORMATION_MESSAGE, p);
-
-            rest = false;
-            return rest;
-        }
+               
 
         if (!num) {
             Icon p = new ImageIcon(getClass().getResource("/gui/images/phone.png"));
@@ -461,14 +477,7 @@ public class interfazCrearEvento extends javax.swing.JFrame {
             rest = false;
             return rest;
         }
-        if (!letras) {
-            Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
-            JOptionPane.showMessageDialog(this, "No se pueden usar caracteres especiales", "", JOptionPane.INFORMATION_MESSAGE, p);
-            limpiar();
-            rest = false;
-            return rest;
-
-        }
+        
 
         return rest;
     }

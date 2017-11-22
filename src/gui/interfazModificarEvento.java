@@ -324,6 +324,23 @@ public class interfazModificarEvento extends javax.swing.JFrame {
         boolean num = true;
         boolean letras = true;
 
+        if (sedeCombo.getSelectedIndex() == -1) {
+            Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
+            JOptionPane.showMessageDialog(this, "se debe buscar sedes disponibles", "", JOptionPane.INFORMATION_MESSAGE, p);
+            rest = false;
+            
+            return rest;
+        }
+        
+        if (!letras) {
+            Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
+            JOptionPane.showMessageDialog(this, "Los campos no deben tener caracteres especiales", "", JOptionPane.INFORMATION_MESSAGE, p);
+            
+            rest = false;
+            return rest;
+
+        }
+        
         if (!(radioActivo.isSelected() || radioInactivo.isSelected())) {
             rest = false;
         }
@@ -354,12 +371,7 @@ public class interfazModificarEvento extends javax.swing.JFrame {
             rest = false;
         }
 
-        if (sedeCombo.getSelectedIndex() == -1) {
-            Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
-            JOptionPane.showMessageDialog(this, "se debe buscar sedes disponibles", "", JOptionPane.INFORMATION_MESSAGE, p);
-            rest = false;
-            return rest;
-        }
+        
 
         if (!isNumeric(capacidad.getText())) {
             num = false;
@@ -378,6 +390,7 @@ public class interfazModificarEvento extends javax.swing.JFrame {
             hora.setBackground(Color.WHITE);
             ubicacion.setBackground(Color.WHITE);
             capacidad.setBackground(Color.WHITE);
+            
             return rest;
         }
         if (!num) {
@@ -385,17 +398,11 @@ public class interfazModificarEvento extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "La capacidad debe ser un dato numerico", "", JOptionPane.INFORMATION_MESSAGE, p);
             capacidad.setBackground(Color.WHITE);
             capacidad.setText("");
+            
             rest = false;
             return rest;
         }
-        if (!letras) {
-            Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
-            JOptionPane.showMessageDialog(this, "Los campos no deben tener caracteres especiales", "", JOptionPane.INFORMATION_MESSAGE, p);
-            limpiar();
-            rest = false;
-            return rest;
-
-        }
+        
 
         return rest;
     }

@@ -269,6 +269,24 @@ public class crearCliente extends javax.swing.JFrame {
 
         boolean rest = true;
 
+        if (this.sololetras(ide.getText()) || this.sololetras(nombre.getText())
+                || this.sololetras(apellido.getText())) {
+            Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
+            JOptionPane.showMessageDialog(this, "La identificación o el nombre no deben tener caracteres especiales", "", JOptionPane.INFORMATION_MESSAGE, p);
+            limpiar();
+            rest = false;
+            return rest;
+        }
+        
+        if (controladorCliente.existeCliente(ide.getText())) {
+            Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
+            JOptionPane.showMessageDialog(this, "El cliente ya existe, digite otro por favor", "", JOptionPane.INFORMATION_MESSAGE, p);
+            limpiar();
+            rest = false;
+            return rest;
+
+        }
+        
         if (ide.getText().equals("")) {
             ide.setBackground(Color.RED);
             rest = false;
@@ -295,14 +313,7 @@ public class crearCliente extends javax.swing.JFrame {
             rest = false;
         }
 
-        if (controladorCliente.existeCliente(ide.getText())) {
-            Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
-            JOptionPane.showMessageDialog(this, "El cliente ya existe, digite otro por favor", "", JOptionPane.INFORMATION_MESSAGE, p);
-            limpiar();
-            rest = false;
-            return rest;
-
-        }
+        
         if (!rest) {
             Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
             JOptionPane.showMessageDialog(this, "Por favor verifique la informacion", "", JOptionPane.INFORMATION_MESSAGE, p);
@@ -314,14 +325,7 @@ public class crearCliente extends javax.swing.JFrame {
             telefono.setBackground(Color.WHITE);
             return rest;
         }
-        if (this.sololetras(ide.getText()) || this.sololetras(nombre.getText())
-                || this.sololetras(apellido.getText())) {
-            Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
-            JOptionPane.showMessageDialog(this, "Los campos no deben tener caracteres especiales", "", JOptionPane.INFORMATION_MESSAGE, p);
-            limpiar();
-            rest = false;
-            return rest;
-        }
+        
         if (!isNumeric(telefono.getText())) {
             Icon p = new ImageIcon(getClass().getResource("/gui/images/phone.png"));
             telefono.setBackground(Color.RED);

@@ -201,6 +201,14 @@ public class registrarInscripcion extends javax.swing.JFrame {
             limpiar();
             return rest;
         }
+        if (eventoCombo.getSelectedIndex() == -1) {
+            Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
+
+            JOptionPane.showMessageDialog(this, " Debe seleccionar entre los eventos disponibles", "", JOptionPane.INFORMATION_MESSAGE, p);
+
+            rest = false;
+            return rest;
+        }
         if (controladorInscripcion.existeInscripcion(id_cliente.getText(), eventoCombo.getSelectedItem().toString())) {
             rest = false;
             JOptionPane.showMessageDialog(this, "El cliente ya se encuentra preinscrito a este evento", "", JOptionPane.INFORMATION_MESSAGE);
@@ -208,14 +216,7 @@ public class registrarInscripcion extends javax.swing.JFrame {
             return rest;
         }
 
-        if (eventoCombo.getSelectedIndex() == -1) {
-            Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
-
-            JOptionPane.showMessageDialog(this, " Debe buscar los eventos disponibles", "", JOptionPane.INFORMATION_MESSAGE, p);
-
-            rest = false;
-            return rest;
-        }
+        
 
         return rest;
     }
