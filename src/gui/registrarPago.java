@@ -5,10 +5,26 @@
  */
 package gui;
 
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.ColumnText;
+import com.itextpdf.text.pdf.PdfContentByte;
+import static com.itextpdf.text.pdf.PdfDictionary.FONT;
+import com.itextpdf.text.pdf.PdfTemplate;
+import com.itextpdf.text.pdf.PdfWriter;
 import controlador.ControladorCliente;
 import controlador.ControladorEventos;
 import controlador.ControladorInscripcion;
 import java.awt.Color;
+import java.awt.Rectangle;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -16,6 +32,7 @@ import javax.swing.JOptionPane;
 import logica.Cliente;
 import logica.Evento;
 import logica.Inscripcion;
+import logica.Pdf;
 
 /**
  *
@@ -70,7 +87,11 @@ public class registrarPago extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         disponible = new javax.swing.JButton();
+        cambio = new javax.swing.JTextField();
+        pagar = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Cupo disponible");
@@ -81,7 +102,7 @@ public class registrarPago extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("Evento");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, -1, -1));
 
         CargarEventos.setText("Eventos");
         CargarEventos.addActionListener(new java.awt.event.ActionListener() {
@@ -89,7 +110,7 @@ public class registrarPago extends javax.swing.JFrame {
                 CargarEventosActionPerformed(evt);
             }
         });
-        getContentPane().add(CargarEventos, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, -1, -1));
+        getContentPane().add(CargarEventos, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 80, -1, -1));
 
         jButton1.setText("Registrar pago");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -97,14 +118,14 @@ public class registrarPago extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, 120, -1));
 
         eventoCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eventoComboActionPerformed(evt);
             }
         });
-        getContentPane().add(eventoCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 120, -1));
+        getContentPane().add(eventoCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 120, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("Identificacion cliente");
@@ -115,7 +136,7 @@ public class registrarPago extends javax.swing.JFrame {
                 id_clienteActionPerformed(evt);
             }
         });
-        getContentPane().add(id_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 120, -1));
+        getContentPane().add(id_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 120, -1));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 153));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -138,7 +159,7 @@ public class registrarPago extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel18)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 315, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 335, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addContainerGap())
         );
@@ -152,14 +173,19 @@ public class registrarPago extends javax.swing.JFrame {
                 .addGap(0, 1, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 30));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 30));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("Costo del evento");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, -1, 20));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, -1, 20));
 
         costoEvento.setEditable(false);
-        getContentPane().add(costoEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, 120, -1));
+        costoEvento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                costoEventoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(costoEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 120, -1));
 
         capacidadEvento.setEditable(false);
         capacidadEvento.addActionListener(new java.awt.event.ActionListener() {
@@ -167,33 +193,33 @@ public class registrarPago extends javax.swing.JFrame {
                 capacidadEventoActionPerformed(evt);
             }
         });
-        getContentPane().add(capacidadEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, 120, -1));
+        getContentPane().add(capacidadEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 120, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/cashier-machine.png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 150, 140));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 150, 140));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/coins (1).png"))); // NOI18N
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 70, 70));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, 70, 70));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/credit-card (1).png"))); // NOI18N
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 60, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 60, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/credit-card (2).png"))); // NOI18N
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, 70, 50));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 70, 50));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/money.png"))); // NOI18N
         jLabel9.setText("jLabel9");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 70, 60));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, 70, 60));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/money-bag.png"))); // NOI18N
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 60, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 60, -1));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/graph (1).png"))); // NOI18N
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 70, 70));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 70, 70));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/pay-per-click.png"))); // NOI18N
         jLabel12.setText("jLabel12");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, 70, 70));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 70, 70));
 
         disponible.setText("Cupo Disponible?");
         disponible.addActionListener(new java.awt.event.ActionListener() {
@@ -201,18 +227,45 @@ public class registrarPago extends javax.swing.JFrame {
                 disponibleActionPerformed(evt);
             }
         });
-        getContentPane().add(disponible, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, -1, -1));
+        getContentPane().add(disponible, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 120, -1));
+
+        cambio.setEnabled(false);
+        cambio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cambioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cambio, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 120, -1));
+
+        pagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pagarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(pagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 120, -1));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/aao.jpg"))); // NOI18N
-        jLabel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 510, 290));
+        jLabel13.setText("Dinero dado");
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, -1, -1));
+
+        jButton4.setText("Cambio");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 120, -1));
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/aao.jpg"))); // NOI18N
+        jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 530, 330));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
       String anterior="";
       String otra ="";
+      int t=0;
       int num=0;
       int respuesta=-1;
       boolean saber=false;
@@ -222,12 +275,30 @@ public class registrarPago extends javax.swing.JFrame {
             in.setIdCliente(id_cliente.getText());
             in.setIdEvento(eventoCombo.getSelectedItem().toString());
             in.setPago("no");
+          
             boolean seAgrego = controladorInscripcion.modificarInscripcion(in);
             if (seAgrego) {
 
-                         respuesta=    quitarCapacidad(eventoCombo.getSelectedItem().toString());
-                JOptionPane.showMessageDialog(this, "Se agrego el pago a la base de datos, ahora se encuentra inscrito", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
-                limpiar();
+                respuesta=    quitarCapacidad(eventoCombo.getSelectedItem().toString());
+                t=1;
+                JOptionPane.showMessageDialog(this, "Se agrego el pago al sistema, ahora se encuentra inscrito", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+                
+                //IMPRIMIR RECIBO
+                try{
+                    String nombreDocumento = id_cliente.getText() + "-Evento-" + eventoCombo.getSelectedItem().toString() ;
+                    String identificacionCliente = id_cliente.getText();
+                    
+                    String evento = eventoCombo.getSelectedItem().toString();
+                    String costo = costoEvento.getText();
+                    String pago = pagar.getText();
+                    String cambioPago = cambio.getText();
+                    Pdf pdf = new Pdf();
+                    pdf.createPdf(nombreDocumento, identificacionCliente, evento, costo,pago,cambioPago);
+                    limpiar();
+                }catch (Exception e){
+
+                } 
+              //  limpiar();
             } else {
                 Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
                 JOptionPane.showMessageDialog(this, "Hubo un error al agregar el pago ", "", JOptionPane.INFORMATION_MESSAGE, p);
@@ -247,6 +318,22 @@ public class registrarPago extends javax.swing.JFrame {
             id_cliente.setBackground(Color.red);
             JOptionPane.showMessageDialog(this, "Por favor verifique la identificación del cliente", "", JOptionPane.INFORMATION_MESSAGE);
             return rest;
+        }
+        if( pagar.getText().equals("")){
+            pagar.setBackground(Color.red);
+            JOptionPane.showMessageDialog(this, "Por favor digite cuando dinero da el cliente", "", JOptionPane.INFORMATION_MESSAGE);
+            pagar.setBackground(Color.WHITE);
+            rest=false;
+            return rest;
+
+            
+        }
+        if( cambio.getText().equals("")){
+            cambio.setBackground(Color.red);
+            JOptionPane.showMessageDialog(this, "Debe saber cuanto dinero debe devolver al cliente", "", JOptionPane.INFORMATION_MESSAGE);
+            rest = false;
+            return rest;
+            
         }
         if (eventoCombo.getSelectedIndex() == -1) {
             Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
@@ -285,7 +372,7 @@ public class registrarPago extends javax.swing.JFrame {
             return rest;
             
         }
-        if(respuesta==0){
+        if(respuesta==0 ){
              Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
             JOptionPane.showMessageDialog(this, " No hay mas capacidad para el evento", "", JOptionPane.INFORMATION_MESSAGE, p);
             limpiar();
@@ -316,6 +403,9 @@ public class registrarPago extends javax.swing.JFrame {
         id_cliente.setBackground(Color.white);
         costoEvento.setText("");
         capacidadEvento.setText("");
+        cambio.setText("");
+        pagar.setText("");
+        
         
     }
 
@@ -409,7 +499,9 @@ public class registrarPago extends javax.swing.JFrame {
      Evento eve = new Evento();
      eve = controladorEvento.consultarEvento(eventoCombo.getSelectedItem().toString());
      
-      if(otra.equals(eve.getIdentificacion())){
+     
+     
+      if(otra.equals(eve.getIdentificacion())&&respuesta>0){
         capacidadEvento.setText(String.valueOf(respuesta));
      }
 
@@ -423,9 +515,33 @@ public class registrarPago extends javax.swing.JFrame {
         capacidadEvento.setText(String.valueOf(eve.getCapacidad()));
         otra = eventoCombo.getSelectedItem().toString();
      }
+     if(t==0){
+  capacidadEvento.setText(String.valueOf(eve.getCapacidad()));
+
+     }
     
     }//GEN-LAST:event_disponibleActionPerformed
 
+    private void cambioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cambioActionPerformed
+
+    private void costoEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costoEventoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_costoEventoActionPerformed
+
+    private void pagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pagarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pagarActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+
+  int cambiar = Integer.parseInt(pagar.getText())-Integer.parseInt(costoEvento.getText());
+  cambio.setText(String.valueOf(cambiar));
+            // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    
     /**
      *
      * @param args the command line arguments
@@ -467,6 +583,7 @@ public class registrarPago extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CargarEventos;
+    private javax.swing.JTextField cambio;
     private javax.swing.JTextField capacidadEvento;
     private javax.swing.JTextField costoEvento;
     private javax.swing.JButton disponible;
@@ -474,11 +591,13 @@ public class registrarPago extends javax.swing.JFrame {
     private javax.swing.JTextField id_cliente;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -489,5 +608,6 @@ public class registrarPago extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField pagar;
     // End of variables declaration//GEN-END:variables
 }

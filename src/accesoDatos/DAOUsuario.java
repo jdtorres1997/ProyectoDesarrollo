@@ -106,6 +106,27 @@ public class DAOUsuario {
         return false;
 
     }
+    
+    public boolean updatePassUsuario(Usuario u){
+        String sql_select;
+        sql_select = "UPDATE usuarios "
+                + "SET "
+                        + "password='" +u.getPassword()+ "' WHERE login='"+u.getLogin()+"' ";
+        try {
+            Connection conn = acceso.getConnetion();
+            System.out.println("actualizando en  bd");
+            Statement sentencia = conn.createStatement();
+            sentencia.executeUpdate(sql_select);
+            
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return false;
+    }
+    
     public void cerrarConexionBD() {
         acceso.closeConection(acceso.getConnetion());
     }

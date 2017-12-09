@@ -18,14 +18,9 @@ public class interfazAdministrador extends javax.swing.JFrame {
      */
     crearUsuarios ventanaCrearUsuario;
     interfazModificarUsuarios ventanaModificar;
+    cambioContraseña cambiarC;
     reporteUsuarios ventanaReporte;
     
-    public interfazAdministrador() {
-        initComponents(); 
-        this.setLocationRelativeTo(null);
-        this.setResizable(false);
-
-    }
     
     public interfazAdministrador(Usuario u) {
         initComponents();
@@ -58,7 +53,8 @@ public class interfazAdministrador extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -76,7 +72,6 @@ public class interfazAdministrador extends javax.swing.JFrame {
         jLabel3.setPreferredSize(new java.awt.Dimension(350, 326));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(410, 326));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -90,7 +85,7 @@ public class interfazAdministrador extends javax.swing.JFrame {
                 botonCerrarSesionActionPerformed(evt);
             }
         });
-        getContentPane().add(botonCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 170, -1));
+        getContentPane().add(botonCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 190, -1));
 
         Crear.setBackground(new java.awt.Color(255, 255, 153));
         Crear.setText("Crear Usuario");
@@ -99,7 +94,7 @@ public class interfazAdministrador extends javax.swing.JFrame {
                 CrearActionPerformed(evt);
             }
         });
-        getContentPane().add(Crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 170, -1));
+        getContentPane().add(Crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 190, -1));
 
         modificar.setBackground(new java.awt.Color(255, 255, 153));
         modificar.setText("Modificar Usuario");
@@ -108,10 +103,10 @@ public class interfazAdministrador extends javax.swing.JFrame {
                 modificarActionPerformed(evt);
             }
         });
-        getContentPane().add(modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 170, -1));
+        getContentPane().add(modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 190, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/j.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 210, 260));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 230, 260));
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -151,16 +146,27 @@ public class interfazAdministrador extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 170, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 190, -1));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 153));
         jButton2.setText("jButton2");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 170, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 190, -1));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/azul (2).jpg"))); // NOI18N
-        jLabel5.setText("jLabel5");
-        jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 450, 290));
+        jButton3.setText("Cambiar mi contraseña");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 190, -1));
+
+        jButton4.setText("Cambiar Contraseña Usuarios");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 190, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -172,61 +178,41 @@ public class interfazAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCerrarSesionActionPerformed
 
     private void CrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearActionPerformed
-        ventanaCrearUsuario = new crearUsuarios();
+        ventanaCrearUsuario = new crearUsuarios(usuarioActual);
         ventanaCrearUsuario.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_CrearActionPerformed
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
-    ventanaModificar = new interfazModificarUsuarios();
+    ventanaModificar = new interfazModificarUsuarios(usuarioActual);
     ventanaModificar.setVisible(true);
     this.dispose();
     }//GEN-LAST:event_modificarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        ventanaReporte = new reporteUsuarios();
+        ventanaReporte = new reporteUsuarios(usuarioActual);
         ventanaReporte.setVisible(true);
         this.dispose();
         
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(interfazAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(interfazAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(interfazAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(interfazAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        cambiarC = new cambioContraseña(usuarioActual.getLogin());
+        System.out.print(usuarioActual.getLogin());
+        cambiarC.setVisible(true);
+        this.dispose();
+     // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new interfazAdministrador().setVisible(true);
-            }
-        });
-    }
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        CambioPassAdmin ventana = new CambioPassAdmin(usuarioActual);
+        ventana.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Crear;
@@ -234,12 +220,13 @@ public class interfazAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel identificadorUsuario;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton modificar;
     // End of variables declaration//GEN-END:variables

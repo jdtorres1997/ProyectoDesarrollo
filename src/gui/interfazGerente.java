@@ -34,7 +34,6 @@ public class interfazGerente extends javax.swing.JFrame {
         this.getContentPane().setBackground(Color.WHITE);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-
         usuarioActual = u;
         identificadorUsuario.setText(usuarioActual.getNombre()+" "+usuarioActual.getApellido());
     }
@@ -69,7 +68,6 @@ public class interfazGerente extends javax.swing.JFrame {
         jLabel2.setMinimumSize(new java.awt.Dimension(390, 300));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(390, 300));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -175,7 +173,12 @@ public class interfazGerente extends javax.swing.JFrame {
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 130, -1));
 
         jButton5.setBackground(new java.awt.Color(255, 203, 155));
-        jButton5.setText("jButton5");
+        jButton5.setText("Cambiar Contraseña");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 130, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/verde.jpg"))); // NOI18N
@@ -247,6 +250,14 @@ public class interfazGerente extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        cambioContraseña cambiarC = new cambioContraseña(usuarioActual.getLogin());
+        System.out.print(usuarioActual.getLogin());
+        cambiarC.setVisible(true);
+        this.dispose();
+ 
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments

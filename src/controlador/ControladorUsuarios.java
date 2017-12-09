@@ -48,6 +48,12 @@ public class ControladorUsuarios {
         System.out.println(respuesta);
         return respuesta;
     }
+    
+    public boolean modifiarPassUsuario(Usuario u){
+        boolean respuesta = daoUsuario.updatePassUsuario(u);
+        System.out.println(respuesta);
+        return respuesta;
+    }
             
     public void cerrarConexionBD() {
         daoUsuario.cerrarConexionBD();
