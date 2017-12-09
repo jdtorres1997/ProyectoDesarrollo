@@ -29,9 +29,11 @@ public class DAOInscripcion {
         String sql_select;
         sql_select = "INSERT INTO inscripciones ("
                 + "id_cliente, "
+                + "fecha_preinscripcion, "
                 + "id_evento, "
                 + "pago)"
                 + "VALUES ('" + i.getIdCliente() + "',"
+                + "'" + i.getFechaPreinscripcion() + "', "
                 + "'" + i.getIdEvento() + "', "
                 + "'no')";
         try {
@@ -77,7 +79,7 @@ public class DAOInscripcion {
         String sql_select;
         sql_select = "UPDATE inscripciones "
                 + "SET "
-                + "pago='si' WHERE id_cliente='" + i.getIdCliente() + "' AND id_evento='" + i.getIdEvento() + "'";
+                + "pago='si', fecha_pago='"+i.getFechaPago()+"' WHERE id_cliente='" + i.getIdCliente() + "' AND id_evento='" + i.getIdEvento() + "'";
         try {
             Connection conn = acceso.getConnetion();
           //  System.out.println("actualizando en  bd");

@@ -105,10 +105,11 @@ public class DAOEvento {
 
         } catch (SQLException e) {
             System.out.println(e);
+            return false;
         } catch (Exception e) {
             System.out.println(e);
+            return false;
         }
-        return true;
 
     }
 

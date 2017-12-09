@@ -13,14 +13,14 @@ import java.sql.*;
 public class AccesoBD {
 
     String url, usuario, password;
-    Connection conexion = null;
+    Connection conexion;
     Statement instruccion;
     ResultSet tabla;
 
     public AccesoBD() {
-        url = "jdbc:postgresql://localhost:5432/ProyectoDesarrollo";
+        url = "jdbc:postgresql://localhost:5432/proyectodesarrollo";
         usuario = "postgres";
-        password = "admin";
+        password = "apdlt.5139";
     }
 
     public Connection conectar() {

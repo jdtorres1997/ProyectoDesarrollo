@@ -23,6 +23,7 @@ public class ControladorInscripcion {
     }
 
     public boolean agregarInscripcion(Inscripcion i) {
+        i.actualizarFechaPreinscripcion(); // fecha actual
         boolean respuesta = daoInscripcion.insertarInscripcion(i);
         System.out.println(respuesta);
         return respuesta;
@@ -35,6 +36,7 @@ public class ControladorInscripcion {
     }
 
     public boolean modificarInscripcion(Inscripcion i) {
+        i.actualizarFechaPago(); // se asume que modificarInscripcion solo sirve para realizar pagos
         boolean respuesta = daoInscripcion.updateInscripcion(i);
         return respuesta;
     }

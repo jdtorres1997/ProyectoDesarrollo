@@ -5,6 +5,8 @@
  */
 package logica;
 
+import java.util.Date;
+
 /**
  *
  * @author jdtorres
@@ -12,11 +14,16 @@ package logica;
 public class Inscripcion {
 
     private String id_cliente, id_evento, pago;
+    private java.sql.Date fechaPreinscripcion;
+    private java.sql.Date fechaPago;
+
 
     public Inscripcion() {
         id_cliente = "";
         id_evento = "";
         pago = "";
+        fechaPreinscripcion = null;
+        fechaPago = null;
     }
 
     public void setIdCliente(String id) {
@@ -39,5 +46,23 @@ public class Inscripcion {
     }
     public String getPago(){
         return pago;
+    }
+    public java.sql.Date getFechaPreinscripcion(){
+        return fechaPreinscripcion;
+    }
+    
+    public java.sql.Date getFechaPago(){
+        return fechaPago;
+    }
+    
+    public void actualizarFechaPreinscripcion(){
+        java.util.Date d = new java.util.Date();  
+        fechaPreinscripcion = new java.sql.Date(d.getTime());
+        System.out.print(fechaPreinscripcion);
+    }
+    
+    public void actualizarFechaPago(){
+        java.util.Date d = new java.util.Date();  
+        fechaPago= new java.sql.Date(d.getTime());
     }
 }
