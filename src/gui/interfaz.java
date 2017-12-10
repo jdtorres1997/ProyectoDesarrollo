@@ -1,10 +1,12 @@
 package gui;
 
 import controlador.ControladorUsuarios;
+import datechooser.controller.EventHandler;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.KeyEvent;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -42,6 +44,7 @@ public class interfaz extends javax.swing.JFrame {
 
         controladorUsuarios = new ControladorUsuarios();
         this.setLocationRelativeTo(null);
+        
 
     }
 
@@ -63,9 +66,6 @@ public class interfaz extends javax.swing.JFrame {
         login = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         botonEntrar = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
-        recuperarContrasena = new javax.swing.JTextField();
-        recuperar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
 
         jInternalFrame1.setVisible(true);
@@ -87,18 +87,18 @@ public class interfaz extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/if_key_172487.png"))); // NOI18N
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 310, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/if_user_115781.png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 40, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, 40, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Contraseña");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Usuario");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, -1, 20));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, -1, 20));
 
         password.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         password.addActionListener(new java.awt.event.ActionListener() {
@@ -106,7 +106,12 @@ public class interfaz extends javax.swing.JFrame {
                 passwordActionPerformed(evt);
             }
         });
-        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 150, 30));
+        password.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                passwordKeyPressed(evt);
+            }
+        });
+        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, 150, 30));
 
         login.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         login.addActionListener(new java.awt.event.ActionListener() {
@@ -114,7 +119,7 @@ public class interfaz extends javax.swing.JFrame {
                 loginActionPerformed(evt);
             }
         });
-        getContentPane().add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 150, 30));
+        getContentPane().add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 150, 30));
         login.getAccessibleContext().setAccessibleName("nombreTexto");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -128,23 +133,9 @@ public class interfaz extends javax.swing.JFrame {
                 botonEntrarActionPerformed(evt);
             }
         });
-        getContentPane().add(botonEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 120, 30));
+        getContentPane().add(botonEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 120, 30));
         botonEntrar.getAccessibleContext().setAccessibleName("botonEntrar");
         botonEntrar.getAccessibleContext().setAccessibleDescription("");
-
-        jLabel7.setForeground(new java.awt.Color(0, 0, 255));
-        jLabel7.setText("Olvidé mi contraseña");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, -1, -1));
-        getContentPane().add(recuperarContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, 150, 30));
-
-        recuperar.setBackground(new java.awt.Color(255, 51, 102));
-        recuperar.setText("Enviar Mensaje");
-        recuperar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                recuperarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(recuperar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 450, 120, 30));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/fondoFinal.png"))); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, 0, 470, 520));
@@ -158,60 +149,20 @@ public class interfaz extends javax.swing.JFrame {
 
     private void botonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEntrarActionPerformed
         //boton que indica el login
-
-        String nombre = login.getText();
-        String contraseña = new String(password.getText());
-      
-
-        Usuario u = new Usuario();
-
-        u = controladorUsuarios.consultarUsuario(nombre);
-
-        String usuarioCorrecto = u.getLogin();
-        String contraseñaCorrecta = u.getPassword();
-
-        if (nombre.equals(usuarioCorrecto) && contraseña.equals(contraseñaCorrecta)) { //Valida que el usuario y contraseña sean correctos.
-        if (u.getEstado().equals("activo")) { //valida que el usuario ingresado se encuentra activo.
-            if (u.getTipo().equals("administrador") ) {
-
-                ventanaAdministrador = new interfazAdministrador(u);
-                ventanaAdministrador.setVisible(true);
-            } else {
-                if (u.getTipo().equals("gerente") ) {
-                    ventanaGerente = new interfazGerente(u);
-                    ventanaGerente.setVisible(true);
-                } else {
-                    if (u.getTipo().equals("operario") ) {
-                        ventanaOperario = new interfazOperario(u);
-                        ventanaOperario.setVisible(true);
-                    }
-                }
-            }
-            dispose();
-        } else {
-            
-              Icon p = new ImageIcon(getClass().getResource("/gui/images/user (3).png"));
-            JOptionPane.showMessageDialog(this, "El usuario no  esta activo","No puede ingresar",JOptionPane.INFORMATION_MESSAGE,p);
-           password.setText("");
-            login.setText(null);
-
-        }
-
-        } else {
-            JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta");
-            login.setText(null);
-            password.setText(null);
-
-        }
+        entrar();
     }//GEN-LAST:event_botonEntrarActionPerformed
 
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordActionPerformed
 
-    private void recuperarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recuperarActionPerformed
+    private void passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_recuperarActionPerformed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            entrar();
+        }
+    }//GEN-LAST:event_passwordKeyPressed
+
 
     /**
      * @param args the command line arguments
@@ -257,10 +208,55 @@ public class interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField login;
     private javax.swing.JPasswordField password;
-    private javax.swing.JButton recuperar;
-    private javax.swing.JTextField recuperarContrasena;
     // End of variables declaration//GEN-END:variables
+
+    private void entrar() {
+        
+        String nombre = login.getText();
+        String contraseña = new String(password.getText());
+      
+
+        Usuario u = new Usuario();
+
+        u = controladorUsuarios.consultarUsuario(nombre);
+
+        String usuarioCorrecto = u.getLogin();
+        String contraseñaCorrecta = u.getPassword();
+
+        if (nombre.equals(usuarioCorrecto) && contraseña.equals(contraseñaCorrecta)) { //Valida que el usuario y contraseña sean correctos.
+        if (u.getEstado().equals("activo")) { //valida que el usuario ingresado se encuentra activo.
+            if (u.getTipo().equals("administrador") ) {
+
+                ventanaAdministrador = new interfazAdministrador(u);
+                ventanaAdministrador.setVisible(true);
+            } else {
+                if (u.getTipo().equals("gerente") ) {
+                    ventanaGerente = new interfazGerente(u);
+                    ventanaGerente.setVisible(true);
+                } else {
+                    if (u.getTipo().equals("operario") ) {
+                        ventanaOperario = new interfazOperario(u);
+                        ventanaOperario.setVisible(true);
+                    }
+                }
+            }
+            dispose();
+        } else {
+            
+              Icon p = new ImageIcon(getClass().getResource("/gui/images/user (3).png"));
+            JOptionPane.showMessageDialog(this, "El usuario no  esta activo","No puede ingresar",JOptionPane.INFORMATION_MESSAGE,p);
+           password.setText("");
+            login.setText(null);
+
+        }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta");
+            login.setText(null);
+            password.setText(null);
+
+        }
+    }
 }

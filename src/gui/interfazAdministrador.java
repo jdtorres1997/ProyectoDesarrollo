@@ -52,7 +52,6 @@ public class interfazAdministrador extends javax.swing.JFrame {
         identificadorUsuario = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
@@ -85,7 +84,7 @@ public class interfazAdministrador extends javax.swing.JFrame {
                 botonCerrarSesionActionPerformed(evt);
             }
         });
-        getContentPane().add(botonCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 190, -1));
+        getContentPane().add(botonCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 190, -1));
 
         Crear.setBackground(new java.awt.Color(255, 255, 153));
         Crear.setText("Crear Usuario");
@@ -103,7 +102,7 @@ public class interfazAdministrador extends javax.swing.JFrame {
                 modificarActionPerformed(evt);
             }
         });
-        getContentPane().add(modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 190, -1));
+        getContentPane().add(modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 190, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/j.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 230, 260));
@@ -148,25 +147,23 @@ public class interfazAdministrador extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 190, -1));
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 153));
-        jButton2.setText("jButton2");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 190, -1));
-
+        jButton3.setBackground(new java.awt.Color(255, 255, 153));
         jButton3.setText("Cambiar mi contraseña");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 190, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 190, -1));
 
+        jButton4.setBackground(new java.awt.Color(255, 255, 153));
         jButton4.setText("Cambiar Contraseña Usuarios");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 190, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 190, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -219,7 +216,6 @@ public class interfazAdministrador extends javax.swing.JFrame {
     private javax.swing.JButton botonCerrarSesion;
     private javax.swing.JLabel identificadorUsuario;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JDesktopPane jDesktopPane1;

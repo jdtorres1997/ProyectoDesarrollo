@@ -33,6 +33,7 @@ import logica.Cliente;
 import logica.Evento;
 import logica.Inscripcion;
 import logica.Pdf;
+import logica.Usuario;
 
 /**
  *
@@ -48,12 +49,14 @@ public class registrarPago extends javax.swing.JFrame {
     /**
      * Creates new form crearCliente
      */
-    public registrarPago() {
+    public registrarPago(Usuario u) {
         initComponents();
         controladorInscripcion = new ControladorInscripcion();
         controladorCliente = new ControladorCliente();
         this.setLocationRelativeTo(null);
         controladorEvento = new ControladorEventos();
+        interfazOper = new interfazOperario(u);
+
     }
 
     /**
@@ -263,54 +266,51 @@ public class registrarPago extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-      String anterior="";
-      String otra ="";
-      int t=0;
-      int num=0;
-      int respuesta=-1;
-      boolean saber=false;
+    String anterior = "";
+    String otra = "";
+    int t = 0;
+    int num = 0;
+    int respuesta = -1;
+    boolean saber = false;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (validar()) {
             Inscripcion in = new Inscripcion();
             in.setIdCliente(id_cliente.getText());
             in.setIdEvento(eventoCombo.getSelectedItem().toString());
             in.setPago("no");
-          
+
             boolean seAgrego = controladorInscripcion.modificarInscripcion(in);
             if (seAgrego) {
 
-                respuesta=    quitarCapacidad(eventoCombo.getSelectedItem().toString());
-                t=1;
+                respuesta = quitarCapacidad(eventoCombo.getSelectedItem().toString());
+                t = 1;
                 JOptionPane.showMessageDialog(this, "Se agrego el pago al sistema, ahora se encuentra inscrito", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
-                
+
                 //IMPRIMIR RECIBO
-                try{
-                    String nombreDocumento = id_cliente.getText() + "-Evento-" + eventoCombo.getSelectedItem().toString() ;
+                try {
+                    String nombreDocumento = id_cliente.getText() + "-Evento-" + eventoCombo.getSelectedItem().toString();
                     String identificacionCliente = id_cliente.getText();
-                    
+
                     String evento = eventoCombo.getSelectedItem().toString();
                     String costo = costoEvento.getText();
                     String pago = pagar.getText();
                     String cambioPago = cambio.getText();
                     Pdf pdf = new Pdf();
-                    pdf.createPdf(nombreDocumento, identificacionCliente, evento, costo,pago,cambioPago);
+                    pdf.createPdf(nombreDocumento, identificacionCliente, evento, costo, pago, cambioPago);
                     limpiar();
-                }catch (Exception e){
+                } catch (Exception e) {
 
-                } 
-              //  limpiar();
+                }
+                //  limpiar();
             } else {
                 Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
                 JOptionPane.showMessageDialog(this, "Hubo un error al agregar el pago ", "", JOptionPane.INFORMATION_MESSAGE, p);
             }
         }
-        
+
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    
-    
-    
     public boolean validar() {
         boolean rest = true;
         if (sololetras(id_cliente.getText()) || id_cliente.getText().equals("")) {
@@ -319,21 +319,20 @@ public class registrarPago extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Por favor verifique la identificación del cliente", "", JOptionPane.INFORMATION_MESSAGE);
             return rest;
         }
-        if( pagar.getText().equals("")){
+        if (pagar.getText().equals("")) {
             pagar.setBackground(Color.red);
             JOptionPane.showMessageDialog(this, "Por favor digite cuando dinero da el cliente", "", JOptionPane.INFORMATION_MESSAGE);
             pagar.setBackground(Color.WHITE);
-            rest=false;
+            rest = false;
             return rest;
 
-            
         }
-        if( cambio.getText().equals("")){
+        if (cambio.getText().equals("")) {
             cambio.setBackground(Color.red);
             JOptionPane.showMessageDialog(this, "Debe saber cuanto dinero debe devolver al cliente", "", JOptionPane.INFORMATION_MESSAGE);
             rest = false;
             return rest;
-            
+
         }
         if (eventoCombo.getSelectedIndex() == -1) {
             Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
@@ -362,18 +361,17 @@ public class registrarPago extends javax.swing.JFrame {
             return rest;
         }
 
-        
-        if(capacidadEvento.getText().equals("0") && respuesta!=0){
-             Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
+        if (capacidadEvento.getText().equals("0") && respuesta != 0) {
+            Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
 
             JOptionPane.showMessageDialog(this, " Debe saber el cupo disponible", "", JOptionPane.INFORMATION_MESSAGE, p);
 
             rest = false;
             return rest;
-            
+
         }
-        if(respuesta==0 ){
-             Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
+        if (respuesta == 0) {
+            Icon p = new ImageIcon(getClass().getResource("/gui/images/x.png"));
             JOptionPane.showMessageDialog(this, " No hay mas capacidad para el evento", "", JOptionPane.INFORMATION_MESSAGE, p);
             limpiar();
             rest = false;
@@ -405,8 +403,7 @@ public class registrarPago extends javax.swing.JFrame {
         capacidadEvento.setText("");
         cambio.setText("");
         pagar.setText("");
-        
-        
+
     }
 
 
@@ -415,7 +412,6 @@ public class registrarPago extends javax.swing.JFrame {
     }//GEN-LAST:event_id_clienteActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        interfazOper = new interfazOperario();
         interfazOper.setVisible(true);
         this.dispose();
 
@@ -423,8 +419,7 @@ public class registrarPago extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void CargarEventosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargarEventosActionPerformed
-        
-       
+
         eventoCombo.removeAllItems();
         ArrayList<String> ve = new ArrayList<String>();
         ve = controladorEvento.retornar();
@@ -439,56 +434,50 @@ public class registrarPago extends javax.swing.JFrame {
         }
         costoEvento.setText(String.valueOf(0));
         capacidadEvento.setText(String.valueOf(0));
-    //    eventoCombo.setSelectedIndex(-1);
-        
+        //    eventoCombo.setSelectedIndex(-1);
+
 
     }//GEN-LAST:event_CargarEventosActionPerformed
 
     private void eventoComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eventoComboActionPerformed
-            
-           
-             if (eventoCombo.getSelectedIndex() != -1) {
-            
-                 Evento ev= new Evento();
-                 ev = controladorEvento.consultarEvento(eventoCombo.getSelectedItem().toString());
-                 costoEvento.setText(String.valueOf(ev.getCosto()));
-   
-             }  
 
-                
+        if (eventoCombo.getSelectedIndex() != -1) {
 
+            Evento ev = new Evento();
+            ev = controladorEvento.consultarEvento(eventoCombo.getSelectedItem().toString());
+            costoEvento.setText(String.valueOf(ev.getCosto()));
+
+        }
 
         // TODO add your handling code here:
     }//GEN-LAST:event_eventoComboActionPerformed
 
- 
-    private int quitarCapacidad (String combo){ //quita cupos dependiendo del eveento
-  
-          
-        Evento even= new Evento();
+    private int quitarCapacidad(String combo) { //quita cupos dependiendo del eveento
+
+        Evento even = new Evento();
         even = controladorEvento.consultarEvento(combo);
-        
-        if(even.getIdentificacion().equals(anterior)){
-            num=num-1;
-       System.out.println(num);
-     System.out.println("uno");
-     
+
+        if (even.getIdentificacion().equals(anterior)) {
+            num = num - 1;
+            System.out.println(num);
+            System.out.println("uno");
+
         }
-        if(anterior.equals("")){
-            anterior= combo;
-            num = even.getCapacidad()-1;
-          System.out.println(num);
-               System.out.println("dos");
-        } 
-        if(!even.getIdentificacion().equals(anterior)){
+        if (anterior.equals("")) {
             anterior = combo;
-            num=even.getCapacidad()-1;
-       System.out.println(num);
-            System.out.println("tres");
-   
+            num = even.getCapacidad() - 1;
+            System.out.println(num);
+            System.out.println("dos");
         }
-         return num;         
-        
+        if (!even.getIdentificacion().equals(anterior)) {
+            anterior = combo;
+            num = even.getCapacidad() - 1;
+            System.out.println(num);
+            System.out.println("tres");
+
+        }
+        return num;
+
     }
     private void capacidadEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_capacidadEventoActionPerformed
         // TODO add your handling code here:
@@ -496,30 +485,28 @@ public class registrarPago extends javax.swing.JFrame {
 
     private void disponibleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disponibleActionPerformed
 
-     Evento eve = new Evento();
-     eve = controladorEvento.consultarEvento(eventoCombo.getSelectedItem().toString());
-     
-     
-     
-      if(otra.equals(eve.getIdentificacion())&&respuesta>0){
-        capacidadEvento.setText(String.valueOf(respuesta));
-     }
+        Evento eve = new Evento();
+        eve = controladorEvento.consultarEvento(eventoCombo.getSelectedItem().toString());
 
-     if(otra.equals("")){
-         otra =eventoCombo.getSelectedItem().toString();
-         capacidadEvento.setText(String.valueOf(eve.getCapacidad()));
-         
-     }
-     if(!otra.equals(eve.getIdentificacion())){
-         
-        capacidadEvento.setText(String.valueOf(eve.getCapacidad()));
-        otra = eventoCombo.getSelectedItem().toString();
-     }
-     if(t==0){
-  capacidadEvento.setText(String.valueOf(eve.getCapacidad()));
+        if (otra.equals(eve.getIdentificacion()) && respuesta > 0) {
+            capacidadEvento.setText(String.valueOf(respuesta));
+        }
 
-     }
-    
+        if (otra.equals("")) {
+            otra = eventoCombo.getSelectedItem().toString();
+            capacidadEvento.setText(String.valueOf(eve.getCapacidad()));
+
+        }
+        if (!otra.equals(eve.getIdentificacion())) {
+
+            capacidadEvento.setText(String.valueOf(eve.getCapacidad()));
+            otra = eventoCombo.getSelectedItem().toString();
+        }
+        if (t == 0) {
+            capacidadEvento.setText(String.valueOf(eve.getCapacidad()));
+
+        }
+
     }//GEN-LAST:event_disponibleActionPerformed
 
     private void cambioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambioActionPerformed
@@ -536,50 +523,10 @@ public class registrarPago extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
 
-  int cambiar = Integer.parseInt(pagar.getText())-Integer.parseInt(costoEvento.getText());
-  cambio.setText(String.valueOf(cambiar));
-            // TODO add your handling code here:
+        int cambiar = Integer.parseInt(pagar.getText()) - Integer.parseInt(costoEvento.getText());
+        cambio.setText(String.valueOf(cambiar));
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
-
-    
-    /**
-     *
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(registrarPago.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(registrarPago.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(registrarPago.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(registrarPago.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new registrarPago().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CargarEventos;

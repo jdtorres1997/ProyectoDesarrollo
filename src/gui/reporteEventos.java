@@ -7,22 +7,61 @@ package gui;
 
 import controlador.ControladorEventos;
 import java.util.Vector;
+import javax.swing.RowFilter;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
+import logica.Usuario;
 
 /**
  *
  * @author Alexandra
  */
 public class reporteEventos extends javax.swing.JFrame {
+
     ControladorEventos controladorEventos;
+    TableRowSorter<TableModel> sorter1;
 
     /**
      * Creates new form reporteEventos
      */
     interfazGerente interfazG;
-    public reporteEventos() {
+
+    public reporteEventos(Usuario u) {
         controladorEventos = new ControladorEventos();
         initComponents();
+        textoBusqueda.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                search(textoBusqueda.getText());
+
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                search(textoBusqueda.getText());
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                search(textoBusqueda.getText());
+            }
+
+            public void search(String s) {
+                if (s.length() == 0) {
+
+                    sorter1.setRowFilter(null);
+                } else {
+
+                    sorter1.setRowFilter(RowFilter.regexFilter("(?i)" + s));
+                }
+            }
+        });
+        interfazG = new interfazGerente(u);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
     }
 
     /**
@@ -34,9 +73,11 @@ public class reporteEventos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        textoBusqueda = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
@@ -52,6 +93,7 @@ public class reporteEventos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(textoBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, 110, -1));
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -92,6 +134,9 @@ public class reporteEventos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, 140, -1));
+
+        jLabel10.setText("Buscar:");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -165,84 +210,52 @@ public class reporteEventos extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
-modelo.setRowCount(0);
+        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        modelo.setRowCount(0);
+        
+        sorter1 = new TableRowSorter<>(modelo);
+        tabla.setRowSorter(sorter1);
 
-    Vector v= new Vector();
-    v= controladorEventos.retornarEventos();
-  
-    int i=0;
-    
-    while(i!=v.size()){
-        Vector u= new Vector();
+        Vector v = new Vector();
+        v = controladorEventos.retornarEventos();
 
-        u.add(v.get(i));
-        u.add(v.get(i+1));
-        u.add(v.get(i+2));
-        u.add(v.get(i+3));
-        u.add(v.get(i+4));
-        u.add(v.get(i+5)); 
-        u.add(v.get(i+6));
-        u.add(v.get(i+7));
-        u.add(v.get(i+8));
+        int i = 0;
 
-        modelo.addRow(u);
-        tabla.setModel(modelo);
-        i+=9;
-    }
+        while (i != v.size()) {
+            Vector u = new Vector();
 
+            u.add(v.get(i));
+            u.add(v.get(i + 1));
+            u.add(v.get(i + 2));
+            u.add(v.get(i + 3));
+            u.add(v.get(i + 4));
+            u.add(v.get(i + 5));
+            u.add(v.get(i + 6));
+            u.add(v.get(i + 7));
+            u.add(v.get(i + 8));
+
+            modelo.addRow(u);
+            tabla.setModel(modelo);
+            i += 9;
+        }
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
-        interfazG = new interfazGerente();
         interfazG.setVisible(true);
         this.dispose();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(reporteEventos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(reporteEventos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(reporteEventos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(reporteEventos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new reporteEventos().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -255,5 +268,6 @@ modelo.setRowCount(0);
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabla;
+    private javax.swing.JTextField textoBusqueda;
     // End of variables declaration//GEN-END:variables
 }

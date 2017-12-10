@@ -25,10 +25,7 @@ public class interfazGerente extends javax.swing.JFrame {
     reporteSedes ventanaReporteS;
     reporteEventos ventanaReporteE;
     
-    public interfazGerente() {
-        initComponents();
 
-    }
     public interfazGerente(Usuario u) {
         initComponents();
         this.getContentPane().setBackground(Color.WHITE);
@@ -195,7 +192,7 @@ public class interfazGerente extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCerrarSesionActionPerformed
 
     private void crearSedesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearSedesActionPerformed
-        crearSede = new crearSedes();
+        crearSede = new crearSedes(usuarioActual);
         crearSede.setVisible(true);
         this.dispose();
 
@@ -203,7 +200,7 @@ public class interfazGerente extends javax.swing.JFrame {
     }//GEN-LAST:event_crearSedesActionPerformed
 
     private void modificarSedesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarSedesActionPerformed
-        modificarSede = new modificarSedes();
+        modificarSede = new modificarSedes(usuarioActual);
         modificarSede.setVisible(true);
         this.dispose();
         
@@ -214,7 +211,7 @@ public class interfazGerente extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
-        evento = new interfazCrearEvento();
+        evento = new interfazCrearEvento(usuarioActual);
         evento.setVisible(true);
         this.dispose();
 
@@ -224,7 +221,7 @@ public class interfazGerente extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        modificarEvento = new interfazModificarEvento();
+        modificarEvento = new interfazModificarEvento(usuarioActual);
         modificarEvento.setVisible(true);
         this.dispose();
         
@@ -234,7 +231,7 @@ public class interfazGerente extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
 
-    ventanaReporteS = new reporteSedes();
+    ventanaReporteS = new reporteSedes(usuarioActual);
         ventanaReporteS.setVisible(true);
         this.dispose();
         // TODO add your handling code here:
@@ -244,7 +241,7 @@ public class interfazGerente extends javax.swing.JFrame {
 
 
 
-    ventanaReporteE = new reporteEventos();
+    ventanaReporteE = new reporteEventos(usuarioActual);
         ventanaReporteE.setVisible(true);
         this.dispose();
 
@@ -259,41 +256,6 @@ public class interfazGerente extends javax.swing.JFrame {
  
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(interfazGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(interfazGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(interfazGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(interfazGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new interfazGerente().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCerrarSesion;

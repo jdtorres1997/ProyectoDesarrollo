@@ -44,7 +44,7 @@ public class Pdf {
         }
         
 
-        public void createPdf(String nombreDocumento, String identificacionCliente, String evento, String costo,String pago,String cambio) throws IOException, DocumentException {
+    public void createPdf(String nombreDocumento, String identificacionCliente, String evento, String costo,String pago,String cambio) throws IOException, DocumentException {
         Font FONT = new Font(FontFamily.HELVETICA, 16, Font.NORMAL, GrayColor.BLACK);
             
         Document document = new Document();

@@ -26,17 +26,10 @@ public class interfazOperario extends javax.swing.JFrame {
     reporteInscripcion reporteI;
     reportePago reporteP;
     
-    /**
-     * Creates new form interfazOperario
-     */
-    public interfazOperario() {
-        initComponents();
-      
-    }
     public interfazOperario(Usuario u) {
         initComponents();
         this.getContentPane().setBackground(Color.WHITE);
-         this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
         this.setResizable(false);
         usuarioActual = u;
         identificadorUsuario.setText(usuarioActual.getNombre()+" "+usuarioActual.getApellido());
@@ -208,7 +201,7 @@ public class interfazOperario extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-         cliente = new crearCliente();
+        cliente = new crearCliente(usuarioActual);
         cliente.setVisible(true);
         this.dispose();
 
@@ -217,7 +210,7 @@ public class interfazOperario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    modificarC = new modificarCliente();
+    modificarC = new modificarCliente(usuarioActual);
     modificarC.setVisible(true);
     this.dispose();
 
@@ -225,19 +218,19 @@ public class interfazOperario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        inscribirC = new registrarInscripcion();
+        inscribirC = new registrarInscripcion(usuarioActual);
         inscribirC.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        registrarP = new registrarPago();
+        registrarP = new registrarPago(usuarioActual);
         registrarP.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        reporteC = new reporteClientes();
+        reporteC = new reporteClientes(usuarioActual);
         reporteC.setVisible(true);
         this.dispose();
 
@@ -246,7 +239,7 @@ public class interfazOperario extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
 
-        reporteI = new reporteInscripcion();
+        reporteI = new reporteInscripcion(usuarioActual);
         reporteI.setVisible(true);
         this.dispose();
 
@@ -255,7 +248,7 @@ public class interfazOperario extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
 
-        reporteP = new reportePago();
+        reporteP = new reportePago(usuarioActual);
         reporteP.setVisible(true);
         this.dispose();
         // TODO add your handling code here:
@@ -272,41 +265,6 @@ public class interfazOperario extends javax.swing.JFrame {
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton9ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(interfazOperario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(interfazOperario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(interfazOperario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(interfazOperario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new interfazOperario().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCerrarSesion;

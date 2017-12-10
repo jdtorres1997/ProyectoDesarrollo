@@ -9,7 +9,12 @@ import controlador.ControladorUsuarios;
 import java.util.Vector;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
+import javax.swing.RowFilter;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import logica.Usuario;
 
 /**
@@ -21,11 +26,43 @@ public class reporteUsuarios extends javax.swing.JFrame {
        ControladorUsuarios controladorUsuarios;
        Usuario usuarioActual;
        interfazAdministrador interfazA;
+       TableRowSorter<TableModel> sorter1;
 
     public reporteUsuarios(Usuario u) {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
         usuarioActual = u;
         controladorUsuarios =  new ControladorUsuarios();
+         
+
+        textoBusqueda.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                search(textoBusqueda.getText());
+
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                search(textoBusqueda.getText());
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                search(textoBusqueda.getText());
+            }
+
+            public void search(String s) {
+                if (s.length() == 0) {
+
+                    sorter1.setRowFilter(null);
+                } else {
+
+                    sorter1.setRowFilter(RowFilter.regexFilter("(?i)" + s));
+                }
+            }
+        });
     }
 
     /**
@@ -44,6 +81,8 @@ public class reporteUsuarios extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
+        textoBusqueda = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -92,7 +131,7 @@ public class reporteUsuarios extends javax.swing.JFrame {
                 cargarActionPerformed(evt);
             }
         });
-        getContentPane().add(cargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 360, 140, -1));
+        getContentPane().add(cargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, 140, -1));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -131,6 +170,16 @@ public class reporteUsuarios extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, -1));
 
+        textoBusqueda.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                textoBusquedaKeyReleased(evt);
+            }
+        });
+        getContentPane().add(textoBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, 150, -1));
+
+        jLabel8.setText("Buscar: ");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, -1, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/list (8).png"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 70, 70));
@@ -160,28 +209,31 @@ public class reporteUsuarios extends javax.swing.JFrame {
 
     private void cargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarActionPerformed
 
-DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
-modelo.setRowCount(0);
+        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        modelo.setRowCount(0);
+        
+        sorter1 = new TableRowSorter<>(modelo);
+        tabla.setRowSorter(sorter1);
 
-    Vector v= new Vector();
-    v= controladorUsuarios.retornar();
-  
-    int i=0;
-    
-    while(i!=v.size()){
-        Vector u= new Vector();
+        Vector v = new Vector();
+        v = controladorUsuarios.retornar();
 
-        u.add(v.get(i));
-        u.add(v.get(i+1));
-        u.add(v.get(i+2));
-        u.add(v.get(i+3));
-        u.add(v.get(i+4));
-        u.add(v.get(i+5));  
-        modelo.addRow(u);
-        tabla.setModel(modelo);
-        i+=6;
-    }
-    
+        int i = 0;
+
+        while (i != v.size()) {
+            Vector u = new Vector();
+
+            u.add(v.get(i));
+            u.add(v.get(i + 1));
+            u.add(v.get(i + 2));
+            u.add(v.get(i + 3));
+            u.add(v.get(i + 4));
+            u.add(v.get(i + 5));
+            modelo.addRow(u);
+            tabla.setModel(modelo);
+            i += 6;
+        }
+
         // TODO add your handling code here:
     }//GEN-LAST:event_cargarActionPerformed
 
@@ -192,6 +244,11 @@ modelo.setRowCount(0);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void textoBusquedaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoBusquedaKeyReleased
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_textoBusquedaKeyReleased
 
 
 
@@ -206,10 +263,11 @@ modelo.setRowCount(0);
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private java.awt.ScrollPane scrollPane1;
     private javax.swing.JTable tabla;
+    private javax.swing.JTextField textoBusqueda;
     // End of variables declaration//GEN-END:variables
 }

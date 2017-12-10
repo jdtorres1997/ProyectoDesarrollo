@@ -59,7 +59,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="330" y="310" width="-1" height="-1"/>
+          <AbsoluteConstraints x="330" y="340" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -71,7 +71,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="330" y="270" width="40" height="-1"/>
+          <AbsoluteConstraints x="330" y="300" width="40" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -84,7 +84,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="70" y="310" width="-1" height="-1"/>
+          <AbsoluteConstraints x="70" y="340" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -97,7 +97,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="70" y="270" width="-1" height="20"/>
+          <AbsoluteConstraints x="70" y="300" width="-1" height="20"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -107,10 +107,11 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="passwordActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="passwordKeyPressed"/>
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="170" y="310" width="150" height="30"/>
+          <AbsoluteConstraints x="170" y="340" width="150" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -126,7 +127,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="170" y="270" width="150" height="30"/>
+          <AbsoluteConstraints x="170" y="300" width="150" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -161,43 +162,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="180" y="360" width="120" height="30"/>
-        </Constraint>
-      </Constraints>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel7">
-      <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="0" red="0" type="rgb"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Olvid&#xe9; mi contrase&#xf1;a"/>
-      </Properties>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="50" y="420" width="-1" height="-1"/>
-        </Constraint>
-      </Constraints>
-    </Component>
-    <Component class="javax.swing.JTextField" name="recuperarContrasena">
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="170" y="410" width="150" height="30"/>
-        </Constraint>
-      </Constraints>
-    </Component>
-    <Component class="javax.swing.JButton" name="recuperar">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="66" green="33" red="ff" type="rgb"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Enviar Mensaje"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="recuperarActionPerformed"/>
-      </Events>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="180" y="450" width="120" height="30"/>
+          <AbsoluteConstraints x="180" y="390" width="120" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
