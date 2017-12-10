@@ -5,6 +5,18 @@
  */
 package controlador;
 
+import accesoDatos.DAOCliente;
+import accesoDatos.DAOEvento;
+import com.itextpdf.text.DocumentException;
+import java.io.IOException;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import logica.Cliente;
+import logica.Evento;
 import logica.Pdf;
 
 /**
@@ -59,6 +71,21 @@ public class ControladorReportes {
         return res;
     }
     
+ 
+
+    public boolean generarCertificado(String idCliente, String idEvento, String ruta, String nombreArchivo) throws IOException, DocumentException {
+        DAOCliente dc = new DAOCliente();
+        Cliente c = dc.consultarCliente(idCliente);
+        
+        DAOEvento de = new DAOEvento();
+        Evento e = de.consultarEvento(idEvento);
+        
+        String[] dateParts = e.getFecha().split("-");
+ 
+        
+        boolean res = pdf.crearCertificado(c.getNombre() + " " + c.getApellido(), e.getNombre(), ruta, nombreArchivo, dateParts[0], dateParts[1], dateParts[2] );
+        return res;
+    }
     
     
 }

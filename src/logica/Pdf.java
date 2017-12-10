@@ -6,6 +6,7 @@
 package logica;
 
 import accesoDatos.AccesoBD;
+import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
@@ -41,6 +42,10 @@ public class Pdf {
         
         public Pdf(){
             acceso = new AccesoBD();
+            System.out.print("hola");
+            
+            System.out.print("");
+
         }
         
 
@@ -81,33 +86,49 @@ public class Pdf {
 
         document.close();
     }
-    public void crearCertificado(String nombre, String evento)throws IOException, DocumentException{
-        Font FONT = new Font(FontFamily.HELVETICA, 16, Font.NORMAL, GrayColor.BLACK);
-            nombre="hola";
-            evento="como";
-    Document document = new Document(PageSize.A4.rotate());
-        PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("/Users/Alexandra/Desktop/"+nombre+".pdf")); //CAMBIAR RUTA
-        document.open();
-        PdfContentByte cb = writer.getDirectContentUnder();
-        
-        Image img = Image.getInstance("/Users/Alexandra/Desktop/certificado2.jpg");
-        img.scaleToFit(800, 700);
-        float width = img.getScaledWidth();
-        float height = img.getScaledHeight();
-        PdfTemplate template = cb.createTemplate(width, height);
-
-        template.addImage(img, width, 0, 0, height, 0, 0);
-        ColumnText.showTextAligned(template, Element.ALIGN_RIGHT,
-                new Phrase(nombre,FONT), 400,243 , 0);
-        ColumnText.showTextAligned(template, Element.ALIGN_RIGHT,
-                new Phrase(evento,FONT), 400,203 , 0);
-      
-       
-        document.add(Image.getInstance(template));
-
-        document.close();
-        
-        
+    public boolean crearCertificado(String nombrePersona, String nombreEvento, String rutaArchivo, String nombreArchivo, String year, String month, String day){
+            try {
+                Font FONT = new Font(FontFamily.TIMES_ROMAN, 18, Font.ITALIC, GrayColor.BLACK);
+                Document document = new Document(PageSize.A4.rotate());
+                PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(rutaArchivo+"/"+nombreArchivo+".pdf")); //CAMBIAR RUTA
+                document.open();
+                PdfContentByte cb = writer.getDirectContentUnder();
+                Image img = Image.getInstance("src/gui/images/certificado.png");
+                img.scaleToFit(800, 560);
+                float width = img.getScaledWidth();
+                float height = img.getScaledHeight();
+                PdfTemplate template = cb.createTemplate(width, height);
+                template.addImage(img, width, 0, 0, height, 0, 0);
+                //nombre persona
+                ColumnText.showTextAligned(template, Element.ALIGN_CENTER,
+                        new Phrase(nombrePersona,FONT), 370,367 , 0);
+                //mes
+                ColumnText.showTextAligned(template, Element.ALIGN_CENTER,
+                        new Phrase(month,FONT), 230, 200 , 0);
+                //dia
+                ColumnText.showTextAligned(template, Element.ALIGN_CENTER,
+                        new Phrase(day,FONT), 370, 200 , 0);
+                //year
+                ColumnText.showTextAligned(template, Element.ALIGN_CENTER,
+                        new Phrase(year,FONT), 545, 200 , 0);
+                //evento
+                ColumnText.showTextAligned(template, Element.ALIGN_CENTER,
+                        new Phrase(nombreEvento,FONT), 370,295 , 0);
+                document.add(Image.getInstance(template));
+                document.close();
+                
+            } catch (DocumentException ex) {
+                Logger.getLogger(Pdf.class.getName()).log(Level.SEVERE, null, ex);
+                return false;
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Pdf.class.getName()).log(Level.SEVERE, null, ex);
+                return false;
+            } catch (IOException ex) {
+                Logger.getLogger(Pdf.class.getName()).log(Level.SEVERE, null, ex);
+                return false;
+            }
+            
+            return true;
     }
     
     public boolean generarPdfConsulta(String consultaSql, String ruta, String nombreDocumento, String textoTitulo) {
@@ -175,8 +196,8 @@ public class Pdf {
 class Main {
 	public static void main (String [] abc) throws IOException, FileNotFoundException, DocumentException, SQLException  {
                 Pdf pdf = new Pdf();
+                //pdf.crearCertificado("CARLOS FERNANDO TOVAR", "PROGRAMACION POR RESTRICCIONES", "/home/tovar/Desktop", "archivo");
                 //pdf.createPdf("archivo", "1144197211", "Google Games", "50000","3000","1000");
-                pdf.generarPdfConsulta("select * from inscripciones", "/Users/Alexandra/Desktop", "leksaoa2.pdf", "Reporte de inscripciones :O");
-
+                //pdf.generarPdfConsulta("select * from inscripciones", "/Users/Alexandra/Desktop", "leksaoa2.pdf", "Reporte de inscripciones :O");
 	}
 }
