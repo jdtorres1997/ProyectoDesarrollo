@@ -244,7 +244,7 @@ public class generarCertificados extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Se guardo correctamente el certificado", "", JOptionPane.INFORMATION_MESSAGE);
                 
             }else{
-                JOptionPane.showMessageDialog(this, "Hubo un error al crear el archivo, por favor comuniquese con los desarrolladores", "", JOptionPane.ERROR);
+                JOptionPane.showMessageDialog(this, "Hubo un error al crear el archivo", "", JOptionPane.INFORMATION_MESSAGE);
             }
             limpiar();
         } catch (IOException ex) {

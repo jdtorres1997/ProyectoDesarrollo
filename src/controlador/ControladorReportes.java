@@ -81,11 +81,26 @@ public class ControladorReportes {
         Evento e = de.consultarEvento(idEvento);
         
         String[] dateParts = e.getFecha().split("-");
- 
-        
-        boolean res = pdf.crearCertificado(c.getNombre() + " " + c.getApellido(), e.getNombre(), ruta, nombreArchivo, dateParts[0], dateParts[1], dateParts[2] );
+        boolean res;
+        if(this.sololetras(nombreArchivo)){
+            res=false;
+        }else {
+            res = pdf.crearCertificado(c.getNombre() + " " + c.getApellido(), e.getNombre(), ruta, nombreArchivo, dateParts[0], dateParts[1], dateParts[2] );
+        }
         return res;
     }
-    
+    public static boolean sololetras(String prueba) {
+        boolean result = false;
+        String comparacion = "!!#$%&/()=?¡*¨][_:;°¬|@·~½¬{[]}~µ";
+        for (int i = prueba.length() - 1; i >= 0; i--) {
+            for (int j = comparacion.length() - 1; j >= 0; j--) {
+                if (prueba.charAt(i) == comparacion.charAt(j)) {
+                    result = true;
+                    return result;
+                }
+            }
+        }
+        return result;
+    }
     
 }

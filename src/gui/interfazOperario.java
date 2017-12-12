@@ -7,6 +7,7 @@ package gui;
 
 
 import com.itextpdf.text.DocumentException;
+import controlador.ControladorReportes;
 import java.awt.Color;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -263,7 +264,10 @@ public class interfazOperario extends javax.swing.JFrame {
     }//GEN-LAST:event_cambiarPassButtonActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
+        generarCertificados control = new generarCertificados();
+        control.setVisible(true);
+        this.dispose();
+        
     }//GEN-LAST:event_jButton9ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
