@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS usuarios CASCADE;
+﻿DROP TABLE IF EXISTS usuarios CASCADE;
 CREATE TABLE usuarios (
 	login VARCHAR(100) PRIMARY KEY,
 	password VARCHAR(100),
@@ -76,14 +76,17 @@ INSERT INTO sedes (identificacion, nombre, informacion, ubicacion, estado)
 INSERT INTO eventos (identificacion, nombre, sede, fecha, hora, ubicacion, costo, capacidad, estado)
 		VALUES ('evento5', 'Color fest', 'sede2', '2017/12/24', '13:00', 'Cañasgordas', 13000, 200, 'activo');
 INSERT INTO eventos (identificacion, nombre, sede, fecha, hora, ubicacion, costo, capacidad, estado)
-		VALUES ('evento3', 'fest', 'sede1', '2017/12/24', '14:00', 'centro', 16000, 2, 'activo');
+		VALUES ('evento3', 'Food fest', 'sede1', '2017/12/24', '14:00', 'centro', 16000, 2, 'activo');
 
-
-INSERT INTO inscripciones (id_cliente, id_evento, pago)
-		VALUES ('1144099304', 'evento3', 'no');
- INSERT INTO inscripciones (id_cliente, id_evento, pago)
-		VALUES ('1107512569', 'evento5', 'no');
 
 ALTER TABLE inscripciones ADD fecha_preinscripcion DATE;
 ALTER TABLE inscripciones ADD fecha_pago DATE;
+
+INSERT INTO inscripciones (id_cliente, id_evento, pago, fecha_preinscripcion)
+		VALUES ('1144099304', 'evento3', 'no', '2017/12/01');
+INSERT INTO inscripciones (id_cliente, id_evento, pago, fecha_preinscripcion)
+		VALUES ('1107512569', 'evento5', 'no', '2017/12/01');
+
+INSERT INTO inscripciones (id_cliente, id_evento, pago, fecha_preinscripcion, fecha_pago)
+		VALUES ('1144099305', 'evento3', 'si', '2017/12/01', '2017/12/10');
  

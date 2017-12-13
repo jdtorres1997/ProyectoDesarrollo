@@ -191,7 +191,7 @@ public class ReportePreinscripcionesYPagos extends javax.swing.JFrame {
         jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel23.setText("Reporte evento");
+        jLabel23.setText("Reporte preinscripciones y pagos");
 
         jButton5.setBackground(new java.awt.Color(255, 255, 0));
         jButton5.setText("Atras");
@@ -208,7 +208,7 @@ public class ReportePreinscripcionesYPagos extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel23)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 209, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addComponent(jButton5)
                 .addContainerGap())
         );

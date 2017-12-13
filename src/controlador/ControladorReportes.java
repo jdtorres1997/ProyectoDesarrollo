@@ -42,7 +42,7 @@ public class ControladorReportes {
                                                   + "fecha_pago "
                                                   + "from inscripciones inner join eventos "
                                                   + "ON inscripciones.id_evento = eventos.identificacion "
-                                                  + "where fecha_pago >= '"+desde+"' and fecha_pago <= '"+hasta+"' and pago='si'", ruta, nombreArchivo, "HOLA SOY UN REPORTE DE PAGOS");
+                                                  + "where fecha_pago >= '"+desde+"' and fecha_pago <= '"+hasta+"' and pago='si'", ruta, nombreArchivo, "REPORTE DE PAGOS");
     
         return res;
     }
@@ -55,7 +55,7 @@ public class ControladorReportes {
                                                   + "fecha_pago "
                                                   + "from inscripciones inner join eventos "
                                                   + "ON inscripciones.id_evento = eventos.identificacion "
-                                                  + "where fecha_pago >= '"+desde+"' and fecha_pago <= '"+hasta+"' and pago='no'", ruta, nombreArchivo, "HOLA SOY UN REPORTE DE NO PAGOS");
+                                                  + "where pago='no'", ruta, nombreArchivo, "REPORTE DE NO PAGOS");
         return res;
     }
     
@@ -66,8 +66,7 @@ public class ControladorReportes {
                                                   + "costo,"
                                                   + "fecha_pago "
                                                   + "from inscripciones inner join eventos "
-                                                  + "ON inscripciones.id_evento = eventos.identificacion "
-                                                  + "where fecha_pago >= '"+desde+"' and fecha_pago <= '"+hasta+"'", ruta, nombreArchivo, "HOLA SOY UN REPORTE DE PAGOS Y NO PAGOS");
+                                                  + "ON inscripciones.id_evento = eventos.identificacion ", ruta, nombreArchivo, "REPORTE DE PAGOS Y NO PAGOS");
         return res;
     }
     

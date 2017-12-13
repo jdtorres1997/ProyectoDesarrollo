@@ -47,9 +47,9 @@ public class interfazGerente extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         crearSedes = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
         modificarSedes = new javax.swing.JButton();
         botonCerrarSesion = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         identificadorUsuario = new javax.swing.JLabel();
@@ -80,15 +80,7 @@ public class interfazGerente extends javax.swing.JFrame {
                 crearSedesActionPerformed(evt);
             }
         });
-        getContentPane().add(crearSedes, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 170, -1));
-
-        jButton7.setText("jButton7");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, -1, -1));
+        getContentPane().add(crearSedes, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, 170, -1));
 
         modificarSedes.setBackground(new java.awt.Color(255, 203, 155));
         modificarSedes.setText("Modificar Sede");
@@ -97,7 +89,7 @@ public class interfazGerente extends javax.swing.JFrame {
                 modificarSedesActionPerformed(evt);
             }
         });
-        getContentPane().add(modificarSedes, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 170, -1));
+        getContentPane().add(modificarSedes, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 170, -1));
 
         botonCerrarSesion.setBackground(new java.awt.Color(255, 203, 155));
         botonCerrarSesion.setText("Cerrar sesión");
@@ -106,7 +98,16 @@ public class interfazGerente extends javax.swing.JFrame {
                 botonCerrarSesionActionPerformed(evt);
             }
         });
-        getContentPane().add(botonCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 170, -1));
+        getContentPane().add(botonCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, 170, -1));
+
+        jButton7.setBackground(new java.awt.Color(255, 203, 155));
+        jButton7.setText("Exportar reportes inscripciones");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 170, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/jj.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, 250));
@@ -133,12 +134,12 @@ public class interfazGerente extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(identificadorUsuario)
-                .addGap(22, 22, 22))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel4)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(identificadorUsuario)
+                .addGap(34, 34, 34))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 30));
@@ -150,7 +151,7 @@ public class interfazGerente extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 170, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 170, -1));
 
         jButton1.setBackground(new java.awt.Color(255, 203, 155));
         jButton1.setText("Modificar Evento");
@@ -159,7 +160,7 @@ public class interfazGerente extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 170, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 170, -1));
 
         jButton3.setBackground(new java.awt.Color(255, 203, 155));
         jButton3.setText("Reportes Sedes");
@@ -168,7 +169,7 @@ public class interfazGerente extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 170, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 170, -1));
 
         jButton4.setBackground(new java.awt.Color(255, 203, 155));
         jButton4.setText("Reportes Eventos");
@@ -177,7 +178,7 @@ public class interfazGerente extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 170, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 170, -1));
 
         jButton5.setBackground(new java.awt.Color(255, 203, 155));
         jButton5.setText("Cambiar Contraseña");
@@ -186,15 +187,16 @@ public class interfazGerente extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 170, -1));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 170, -1));
 
-        jButton6.setText("jButton6");
+        jButton6.setBackground(new java.awt.Color(255, 203, 155));
+        jButton6.setText("Exportar reporte eventos");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, -1, -1));
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, 170, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/verde.jpg"))); // NOI18N
         jLabel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
