@@ -52,8 +52,8 @@ public class Pdf {
     public void createPdf(String nombreDocumento, String identificacionCliente, String evento, String costo,String pago,String cambio) throws IOException, DocumentException {
         Font FONT = new Font(FontFamily.HELVETICA, 16, Font.NORMAL, GrayColor.BLACK);
             
-        Document document = new Document();
-        PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("/Users/Alexandra/Desktop/"+nombreDocumento+".pdf")); //CAMBIAR RUTA
+        Document document = new Document(); //C:\Users\juand\Documents
+        PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("/Users/juand/Documents/"+nombreDocumento+".pdf")); //CAMBIAR RUTA
         document.open();
         PdfContentByte cb = writer.getDirectContentUnder();
         
