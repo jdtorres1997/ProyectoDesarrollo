@@ -138,7 +138,7 @@ public class interfaz extends javax.swing.JFrame {
         botonEntrar.getAccessibleContext().setAccessibleDescription("");
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/fondoFinal.png"))); // NOI18N
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, 0, 470, 520));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, 0, 470, 510));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

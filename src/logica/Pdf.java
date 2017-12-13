@@ -57,7 +57,7 @@ public class Pdf {
         document.open();
         PdfContentByte cb = writer.getDirectContentUnder();
         
-        Image img = Image.getInstance("/Users/Alexandra/Desktop/re.jpg");
+        Image img = Image.getInstance("src/gui/images/re.jpg");
         img.scaleToFit(500, 900);
         float width = img.getScaledWidth();
         float height = img.getScaledHeight();
@@ -114,6 +114,53 @@ public class Pdf {
                 //evento
                 ColumnText.showTextAligned(template, Element.ALIGN_CENTER,
                         new Phrase(nombreEvento,FONT), 370,295 , 0);
+                document.add(Image.getInstance(template));
+                document.close();
+                
+            } catch (DocumentException ex) {
+                Logger.getLogger(Pdf.class.getName()).log(Level.SEVERE, null, ex);
+                return false;
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Pdf.class.getName()).log(Level.SEVERE, null, ex);
+                return false;
+            } catch (IOException ex) {
+                Logger.getLogger(Pdf.class.getName()).log(Level.SEVERE, null, ex);
+                return false;
+            }
+            
+            return true;
+    }
+    
+    public boolean crearEscarapela(String nombrePersona, String nombreEvento, String rutaArchivo, String nombreArchivo, String year, String month, String day){
+            try {
+                Font FONT = new Font(FontFamily.TIMES_ROMAN, 30, Font.ITALIC, GrayColor.BLACK);
+                Document document = new Document(PageSize.A4.rotate());
+                PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(rutaArchivo+"/"+nombreArchivo+".pdf")); //CAMBIAR RUTA
+                document.open();
+                PdfContentByte cb = writer.getDirectContentUnder();
+                Image img = Image.getInstance("src/gui/images/escarapela.jpg"); //IMAGEN DE LA ESCARAPELA
+                img.scaleToFit(800, 560);
+                float width = img.getScaledWidth();
+                float height = img.getScaledHeight();
+                month+='/';
+                day+='/';
+                PdfTemplate template = cb.createTemplate(width, height);
+                template.addImage(img, width, 0, 0, height, 0, 0);
+                //nombre persona
+                ColumnText.showTextAligned(template, Element.ALIGN_CENTER,
+                        new Phrase(nombrePersona,FONT), 570,175, 0);
+                //mes
+                ColumnText.showTextAligned(template, Element.ALIGN_CENTER,
+                        new Phrase(month,FONT), 470, 105 , 0);
+                //dia
+                ColumnText.showTextAligned(template, Element.ALIGN_CENTER,
+                        new Phrase(day,FONT), 510, 105, 0);
+                //year
+                ColumnText.showTextAligned(template, Element.ALIGN_CENTER,
+                        new Phrase(year,FONT), 565, 105 , 0);
+                //evento
+                ColumnText.showTextAligned(template, Element.ALIGN_CENTER,
+                        new Phrase(nombreEvento,FONT), 500,268 , 0);
                 document.add(Image.getInstance(template));
                 document.close();
                 

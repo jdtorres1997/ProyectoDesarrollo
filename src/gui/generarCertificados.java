@@ -8,6 +8,7 @@ package gui;
 import com.itextpdf.text.DocumentException;
 import controlador.ControladorCliente;
 import controlador.ControladorEventos;
+import controlador.ControladorInscripcion;
 import controlador.ControladorReportes;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import logica.Usuario;
 
 /**
  *
@@ -28,7 +30,9 @@ public class generarCertificados extends javax.swing.JFrame {
     ControladorCliente controladorCliente;
     ControladorEventos controladorEvento;
     String textoRutaInicial;
-    public generarCertificados() {
+    interfazOperario interfazoperario;
+
+    public generarCertificados(Usuario u) {
         initComponents();
         controladorCliente = new ControladorCliente();
         controladorEvento = new ControladorEventos();
@@ -36,7 +40,9 @@ public class generarCertificados extends javax.swing.JFrame {
         textoRutaInicial = "Por favor seleccione una ruta para su archivo";
         ruta.setText(textoRutaInicial);
         limpiar();
-
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        interfazoperario = new interfazOperario(u);
 
     }
 
@@ -49,6 +55,8 @@ public class generarCertificados extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jRadioButton1 = new javax.swing.JRadioButton();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         idCliente = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -62,12 +70,26 @@ public class generarCertificados extends javax.swing.JFrame {
         botonGenerarCertificado = new javax.swing.JButton();
         botonLimpiar = new javax.swing.JButton();
         botonBuscarCliente = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        jLabel18 = new javax.swing.JLabel();
+        cer = new javax.swing.JRadioButton();
+        esc = new javax.swing.JRadioButton();
+        jLabel4 = new javax.swing.JLabel();
+
+        jRadioButton1.setText("jRadioButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("Identificación Cliente:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
+        getContentPane().add(idCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 91, -1));
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("Identificación Evento:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
         botonActualizarEventos.setText("Actualizar Eventos");
         botonActualizarEventos.addActionListener(new java.awt.event.ActionListener() {
@@ -75,8 +97,11 @@ public class generarCertificados extends javax.swing.JFrame {
                 botonActualizarEventosActionPerformed(evt);
             }
         });
+        getContentPane().add(botonActualizarEventos, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Ruta del certificado:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
 
         botonBuscarRuta.setText("Buscar Ruta");
         botonBuscarRuta.addActionListener(new java.awt.event.ActionListener() {
@@ -84,23 +109,31 @@ public class generarCertificados extends javax.swing.JFrame {
                 botonBuscarRutaActionPerformed(evt);
             }
         });
+        getContentPane().add(botonBuscarRuta, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, -1, -1));
 
         ruta.setText("Aqui se escribe la ruta");
+        getContentPane().add(ruta, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, -1, -1));
 
+        getContentPane().add(comboEventos, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 91, -1));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("Nombre del archivo:");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
 
         nombreArchivo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 nombreArchivoKeyReleased(evt);
             }
         });
+        getContentPane().add(nombreArchivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 91, -1));
 
-        botonGenerarCertificado.setText("Generar Certificado");
+        botonGenerarCertificado.setText("Generar");
         botonGenerarCertificado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonGenerarCertificadoActionPerformed(evt);
             }
         });
+        getContentPane().add(botonGenerarCertificado, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, -1, -1));
 
         botonLimpiar.setText("LImpiar");
         botonLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -108,6 +141,7 @@ public class generarCertificados extends javax.swing.JFrame {
                 botonLimpiarActionPerformed(evt);
             }
         });
+        getContentPane().add(botonLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, -1, -1));
 
         botonBuscarCliente.setText("Buscar Cliente");
         botonBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -115,70 +149,67 @@ public class generarCertificados extends javax.swing.JFrame {
                 botonBuscarClienteActionPerformed(evt);
             }
         });
+        getContentPane().add(botonBuscarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 121, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel5))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(botonLimpiar)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ruta)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(botonGenerarCertificado)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(idCliente, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(botonBuscarRuta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(comboEventos, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(nombreArchivo)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(botonActualizarEventos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(botonBuscarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        jPanel1.setBackground(new java.awt.Color(255, 255, 153));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jButton2.setBackground(new java.awt.Color(255, 255, 51));
+        jButton2.setText("Atras");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel18.setText("Certificado o Escarapela");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(idCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonBuscarCliente))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(botonActualizarEventos)
-                    .addComponent(comboEventos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(botonBuscarRuta))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ruta)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nombreArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonGenerarCertificado)
-                    .addComponent(botonLimpiar))
-                .addContainerGap(123, Short.MAX_VALUE))
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(1, 1, 1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(jButton2))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 30));
+
+        buttonGroup1.add(cer);
+        cer.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        cer.setText("Certificado");
+        cer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cerActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cer, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, -1, -1));
+
+        buttonGroup1.add(esc);
+        esc.setText("Escarapela");
+        esc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                escActionPerformed(evt);
+            }
+        });
+        getContentPane().add(esc, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, -1, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/aao.jpg"))); // NOI18N
+        jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 440, 270));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -197,9 +228,9 @@ public class generarCertificados extends javax.swing.JFrame {
             ruta.setText(filechooser.getSelectedFile().toString());
             nombreArchivo.setEditable(true);
             nombreArchivo.setEnabled(true);
-            System.out.println("getCurrentDirectory(): " +  filechooser.getCurrentDirectory());
-            System.out.println("getSelectedFile() : " +  filechooser.getSelectedFile());
-        }else{
+            System.out.println("getCurrentDirectory(): " + filechooser.getCurrentDirectory());
+            System.out.println("getSelectedFile() : " + filechooser.getSelectedFile());
+        } else {
             System.out.println("No Selection ");
         }
     }//GEN-LAST:event_botonBuscarRutaActionPerformed
@@ -207,10 +238,15 @@ public class generarCertificados extends javax.swing.JFrame {
     private void nombreArchivoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreArchivoKeyReleased
         // TODO add your handling code here:
         //validar nombre archivo aqui
-        if(!nombreArchivo.getText().equals("")){
+        if (!nombreArchivo.getText().equals("")) {
             botonGenerarCertificado.setEnabled(true);
-        }else{
-           botonGenerarCertificado.setEnabled(false);
+        } else {
+            botonGenerarCertificado.setEnabled(false);
+        }
+
+        if (sololetras(nombreArchivo.getText()) == true) {
+            JOptionPane.showMessageDialog(this, "Digite solo letras", "", JOptionPane.INFORMATION_MESSAGE);
+            nombreArchivo.setText("");
         }
     }//GEN-LAST:event_nombreArchivoKeyReleased
 
@@ -218,12 +254,12 @@ public class generarCertificados extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (!controladorCliente.existeCliente(idCliente.getText())) {
             JOptionPane.showMessageDialog(this, "El cliente no existe", "", JOptionPane.INFORMATION_MESSAGE);
-        }else{
+        } else {
             idCliente.setEditable(false);
             idCliente.setEnabled(false);
             botonBuscarCliente.setEnabled(false);
             botonBuscarRuta.setEnabled(true);
-            
+
         }
     }//GEN-LAST:event_botonBuscarClienteActionPerformed
 
@@ -236,62 +272,65 @@ public class generarCertificados extends javax.swing.JFrame {
         // TODO add your handling code here:
         ControladorReportes controladorReportes = new ControladorReportes();
         try {
-            boolean res = controladorReportes.generarCertificado(idCliente.getText(),
-                    comboEventos.getSelectedItem().toString(),
-                    ruta.getText(),
-                    nombreArchivo.getText());
-            if(res==true){
-                JOptionPane.showMessageDialog(this, "Se guardo correctamente el certificado", "", JOptionPane.INFORMATION_MESSAGE);
-                
-            }else{
-                JOptionPane.showMessageDialog(this, "Hubo un error al crear el archivo", "", JOptionPane.INFORMATION_MESSAGE);
+            ControladorInscripcion controladorInscripcion = new ControladorInscripcion();
+            if (!((controladorInscripcion.existeInscripcion(idCliente.getText(), comboEventos.getSelectedItem().toString())) && (controladorInscripcion.consultarInscripcion(idCliente.getText(), comboEventos.getSelectedItem().toString()).getPago().equals("si")))) {
+                JOptionPane.showMessageDialog(this, "El cliente no realizó el pago para este evento", "", JOptionPane.INFORMATION_MESSAGE);
+
+            } else {
+                boolean res;
+                if (cer.isSelected()) {
+                    res = controladorReportes.generarCertificado(idCliente.getText(),
+                            comboEventos.getSelectedItem().toString(),
+                            ruta.getText(),
+                            nombreArchivo.getText());
+                } else {
+                    res = controladorReportes.generarEscarapela(idCliente.getText(),
+                            comboEventos.getSelectedItem().toString(),
+                            ruta.getText(),
+                            nombreArchivo.getText());
+                }
+
+                if (res == true) {
+                    JOptionPane.showMessageDialog(this, "Se guardo correctamente ", "", JOptionPane.INFORMATION_MESSAGE);
+
+                } else {
+                    JOptionPane.showMessageDialog(this, "Hubo un error al crear el archivo", "", JOptionPane.INFORMATION_MESSAGE);
+                }
+                limpiar();
             }
-            limpiar();
+
         } catch (IOException ex) {
             Logger.getLogger(generarCertificados.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(this, "Hubo un error al crear el archivo, por favor comuniquese con los desarrolladores", "", JOptionPane.ERROR);
+            JOptionPane.showMessageDialog(this, "Hubo un error al crear el archivo, por favor comuniquese con los desarrolladores", "", JOptionPane.ERROR);
 
         } catch (DocumentException ex) {
             Logger.getLogger(generarCertificados.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(this, "Hubo un error al crear el archivo, por favor comuniquese con los desarrolladores", "", JOptionPane.ERROR);
-       
+            JOptionPane.showMessageDialog(this, "Hubo un error al crear el archivo, por favor comuniquese con los desarrolladores", "", JOptionPane.ERROR);
+
         }
     }//GEN-LAST:event_botonGenerarCertificadoActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(generarCertificados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(generarCertificados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(generarCertificados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(generarCertificados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        interfazoperario.setVisible(true);
+        this.dispose();
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new generarCertificados().setVisible(true);
-            }
-        });
-    }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void escActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_escActionPerformed
+        // TODO add your handling code here:
+        idCliente.setEnabled(true);
+        idCliente.setEditable(true);
+        botonBuscarCliente.setEnabled(true);
+    }//GEN-LAST:event_escActionPerformed
+
+    private void cerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerActionPerformed
+        // TODO add your handling code here:
+        idCliente.setEnabled(true);
+        idCliente.setEditable(true);
+        botonBuscarCliente.setEnabled(true);
+    }//GEN-LAST:event_cerActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonActualizarEventos;
@@ -299,12 +338,20 @@ public class generarCertificados extends javax.swing.JFrame {
     private javax.swing.JButton botonBuscarRuta;
     private javax.swing.JButton botonGenerarCertificado;
     private javax.swing.JButton botonLimpiar;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JRadioButton cer;
     private javax.swing.JComboBox<String> comboEventos;
+    private javax.swing.JRadioButton esc;
     private javax.swing.JTextField idCliente;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JTextField nombreArchivo;
     private javax.swing.JLabel ruta;
     // End of variables declaration//GEN-END:variables
@@ -324,7 +371,7 @@ public class generarCertificados extends javax.swing.JFrame {
     }
 
     private void limpiar() {
-        
+
         botonBuscarRuta.setEnabled(false);
         ruta.setText(textoRutaInicial);
         nombreArchivo.setEditable(false);
@@ -333,7 +380,26 @@ public class generarCertificados extends javax.swing.JFrame {
         botonBuscarCliente.setEnabled(true);
         idCliente.setText("");
         nombreArchivo.setText("");
-        idCliente.setEditable(true);
-        idCliente.setEnabled(true);
+        idCliente.setEditable(false);
+        idCliente.setEnabled(false);
+        cer.setSelected(false);
+        buttonGroup1.clearSelection();
+        botonBuscarCliente.setEnabled(false);
+
+    }
+
+    public static boolean sololetras(String prueba) {
+        boolean result = false;
+        String comparacion = "!!#$%&/()=?¡*¨][_:;°¬|@·~½¬{[]}~─µ";
+        for (int i = prueba.length() - 1; i >= 0; i--) {
+            for (int j = comparacion.length() - 1; j >= 0; j--) {
+                if (prueba.charAt(i) == comparacion.charAt(j)) {
+                    result = true;
+                    return result;
+                }
+            }
+        }
+
+        return result;
     }
 }

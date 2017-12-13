@@ -47,6 +47,7 @@ public class interfazGerente extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         crearSedes = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         modificarSedes = new javax.swing.JButton();
         botonCerrarSesion = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -58,6 +59,7 @@ public class interfazGerente extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/verde.jpg"))); // NOI18N
@@ -78,7 +80,15 @@ public class interfazGerente extends javax.swing.JFrame {
                 crearSedesActionPerformed(evt);
             }
         });
-        getContentPane().add(crearSedes, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 131, -1));
+        getContentPane().add(crearSedes, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 170, -1));
+
+        jButton7.setText("jButton7");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, -1, -1));
 
         modificarSedes.setBackground(new java.awt.Color(255, 203, 155));
         modificarSedes.setText("Modificar Sede");
@@ -87,7 +97,7 @@ public class interfazGerente extends javax.swing.JFrame {
                 modificarSedesActionPerformed(evt);
             }
         });
-        getContentPane().add(modificarSedes, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 131, -1));
+        getContentPane().add(modificarSedes, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 170, -1));
 
         botonCerrarSesion.setBackground(new java.awt.Color(255, 203, 155));
         botonCerrarSesion.setText("Cerrar sesión");
@@ -96,10 +106,10 @@ public class interfazGerente extends javax.swing.JFrame {
                 botonCerrarSesionActionPerformed(evt);
             }
         });
-        getContentPane().add(botonCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 131, -1));
+        getContentPane().add(botonCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 170, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/jj.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 230, 250));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, 250));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 153));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -118,7 +128,7 @@ public class interfazGerente extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(identificadorUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addContainerGap(156, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,7 +141,7 @@ public class interfazGerente extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 30));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 30));
 
         jButton2.setBackground(new java.awt.Color(255, 203, 155));
         jButton2.setText("Crear Evento");
@@ -140,7 +150,7 @@ public class interfazGerente extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 130, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 170, -1));
 
         jButton1.setBackground(new java.awt.Color(255, 203, 155));
         jButton1.setText("Modificar Evento");
@@ -149,7 +159,7 @@ public class interfazGerente extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 130, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 170, -1));
 
         jButton3.setBackground(new java.awt.Color(255, 203, 155));
         jButton3.setText("Reportes Sedes");
@@ -158,7 +168,7 @@ public class interfazGerente extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 130, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 170, -1));
 
         jButton4.setBackground(new java.awt.Color(255, 203, 155));
         jButton4.setText("Reportes Eventos");
@@ -167,7 +177,7 @@ public class interfazGerente extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 130, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 170, -1));
 
         jButton5.setBackground(new java.awt.Color(255, 203, 155));
         jButton5.setText("Cambiar Contraseña");
@@ -176,11 +186,19 @@ public class interfazGerente extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 130, -1));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 170, -1));
+
+        jButton6.setText("jButton6");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, -1, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/verde.jpg"))); // NOI18N
         jLabel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 400, 300));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 450, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -256,6 +274,21 @@ public class interfazGerente extends javax.swing.JFrame {
  
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        ReporteEventoEspecifico r = new ReporteEventoEspecifico(usuarioActual);
+        r.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        ReportePreinscripcionesYPagos r = new ReportePreinscripcionesYPagos(usuarioActual);
+        r.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_jButton7ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCerrarSesion;
@@ -266,6 +299,8 @@ public class interfazGerente extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

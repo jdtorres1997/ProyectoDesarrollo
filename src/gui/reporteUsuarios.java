@@ -177,8 +177,9 @@ public class reporteUsuarios extends javax.swing.JFrame {
         });
         getContentPane().add(textoBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, 150, -1));
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setText("Buscar: ");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 334, -1, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/list (8).png"))); // NOI18N
         jLabel1.setText("jLabel1");

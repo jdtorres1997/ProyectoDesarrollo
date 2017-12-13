@@ -89,6 +89,28 @@ public class ControladorReportes {
         }
         return res;
     }
+
+    
+    
+    public boolean generarEscarapela(String idCliente, String idEvento, String ruta, String nombreArchivo) throws IOException, DocumentException {
+        DAOCliente dc = new DAOCliente();
+        Cliente c = dc.consultarCliente(idCliente);
+        
+        DAOEvento de = new DAOEvento();
+        Evento e = de.consultarEvento(idEvento);
+        
+        String[] dateParts = e.getFecha().split("-");
+        boolean res;
+        if(this.sololetras(nombreArchivo)){
+            res=false;
+        }else {
+            res = pdf.crearEscarapela(c.getNombre() + " " + c.getApellido(), e.getNombre(), ruta, nombreArchivo, dateParts[0], dateParts[1], dateParts[2] );
+        }
+        return res;
+    }
+
+
+
     public static boolean sololetras(String prueba) {
         boolean result = false;
         String comparacion = "!!#$%&/()=?¡*¨][_:;°¬|@·~½¬{[]}~µ";

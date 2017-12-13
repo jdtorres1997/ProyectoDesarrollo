@@ -522,9 +522,26 @@ public class registrarPago extends javax.swing.JFrame {
     }//GEN-LAST:event_pagarActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        int dineroPagar = 0;
+        if (!pagar.getText().equals("")) {
+            dineroPagar = Integer.parseInt(pagar.getText());
+        }
 
-        int cambiar = Integer.parseInt(pagar.getText()) - Integer.parseInt(costoEvento.getText());
-        cambio.setText(String.valueOf(cambiar));
+        int dineroCostoEvento = 0;
+        if (!costoEvento.getText().equals("")) {
+            dineroCostoEvento = Integer.parseInt(costoEvento.getText());
+        }
+
+        int cambiar = dineroPagar - dineroCostoEvento;
+        if (cambiar < 0) {
+            pagar.setText("");
+            JOptionPane.showMessageDialog(this, "El dinero dado debe ser por lo menos el precio del evento", "", JOptionPane.ERROR_MESSAGE );
+
+        } else {
+            cambio.setText(String.valueOf(cambiar));
+
+        }
+
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
